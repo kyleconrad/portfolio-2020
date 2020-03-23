@@ -13,7 +13,9 @@ module.exports = {
 				accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
 			},
 		},
+		`gatsby-plugin-sass`,
 		`gatsby-transformer-sharp`,
-		`gatsby-plugin-sharp`
+		`gatsby-plugin-sharp`,
+		`gatsby-plugin-react-helmet`
 	],
 }

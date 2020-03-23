@@ -15,11 +15,15 @@
 	},
 	"dependencies": {
 		"gatsby": "^2.20.3",
+		"gatsby-plugin-react-helmet": "^3.2.1",
+		"gatsby-plugin-sass": "^2.2.1",
 		"gatsby-plugin-sharp": "^2.5.2",
 		"gatsby-source-contentful": "^2.2.3",
 		"gatsby-transformer-sharp": "^2.4.2",
+		"node-sass": "^4.13.1",
 		"react": "^16.13.1",
-		"react-dom": "^16.13.1"
+		"react-dom": "^16.13.1",
+		"react-helmet": "^5.2.1"
 	},
 	"devDependencies": {
 		"prettier": "^2.0.1"
