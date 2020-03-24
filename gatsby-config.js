@@ -17,7 +17,7 @@ module.exports = {
 			resolve: `gatsby-plugin-web-font-loader`,
 			options: {
 				custom: {
-					familes: [ 'BluuNext' ],
+					familes: [ 'futura-pt', 'ten-oldstyle', 'BluuNext' ],
 					urls: [ '/fonts/fonts.css' ],
 				},
 			},

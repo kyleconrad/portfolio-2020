@@ -1,3 +1,7 @@
+@import url( 'https://use.typekit.net/bjp5apd.css' );
+
+
+
 @font-face {
     font-family: 'BluuNext';
     src:	url( 'bluunext-bold-webfont.woff2' ) format( 'woff2' ),
@@ -6,4 +10,14 @@
         	url( 'bluunext-bold.ttf' ) format( 'truetype' );
     font-weight: 700;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'BluuNext';
+    src:	url( 'bluunext-bolditalic-webfont.woff2' ) format( 'woff2' ),
+        	url( 'bluunext-bolditalic-webfont.woff' ) format( 'woff' ),
+        	url( 'bluunext-bolditalic-webfont.svg#bluu_nextbold' ) format( 'svg' ),
+        	url( 'bluunext-bolditalic.ttf' ) format( 'truetype' );
+    font-weight: 700;
+    font-style: italic;
 }
