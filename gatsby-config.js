@@ -13,6 +13,15 @@ module.exports = {
 				accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
 			},
 		},
+		{
+			resolve: `gatsby-plugin-web-font-loader`,
+			options: {
+				custom: {
+					familes: [ 'BluuNext' ],
+					urls: [ '/fonts/fonts.css' ],
+				},
+			},
+		},
 		`gatsby-plugin-sass`,
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,

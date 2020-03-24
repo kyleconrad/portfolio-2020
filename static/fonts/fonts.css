@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'BluuNext';
+    src:	url( 'bluunext-bold-webfont.woff2' ) format( 'woff2' ),
+        	url( 'bluunext-bold-webfont.woff' ) format( 'woff' ),
+        	url( 'bluunext-bold-webfont.svg#bluu_nextbold' ) format( 'svg' ),
+        	url( 'bluunext-bold.ttf' ) format( 'truetype' );
+    font-weight: 700;
+    font-style: normal;
+}
