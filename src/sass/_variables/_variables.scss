@@ -14,7 +14,13 @@ $mobileSmallSize: 325px;
 
 // COLORS
 $colors: (
-	white: white
+	white: #FAFAFA,
+	gray: #272727,
+	black: #161616,
+
+	teal: #73FFD2,
+
+	violet: #87A7FF
 );
 
 
@@ -42,10 +48,12 @@ $font-body--bold: 700;
 $css4: true;
 $compatibility: true;
 
-$var-padding: 5.5em;
+$var-padding: 3.25em;
 $var-fontsize: 1rem;
+$var-logo: 4.375em;
 
 $css-variables: (
 	--padding: $var-padding,
-	--fontsize: $var-fontsize
+	--fontsize: $var-fontsize,
+	--logo: $var-logo
 );

@@ -5,6 +5,10 @@ require( "dotenv" ).config({
 
 
 module.exports = {
+	siteMetadata: {
+		author: `@kyle_conrad`,
+		siteURL: `https://kyleconrad.com`,
+	},
 	plugins: [
 		{
 			resolve: `gatsby-source-contentful`,
@@ -25,6 +29,10 @@ module.exports = {
 		`gatsby-plugin-sass`,
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
-		`gatsby-plugin-react-helmet`
+		`gatsby-plugin-react-helmet`,
 	],
 }
+
+
+
+// reference static images: https://github.com/gatsbyjs/gatsby/issues/11013

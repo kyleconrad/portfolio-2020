@@ -104,9 +104,32 @@ div {
 
 
 //// Borders
-@for $i from 1 through 20 {
-	.border--#{ 5 * $i } {
-		border-radius: 1px * ( 5 * $i );
+.border {
+	border-style: solid;
+
+
+
+	&--wide {
+		border-width: $var-padding;
+		border-width: var( --padding );
+	}
+
+	&--3 {
+		border-width: 3px;
+	}
+
+	&--1 {
+		border-width: 1px;
+	}
+
+
+
+	&--transparent {
+		border-color: transparent;
+	}
+
+	&--black {
+		border-color: map-get( $colors, black );
 	}
 }
 
@@ -130,9 +153,24 @@ div {
 
 
 
-// Opacity
+//// Opacity
 @for $i from 1 through 10 {
 	.opacity--#{ 10 * $i } {
 		opacity: ( 0.1 * $i );
 	}
+}
+
+
+
+
+//// Gradient
+.bkg--gradient {
+	background: linear-gradient(
+			to bottom,
+			map-get( $colors, teal ),
+			map-get( $colors, violet )
+		);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed
 }
