@@ -112,44 +112,6 @@ div {
 		border-width: var( --padding );
 	}
 
-	&--3 {
-		border-width: 3px;
-	}
-
-	&--1 {
-		border-width: 1px;
-	}
-
-
-
-	&--top--3 {
-		border-top-width: 3px;
-	}
-
-	&--top--1 {
-		border-top-width: 1px;
-	}
-
-
-
-	&--bottom--3 {
-		border-bottom-width: 3px;
-	}
-
-	&--bottom--1 {
-		border-bottom-width: 1px;
-	}
-
-
-
-	&--left--1 {
-		border-left-width: 1px;
-	}
-
-	&--right--1 {
-		border-right-width: 1px;
-	}
-
 
 
 	&--transparent {
@@ -158,6 +120,32 @@ div {
 
 	&--black {
 		border-color: map-get( $colors, black );
+	}
+}
+
+
+
+@for $i from 1 through 5 {
+	.border--#{ $i } {
+		border-width: $i * 1px;
+	}
+
+
+
+	.border--top--#{ $i } {
+		border-top-width: $i * 1px;
+	}
+
+	.border--bottom--#{ $i } {
+		border-bottom-width: $i * 1px;
+	}
+
+	.border--left--#{ $i } {
+		border-left-width: $i * 1px;
+	}
+
+	.border--right--#{ $i } {
+		border-right-width: $i * 1px;
 	}
 }
 
