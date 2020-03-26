@@ -26,7 +26,6 @@
 
 
 
-
 // FONT-SIZE RESPONSIVE FUNCTIONS
 @function font-size-math($base, $size, $unit) {
 	@return (($size / $base) * $unit);
@@ -54,6 +53,43 @@ h1 {
 Ensure that the base unit has a 1 in front of it - whether it be 1em or 1rem, it's required to do the math. Do not use units for the other numbers (it assumes those are pixel values and converts them to the proper formats for responsive text).
 */
 
+
+
+
+
+// VIEWPORT TYPOGRAPHY RESPONSIVE FONT SIZES
+// based on https://css-tricks.com/snippets/sass/viewport-sized-typography-minimum-maximum-sizes/
+@mixin responsive-font( $responsive, $min, $max: false, $fallback: false ) {
+	$responsive-unitless: $responsive / ( $responsive - $responsive + 1 );
+	$dimension: if( unit( $responsive ) == 'vh', 'height', 'width' );
+	$min-breakpoint: $min / $responsive-unitless * 100;
+
+	@media ( max-#{ $dimension }: #{ $min-breakpoint } ) {
+		font-size: $min;
+	}
+
+	@if $max {
+		$max-breakpoint: $max / $responsive-unitless * 100;
+
+		@media ( min-#{ $dimension }: #{ $max-breakpoint } ) {
+			font-size: $max;
+		}
+	}
+
+	@if $fallback {
+		font-size: $fallback;
+	}
+
+	font-size: $responsive;
+}
+
+/*
+EXAMPLE USAGE:
+h1 {
+	@include responsive-font( 5vw, 35px, 150px, 50px );
+}
+This creates an H1 with 5vw font size, a minumum size of 35px and maximum size of 150px, and a 50px fallback for older browsers. If you do not want a maximum size, you can use "false" for that parameter.
+*/
 
 
 
@@ -100,43 +136,6 @@ section {
 	background-image: scrim-linear-gradient(right, black, transparent);
 }
 */
-
-
-
-
-
-
-// CSS VARIABLES
-// based on http://codepen.io/vank0/pen/kkGvAb
-@function var( $variable ) {
-	@if ( $css4 ) {
-		@return unquote( 'var(' + $variable + ')' );
-	}
-	@else {
-		@return map-get( $css-variables, $variable );
-	}
-}
-
-@mixin css4 {
-	@if ( $css4 ) {
-		$css4-backup: $css4;
-
-		@if ( $compatibility ) {
-			$css4: false !global;
-			@content;
-		}
-
-		$css4: true !global;
-		@content;
-
-		$css4: $css4-backup;
-	}
-
-	@else {
-		@content;
-	}
-}
-
 
 
 

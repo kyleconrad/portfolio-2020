@@ -83,7 +83,7 @@
 
 @for $i from 1 through 10 {
 	.flex--basis--#{ $i } {
-		flex-basis: calc( ( 100% / #{ $i } ) - 1px );
+		flex-basis: calc( 100% / #{ $i } );
 		flex-shrink: 0;
 	}
 
@@ -165,7 +165,7 @@
 
 	@for $i from 1 through 10 {
 		.portrait-flex--basis--#{ $i } {
-			flex-basis: calc( ( 100% / #{ $i } ) - 1px );
+			flex-basis: calc( 100% / #{ $i } );
 		}
 
 
@@ -243,7 +243,7 @@
 
 	@for $i from 1 through 10 {
 		.mobile-flex--basis--#{ $i } {
-			flex-basis: calc( ( 100% / #{ $i } ) - 1px );
+			flex-basis: calc( 100% / #{ $i } );
 		}
 
 

@@ -1,7 +1,50 @@
 // STRUCTURE
 // Columns, Cards, Extra Grid Classes
 
+//// Header
+.header {
+	height: var( --logo );
+}
+
+
+
+
+
+//// Sidebar
+.sidebar {
+	position: absolute;
+
+	top: calc( var( --padding ) * 0.5 );
+	right: calc( var( --padding ) * 0.5 );
+	bottom: calc( var( --padding ) * 0.5 );
+
+
+
+	&:after {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+
+		width: 1px;
+
+		background: map-get( $colors, teal );
+
+		transform: translate3d( -50%, 0, 0 );
+
+		content: '';
+	}
+}
+
+
+
+
+
 //// Background Canvas
 .background {
-	
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
 }

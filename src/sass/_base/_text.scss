@@ -11,9 +11,70 @@
 
     font-variant-ligatures: common-ligatures;
 
-	// -webkit-font-smoothing: antialiased;
-	// -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
+
+
+
+
+
+//// Headlines
+h1,
+h2,
+h3 {
+	font-family: $font-headline;
+	font-weight: $font-headline--weight;
+}
+
+h1,
+h2 {
+	display: inline;
+
+	@include responsive-font( 8vw, 75px, false, 75px );
+
+	line-height: 1;
+}
+
+
+
+
+
+//// Detail
+.detail {
+	display: inline-block;
+
+	@include responsive-font( 1vw, 10px, 16px, 12px );
+
+	letter-spacing: 0.35em;
+	line-height: 1;
+
+	font-family: $font-detail;
+	font-weight: $font-detail--weight;
+
+	text-transform: uppercase;
+}
+
+
+
+
+
+//// Sidebar
+.sidebar {
+	& > div {
+		writing-mode: vertical-rl;
+	}
+
+
+
+	.detail {
+		position: relative;
+
+		transform: rotate( 180deg );
+		transform-origin: center center;
+	}
+}
+
 
 
 

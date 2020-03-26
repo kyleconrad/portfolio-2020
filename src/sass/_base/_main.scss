@@ -1,44 +1,44 @@
 // Main
 
 //// CSS Variables
-@if($css4) {
-	:root {
-		@each $variable, $value in $css-variables {
-			#{$variable}: $value;
-		}
-		
+:root {
+	--padding: 5vmax;
 
-		
-		// @include breakpoint(large) {
-		// 	--padding: 3.5em;
-		// 	--fontsize: 1.15rem;
-		// }
+	--fontsize: 1rem;
 
-		// @include breakpoint(xxlarge) {
-		// 	--padding: 3.875em;
-		//	--fontsize: 1.25rem;
-		// }
+	--logo: calc( var( --padding ) * 1.5 );
+	
 
-		// @include breakpoint(landscape) {
-		// 	--padding: 2.5em;
-		//	--fontsize: 0.9rem;
-		// }
+	
+	// @include breakpoint(large) {
+	// 	--padding: 3.5em;
+	// 	--fontsize: 1.15rem;
+	// }
 
-		// @include breakpoint(portrait) {
-		// 	--padding: 2.25em;
-		//	--fontsize: 0.8rem;
-		// }
+	// @include breakpoint(xxlarge) {
+	// 	--padding: 3.875em;
+	//	--fontsize: 1.25rem;
+	// }
 
-		// @include breakpoint(mobile) {
-		// 	--padding: 1.75em;
-		//	--fontsize: 0.8rem;
-		// }
-		
-		// @include breakpoint(mobile-small) {
-		// 	--padding: 1.65em;
-		//	--fontsize: 0.75rem;
-		// }
-	}
+	// @include breakpoint(landscape) {
+	// 	--padding: 2.5em;
+	//	--fontsize: 0.9rem;
+	// }
+
+	// @include breakpoint(portrait) {
+	// 	--padding: 2.25em;
+	//	--fontsize: 0.8rem;
+	// }
+
+	// @include breakpoint(mobile) {
+	// 	--padding: 1.75em;
+	//	--fontsize: 0.8rem;
+	// }
+	
+	// @include breakpoint(mobile-small) {
+	// 	--padding: 1.65em;
+	//	--fontsize: 0.75rem;
+	// }
 }
 
 
@@ -73,7 +73,6 @@ body {
 	
 	overflow-x: hidden;
 
-	font-size: $var-fontsize;
 	font-size: var(--fontsize);
 }
 
@@ -110,7 +109,6 @@ div {
 
 
 	&--wide {
-		border-width: $var-padding;
 		border-width: var( --padding );
 	}
 
@@ -120,6 +118,36 @@ div {
 
 	&--1 {
 		border-width: 1px;
+	}
+
+
+
+	&--top--3 {
+		border-top-width: 3px;
+	}
+
+	&--top--1 {
+		border-top-width: 1px;
+	}
+
+
+
+	&--bottom--3 {
+		border-bottom-width: 3px;
+	}
+
+	&--bottom--1 {
+		border-bottom-width: 1px;
+	}
+
+
+
+	&--left--1 {
+		border-left-width: 1px;
+	}
+
+	&--right--1 {
+		border-right-width: 1px;
 	}
 
 
@@ -151,19 +179,6 @@ div {
 
 
 
-
-
-//// Opacity
-@for $i from 1 through 10 {
-	.opacity--#{ 10 * $i } {
-		opacity: ( 0.1 * $i );
-	}
-}
-
-
-
-
-//// Gradient
 .bkg--gradient {
 	background: linear-gradient(
 			to bottom,
@@ -172,5 +187,34 @@ div {
 		);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	background-attachment: fixed
+}
+
+
+
+.bkg--topo {
+	background-size: 400px auto;
+	background-position: center center;
+
+
+
+	&--black {
+		background-image: url( '../images/patterns/bkg__topo.png' );
+	}
+
+
+
+	&--invert {
+		background-image: url( '../images/patterns/bkg__topo--invert.png' );
+	}
+}
+
+
+
+
+
+//// Opacity
+@for $i from 1 through 10 {
+	.opacity--#{ 10 * $i } {
+		opacity: ( 0.1 * $i );
+	}
 }

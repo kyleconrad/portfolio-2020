@@ -11,7 +11,7 @@ const SingleColumn = ( props ) => {
 
 
 	return (
-		<div>
+		<div className="border border--left--1 border--right--1 border--transparent margin--bottom--1">
 			{ props.data.caption &&
 				<div>{ documentToReactComponents( props.data.caption.json, props.text ) }</div>
 			}

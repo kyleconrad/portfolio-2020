@@ -1,5 +1,13 @@
 import React from "react"
 
-export default () => (
-	<canvas className="background z--1"></canvas>
-)
+
+
+const Background = () => {
+	return (
+		<canvas className="background z--1"></canvas>
+	)
+}
+
+
+
+export default Background

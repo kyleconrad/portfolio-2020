@@ -7,6 +7,7 @@ import CaseStudy from "../layouts/caseStudy"
 import Hero from "../modules/hero"
 import About from "../modules/about"
 
+import Spacer from "../components/spacer"
 import Background from "../components/background"
 
 
@@ -40,21 +41,31 @@ const Home = ( props ) => {
 
 
 	return (
-        <Fragment>
-			<section className="z--2">
-				<Hero data={ hero } />
+        <main className="bkg--gradient">
+			<section className="border border--wide border--black z--2">
+				<div className="border border--1 border--transparent">
+					<div className="border border--3 border--black">
+						<Hero data={ hero } />
 
-				{ caseStudies.map( ( caseStudy ) => {
-					return (
-				        <CaseStudy data={ caseStudy } />
-			        )
-				})}
+						<Spacer />
 
-				<About data={ about } text={ textOptions } />
+						{ caseStudies.map( ( caseStudy ) => {
+							return (
+						        <Fragment>
+							        <CaseStudy data={ caseStudy } />
+
+							        <Spacer />
+						        </Fragment>
+					        )
+						})}
+
+						<About data={ about } text={ textOptions } />
+					</div>
+				</div>
 			</section>
 
 			<Background />
-		</Fragment>
+		</main>
 	)
 }
 

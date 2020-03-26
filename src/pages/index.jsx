@@ -1,4 +1,5 @@
 import React from "react"
+import { Fragment } from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 
@@ -13,7 +14,7 @@ export default ({ data }) => {
 
 
 	return (
-        <main>
+        <Fragment>
         	<Helmet>
 	        	<title>{ data.contentfulHome.metadataTitle }</title>
 	        	<meta name="description" content={ data.contentfulHome.metadataDescription } />
@@ -24,7 +25,7 @@ export default ({ data }) => {
 			</Helmet>
 
 	        <Home data={ home } />
-        </main>
+        </Fragment>
 	)
 }
 
@@ -77,7 +78,7 @@ export const pageQuery = graphql`
 						}
 						padded
 						image {
-							fluid( maxWidth: 2000, resizingBehavior: SCALE, quality: 100 ) {
+							fluid( resizingBehavior: SCALE, quality: 100 ) {
 								...GatsbyContentfulFluid_withWebp
 							}
 						}
@@ -116,7 +117,7 @@ export const pageQuery = graphql`
 							json
 						}
 						images {
-							fluid( maxWidth: 2000, resizingBehavior: SCALE, quality: 100 ) {
+							fluid( resizingBehavior: SCALE, quality: 100 ) {
 								...GatsbyContentfulFluid_withWebp
 							}
 						}
@@ -130,12 +131,12 @@ export const pageQuery = graphql`
 							json
 						}
 						leftColumnImages {
-							fluid( maxWidth: 2000, resizingBehavior: SCALE, quality: 100 ) {
+							fluid( resizingBehavior: SCALE, quality: 100 ) {
 								...GatsbyContentfulFluid_withWebp
 							}
 						}
 						rightColumnImages {
-							fluid( maxWidth: 2000, resizingBehavior: SCALE, quality: 100 ) {
+							fluid( resizingBehavior: SCALE, quality: 100 ) {
 								...GatsbyContentfulFluid_withWebp
 							}
 						}

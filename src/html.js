@@ -20,7 +20,7 @@ export default function HTML(props) {
 	        <meta name="robots" content="NOODP" />
 	        </head>
 
-	        <body className="bkg--gradient" {...props.bodyAttributes}>
+	        <body {...props.bodyAttributes}>
 
 	        {props.preBodyComponents}
 

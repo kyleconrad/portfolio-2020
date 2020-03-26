@@ -39,21 +39,3 @@ $font-detail--weight: 600;
 $font-body: 'ten-oldstyle', Georgia, serif;
 $font-body--weight: 400;
 $font-body--bold: 700;
-
-
-
-
-
-// CSS VARIABLES
-$css4: true;
-$compatibility: true;
-
-$var-padding: 3.25em;
-$var-fontsize: 1rem;
-$var-logo: 4.375em;
-
-$css-variables: (
-	--padding: $var-padding,
-	--fontsize: $var-fontsize,
-	--logo: $var-logo
-);

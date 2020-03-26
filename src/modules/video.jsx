@@ -10,7 +10,9 @@ const Video = ( props ) => {
 
 
 	return (
-		<VideoEmbed data={ videoData } />
+        <div className="border border--left--1 border--right--1 border--transparent margin--bottom--1">
+			<VideoEmbed data={ videoData } />
+		</div>
 	)
 }
 
