@@ -29,7 +29,7 @@ const textOptions = {
 			return <a href={ node.data.uri } target="_blank" rel="noopener noreferrer">{ node.content[0].value }</a>;
 		}
 	},
-	renderText: text => text.replace( /\s((?=(([^\s<>]|<[^>]*>)+))\2)\s*$/, '&nbsp;$1' ),
+	renderText: text => text.replace( /\s(?=[^\s]*$)/g, '\u00a0' ),
 }
 
 
