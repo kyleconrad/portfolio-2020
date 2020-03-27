@@ -53,6 +53,7 @@ export const pageQuery = graphql`
 				}
 			}
 			caseStudies {
+				slug
 				hero {
 					headline
 					subhead
@@ -73,6 +74,7 @@ export const pageQuery = graphql`
 				}
 				media {
 					... on ContentfulMediaImage {
+						id
 						internal {
 							type
 						}
@@ -84,6 +86,7 @@ export const pageQuery = graphql`
 						}
 					}
 					... on ContentfulMediaVideo {
+						id
 						internal {
 							type
 						}
@@ -109,6 +112,7 @@ export const pageQuery = graphql`
 						}
 					}
 					... on ContentfulMediaSingleColumn {
+						id
 						internal {
 							type
 						}
@@ -117,12 +121,14 @@ export const pageQuery = graphql`
 							json
 						}
 						images {
+							id
 							fluid( resizingBehavior: SCALE, quality: 100 ) {
 								...GatsbyContentfulFluid_withWebp
 							}
 						}
 					}
 					... on ContentfulMediaDoubleColumn {
+						id
 						internal {
 							type
 						}
@@ -131,11 +137,13 @@ export const pageQuery = graphql`
 							json
 						}
 						leftColumnImages {
+							id
 							fluid( resizingBehavior: SCALE, quality: 100 ) {
 								...GatsbyContentfulFluid_withWebp
 							}
 						}
 						rightColumnImages {
+							id
 							fluid( resizingBehavior: SCALE, quality: 100 ) {
 								...GatsbyContentfulFluid_withWebp
 							}

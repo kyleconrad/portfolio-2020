@@ -18,7 +18,7 @@ const SingleColumn = ( props ) => {
 
 			{ images.map( ( image ) => {
 				return (
-			        <Image data={ image } />
+			        <Image key={ image.id } data={ image } />
 		        )
 			})}
 		</div>

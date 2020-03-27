@@ -20,7 +20,7 @@ const DoubleColumn = ( props ) => {
 			<div>
 				{ leftImages.map( ( image ) => {
 					return (
-				        <Image data={ image } />
+				        <Image key={ image.id } data={ image } />
 			        )
 				})}
 			</div>
@@ -28,7 +28,7 @@ const DoubleColumn = ( props ) => {
 			<div>
 				{ rightImages.map( ( image ) => {
 					return (
-				        <Image data={ image } />
+				        <Image key={ image.id } data={ image } />
 			        )
 				})}
 			</div>

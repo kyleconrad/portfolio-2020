@@ -22,11 +22,12 @@ const textOptions = {
 		[MARKS.UNDERLINE]: text => <Underline>{ text }</Underline>,
 	},
 	renderNode: {
-		[BLOCKS.PARAGRAPH]: (node, children) => <Text>{ children }</Text>,
-		[INLINES.HYPERLINK]: (node) => {
+		[BLOCKS.PARAGRAPH]: ( node, children ) => <Text>{ children }</Text>,
+		[INLINES.HYPERLINK]: ( node ) => {
 			return <a href={ node.data.uri } target="_blank" rel="noopener noreferrer">{ node.content[0].value }</a>;
 		}
 	},
+	renderText: text => text.replace( /\s((?=(([^\s<>]|<[^>]*>)+))\2)\s*$/, '&nbsp;$1' ),
 }
 
 
@@ -43,7 +44,7 @@ const getMediaModule = ( module, index ) => {
 	const MediaModule = mediaModulesMap[ module.internal.type ]
 
 	if ( MediaModule ) {
-	    return <MediaModule data={ module } text={ textOptions } />
+	    return <MediaModule key={ module.id } data={ module } text={ textOptions } />
 	}
 
 	return null
