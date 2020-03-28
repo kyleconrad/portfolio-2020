@@ -15,6 +15,7 @@ class VideoEmbed extends Component {
 
 		this.paused = true;
 		this.preload = false;
+		this.interaction = false;
 
 		this.state = {
 			paused: true,
@@ -61,6 +62,8 @@ class VideoEmbed extends Component {
 
 	toggleVideo(){
 		this.paused ? this.playVideo() : this.pauseVideo();
+
+		this.interaction = true;
 	}
 
 
@@ -118,7 +121,7 @@ class VideoEmbed extends Component {
 
 
 
-		if ( scrollPosY >= playPosY && this.paused ) {
+		if ( scrollPosY >= playPosY && this.paused && !this.interaction ) {
 			this.playVideo();
 		}
 	}
