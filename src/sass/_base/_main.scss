@@ -60,6 +60,8 @@ html {
 	height: 100%;
 
 	-webkit-text-size-adjust: none;
+
+	background-color: map-get( $colors, black );
 }
 
 

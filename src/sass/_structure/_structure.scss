@@ -28,11 +28,33 @@
 
 		width: 1px;
 
-		background: map-get( $colors, teal );
-
 		transform: translate3d( -50%, 0, 0 );
 
 		content: '';
+	}
+
+
+
+	&--teal {
+		&:after {
+			background: map-get( $colors, teal );
+		}
+	}
+
+	&--violet {
+		&:after {
+			background: map-get( $colors, violet );
+		}
+	}
+
+	&--gradient {
+		&:after {
+			background: linear-gradient(
+		    	to bottom,
+		    	map-get( $colors, teal ),
+		    	map-get( $colors, violet )
+	    	);
+		}
 	}
 }
 

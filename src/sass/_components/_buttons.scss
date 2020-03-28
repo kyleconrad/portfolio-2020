@@ -26,3 +26,142 @@ button {
 
 	cursor: pointer;
 }
+
+
+
+
+
+//// Video
+.video__control {
+	position: absolute;
+
+	left: calc( var( --padding ) * 0.5 );
+	right: calc( var( --padding ) * 0.5 );
+	bottom: calc( var( --padding ) * 0.5 );
+
+	width: calc( 100% - var( --padding ) );
+	height: 5px;
+
+	opacity: 0.25;
+
+	transition: opacity 0.15s ease-in-out;
+
+
+
+	.video__container:hover & {
+		opacity: 1;
+	}
+}
+
+
+
+.video__control__progress__container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+
+	height: 100%;
+	width: 100%;
+}
+
+
+
+.video__control__progress {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+
+	height: 100%;
+	width: 100%;
+
+	background: map-get( $colors, white );
+
+	transform: translateX( -100% );
+	transition: transform 0.1s ease-in-out;
+
+	pointer-events: none;
+}
+
+
+
+.video__control__input {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	width: 100%;
+
+	padding: 0;
+	margin: 0;
+
+	appearance: none;
+	background: transparent;
+	border: 0;
+	outline: none;
+
+	cursor: pointer;
+
+
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.video__control__input::-webkit-slider-runnable-track {
+	width: 100%;
+
+	height: 5px;
+
+	background: rgba( map-get( $colors, white ), 0.25 );
+}
+
+.video__control__input::-moz-range-track {
+	width: 100%;
+
+	height: 5px;
+
+	background: rgba( map-get( $colors, white ), 0.25 );
+}
+
+.video__control__input::-webkit-slider-thumb {
+	appearance: none;
+
+	height: 30px;
+	width: 20px;
+
+	margin-top: -13px;
+
+	background: map-get( $colors, white );
+
+	opacity: 0;
+}
+
+.video__control__input::-moz-range-thumb {
+	appearance: none;
+
+	height: 30px;
+	width: 20px;
+
+	background: map-get( $colors, white );
+
+	opacity: 0;
+}
+
+
+
+.video__overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	width: 100%;
+	height: 100%;
+}

@@ -26,7 +26,7 @@ const textOptions = {
 	renderNode: {
 		[BLOCKS.PARAGRAPH]: ( node, children ) => <Text>{ children }</Text>,
 		[INLINES.HYPERLINK]: ( node ) => {
-			return <a href={ node.data.uri } target="_blank" rel="noopener noreferrer">{ node.content[0].value }</a>;
+			return <a href={ node.data.uri } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">{ node.content[0].value }</a>;
 		}
 	},
 	renderText: text => text.replace( /\s(?=[^\s]*$)/g, '\u00a0' ),

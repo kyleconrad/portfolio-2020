@@ -11,6 +11,12 @@
 	}
 }
 
+@for $i from 1 through 19 {
+	.width--#{ 5 * $i } {
+		width: 100% * ( 0.05 * $i );
+	}
+}
+
 
 
 @include breakpoint(portrait) {
@@ -22,6 +28,12 @@
 
 		.portrait-height--#{ 100 * $i } {
 			height: calc( var( --padding ) * #{ $i } );
+		}
+	}
+
+	@for $i from 1 through 19 {
+		.portrait-width--#{ 5 * $i } {
+			width: 100% * ( 0.05 * $i );
 		}
 	}
 }
@@ -37,6 +49,12 @@
 
 		.mobile-height--#{ 100 * $i } {
 			height: calc( var( --padding ) * #{ $i } );
+		}
+	}
+
+	@for $i from 1 through 19 {
+		.mobile-width--#{ 5 * $i } {
+			width: 100% * ( 0.05 * $i );
 		}
 	}
 }
