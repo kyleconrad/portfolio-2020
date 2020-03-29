@@ -10,7 +10,7 @@ const Description = ( props ) => {
 
 
 	return (
-        <section className="flex--row flex--between flex--align-stretch border border--left--1 border--transparent margin--bottom--1">
+        <section className="flex--row flex--between flex--align-stretch border border--left--1 border--bottom--1 border--transparent">
 	        <div className="width--300 flex--shrink--0 flex--column border border--right--1 border--transparent">
 		        <div className="flex--grow bkg--topo bkg--topo--invert"></div>
 	        </div>

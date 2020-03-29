@@ -51,8 +51,8 @@
 		&:after {
 			background: linear-gradient(
 		    	to bottom,
-		    	map-get( $colors, teal ),
-		    	map-get( $colors, violet )
+		    	var( --colorTop ),
+		    	var( --colorBottom )
 	    	);
 		}
 	}
@@ -69,4 +69,7 @@
 	right: 0;
 	top: 0;
 	bottom: 0;
+
+	width: 100%;
+	height: 100%;
 }

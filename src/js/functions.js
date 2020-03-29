@@ -1,6 +1,6 @@
-//// Number Functions
+// Number Functions
 
-// Convert number to roman numeral
+//// Convert number to roman numeral
 export function toRomanNumeral( number ) {
 	var roman = {
 		M: 1000,
@@ -36,7 +36,7 @@ export function toRomanNumeral( number ) {
 
 
 
-// Convert decimal degrees to HMS degrees
+//// Convert decimal degrees to HMS degrees
 export function toDMS( decimal, isLong ) {
 	var dir = decimal < 0
 		? isLong ? 'W' : 'S'
@@ -57,5 +57,71 @@ export function toDMS( decimal, isLong ) {
 
 
 
-	return deg + "° " + min + "' " + sec + '" ' + dir;
+	return deg + '°' + min + "'" + sec + '"' + dir;
 }
+
+
+
+
+
+// Color Functions
+
+//// Convert rgb to hex
+export function toHex( color ) {
+	var hex = Number( color ).toString( 16 );
+
+
+
+	if ( hex.length < 2 ) {
+	   hex = '0' + hex;
+	}
+
+
+
+	return hex;
+}
+
+export function rgbToHex( r, g, b ) {
+	var red = toHex( r ),
+		green = toHex( g ),
+		blue = toHex( b );
+
+
+
+	return red + green + blue;
+}
+
+
+
+
+
+// Other Utility Functions
+
+//// Debounce
+//// https://davidwalsh.name/javascript-debounce-function
+export function debounce( func, wait, immediate ) {
+	var timeout;
+
+
+
+	return function() {
+		var context = this, args = arguments;
+
+		var later = function() {
+			timeout = null;
+			if ( !immediate ) func.apply( context, args );
+		};
+
+		var callNow = immediate && !timeout;
+
+
+
+		clearTimeout( timeout );
+
+		timeout = setTimeout( later, wait );
+
+
+
+		if ( callNow ) func.apply( context, args );
+	};
+};

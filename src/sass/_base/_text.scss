@@ -281,14 +281,9 @@ em {
 .text--gradient {
 	background: linear-gradient(
 	    	to bottom,
-	    	map-get( $colors, teal ),
-	    	map-get( $colors, violet )
+	    	var( --colorTop ),
+	    	var( --colorBottom )
     	);
-	// background: linear-gradient(
-	//     	to bottom,
-	//     	var( --colorStart ),
-	//     	var( --colorStop )
- //    	);
 
  	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -297,8 +292,8 @@ em {
 .text--gradient--reverse {
 	background: linear-gradient(
 	    	to top,
-	    	map-get( $colors, teal ),
-	    	map-get( $colors, violet )
+	    	var( --colorBottom ),
+	    	var( --colorTop )
     	);
 
 	-webkit-background-clip: text;

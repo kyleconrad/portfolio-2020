@@ -7,6 +7,9 @@
 	--fontsize: 1rem;
 
 	--logo: calc( var( --padding ) * 1.5 );
+
+	--primaryColor: #{ map-get( $colors, teal ) };
+	--secondaryColor: #{ map-get( $colors, violet ) };
 	
 
 	
@@ -172,11 +175,21 @@ div {
 .bkg--gradient {
 	background: linear-gradient(
 			to bottom,
-			map-get( $colors, teal ),
-			map-get( $colors, violet )
+			var( --colorPrimary ),
+			var( --colorSecondary )
 		);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+
+
+
+	&--stop {
+		background: linear-gradient(
+				to bottom,
+				var( --colorTop ),
+				var( --colorBottom )
+			);
+	}
 }
 
 

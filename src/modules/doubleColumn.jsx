@@ -1,7 +1,7 @@
 import React from "react"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Image from "../components/image"
+import Caption from "../components/caption"
 
 
 
@@ -19,11 +19,7 @@ const DoubleColumn = ( props ) => {
 
 			<div className={ `flex--grow ${ props.data.alignment === 'Right' ? 'order--2' : 'order--1' }` }>
 				{ props.data.caption &&
-					<div className="border border--right--1 border--transparent margin--bottom--1">
-						<div className="bkg--black padding--75">
-							<div className="caption color-stop text--gradient">{ documentToReactComponents( props.data.caption.json, props.text ) }</div>
-						</div>
-					</div>
+					<Caption caption={ props.data.caption.json } text={ props.text } />
 				}
 
 				<div className="flex--row flex--between flex--align-stretch">

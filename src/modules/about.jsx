@@ -11,16 +11,13 @@ const About = ( props ) => {
 
 	const socialMedia = props.data.socialMedia
 
-	const lat = toDMS( props.data.location.lat, false )
-	const long = toDMS( props.data.location.lon, true )
-
 
 
 	return (
 		<footer>
 			<div className="border border--1 border--transparent">
 				<div className="bkg--black padding--top--100 padding--right--100 padding--bottom--300 padding--left--400">
-					<div className="header flex--row flex--start flex--align-center margin--bottom--100">">
+					<div className="header flex--row flex--start flex--align-center margin--bottom--100">
 						<span className="detail color-stop text--gradient">{ props.data.detail }</span>
 					</div>
 
@@ -46,7 +43,7 @@ const About = ( props ) => {
 
 					<div className="color-stop sidebar sidebar--gradient flex--column flex--end flex--align-center">
 						<div className="padding--top--50 bkg--black z--2">
-							<span className="color-stop detail text--gradient--reverse">{ toDMS( lat, false ) } { toDMS( long, true ) }</span>
+							<span className="color-stop detail text--gradient--reverse">{ toDMS( props.data.location.lat, false ) } { toDMS( props.data.location.lon, true ) }</span>
 						</div>
 					</div>
 				</div>

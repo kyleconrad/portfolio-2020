@@ -35,12 +35,12 @@ class VideoEmbed extends Component {
 
 		this.updateProgress = this.updateProgress.bind( this );
 
-		this.scrollPosition = this.scrollPosition.bind( this );
+		this.scrollLoad = this.scrollLoad.bind( this );
 	}
 
 
 
-	playVideo(){
+	playVideo() {
 		this.videoEmbed.play();
 
 		this.paused = false;
@@ -50,7 +50,7 @@ class VideoEmbed extends Component {
 		});
 	}
 
-	pauseVideo(){
+	pauseVideo() {
 		this.videoEmbed.pause();
 
 		this.paused = true;
@@ -60,7 +60,7 @@ class VideoEmbed extends Component {
 		});
 	}
 
-	toggleVideo(){
+	toggleVideo() {
 		this.paused ? this.playVideo() : this.pauseVideo();
 
 		this.interaction = true;
@@ -106,7 +106,7 @@ class VideoEmbed extends Component {
 
 
 
-	scrollPosition( e ) {
+	scrollLoad( e ) {
 		var windowHeight = window.innerHeight;
 
 		var	scrollPosY = window.scrollY,
@@ -132,15 +132,13 @@ class VideoEmbed extends Component {
 		this.setState({
 			height: this.videoEmbed.getBoundingClientRect().height,
 			posY: this.videoEmbed.getBoundingClientRect().top
-		})
-
-
-
-		window.addEventListener( 'scroll', this.scrollPosition );
+		}, () => {
+			window.addEventListener( 'scroll', this.scrollLoad );
+		});
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener( 'scroll', this.scrollPosition );
+		window.removeEventListener( 'scroll', this.scrollLoad );
 	}
 
 
@@ -150,7 +148,7 @@ class VideoEmbed extends Component {
 			<div className={ `video__container bkg--black ${ this.paused ? 'video--paused' : 'video--playing' }` }>
 				<div className="video__control z--3">
 					<div className="video__control__progress__container overflow--hidden">
-						<div className="video__control__progress color-stop z--2" style={{ transform: `translateX( ${ this.state.progress - 100 }% )` }} />
+						<div className="video__control__progress color-stop bkg--gradient bkg--gradient--stop z--2" style={{ transform: `translateX( ${ this.state.progress - 100 }% )` }} />
 					</div>
 					<input type="range" value={ `${ this.state.progress }` } min="0" max="100" step="0.01" onChange={ this.updateProgress } className="video__control__input z--1" />
 				</div>
@@ -170,3 +168,7 @@ class VideoEmbed extends Component {
 
 
 export default VideoEmbed
+
+
+
+// https://github.com/jacobvenable/portfolio-gatsby/blob/master/src/components/Video.js

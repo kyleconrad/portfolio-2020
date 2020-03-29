@@ -10,7 +10,7 @@ const SingleImage = ( props ) => {
 
 
 	return (
-        <section className="border border--left--1 border--right--1 border--transparent margin--bottom--1">
+        <section className="border border--left--1 border--right--1 border--bottom--1 border--transparent">
 	        <div className={ `bkg--black ${ props.data.padded ? 'padding--50' : '' }` }>
 				<Image data={ imageData } />
 			</div>
