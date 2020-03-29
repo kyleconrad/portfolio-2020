@@ -13,7 +13,7 @@ const DoubleColumn = ( props ) => {
 
 	return (
 		<section className="flex--row flex--between flex--align-stretch border border--left--1 border--transparent">
-			<div className={ `width--200 flex--shrink--0 flex--column border border--right--1 border--transparent margin--bottom--1 ${ props.data.alignment === 'Right' ? 'order--1' : 'order--2' }` }>
+			<div className={ `width--200 flex--shrink--0 flex--column border border--right--1 border--bottom--1 border--transparent ${ props.data.alignment === 'Right' ? 'order--1' : 'order--2' }` }>
 		        <div className="flex--grow bkg--topo bkg--topo--invert"></div>
 	        </div>
 
@@ -23,7 +23,7 @@ const DoubleColumn = ( props ) => {
 				}
 
 				<div className="flex--row flex--between flex--align-stretch">
-					<div className="width--50 border border--right--1 border--transparent">
+					<div className="width--50 border border--right--1 border--bottom--1 border--transparent">
 						{ leftImages.map( ( image ) => {
 							return (
 						        <div key={ image.id } className="margin--bottom--1">
@@ -33,7 +33,7 @@ const DoubleColumn = ( props ) => {
 						})}
 					</div>
 
-					<div className="width--50 flex--equal--2 border border--right--1 border--transparent">
+					<div className="width--50 border border--right--1 border--bottom--1 border--transparent">
 						{ rightImages.map( ( image ) => {
 							return (
 						        <div key={ image.id } className="margin--bottom--1">

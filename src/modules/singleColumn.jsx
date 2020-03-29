@@ -16,14 +16,14 @@ const SingleColumn = ( props ) => {
 		        <div className="flex--grow bkg--topo bkg--topo--invert"></div>
 	        </div>
 
-			<div className={ `flex--grow border border--right--1 border--transparent ${ props.data.alignment === 'Right' ? 'order--2' : 'order--1' }` }>
+			<div className={ `flex--grow ${ props.data.alignment === 'Right' ? 'order--2' : 'order--1' }` }>
 				{ props.data.caption &&
 					<Caption caption={ props.data.caption.json } text={ props.text } />
 				}
 
 				{ images.map( ( image ) => {
 					return (
-				        <div key={ image.id } className="margin--bottom--1">
+				        <div key={ image.id } className="border border--right--1 border--bottom--1 border--transparent">
 					        <Image data={ image } />
 				        </div>
 			        )
