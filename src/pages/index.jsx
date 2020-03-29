@@ -5,6 +5,8 @@ import Helmet from "react-helmet"
 
 import Home from "../layouts/home"
 
+import Navigation from "../modules/navigation"
+
 
 
 
@@ -24,6 +26,7 @@ export default ({ data }) => {
 			    <meta name="identifier-URL" content={ data.site.siteMetadata.siteURL } />
 			</Helmet>
 
+			<Navigation />
 	        <Home data={ home } />
         </Fragment>
 	)

@@ -16,7 +16,7 @@ const About = ( props ) => {
 	return (
 		<footer>
 			<div className="border border--1 border--transparent">
-				<div className="bkg--black padding--top--100 padding--right--100 padding--bottom--300 padding--left--400">
+				<div className="bkg--black padding--top--50 padding--right--100 padding--bottom--300 padding--left--400">
 					<div className="header flex--row flex--start flex--align-center margin--bottom--100">
 						<span className="detail color-stop text--gradient">{ props.data.detail }</span>
 					</div>
