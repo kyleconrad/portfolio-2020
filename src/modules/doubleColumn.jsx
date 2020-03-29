@@ -23,20 +23,20 @@ const DoubleColumn = ( props ) => {
 				}
 
 				<div className="flex--row flex--between flex--align-stretch">
-					<div className="width--50 border border--right--1 border--bottom--1 border--transparent">
+					<div className="width--50 border border--right--1 border--transparent">
 						{ leftImages.map( ( image ) => {
 							return (
-						        <div key={ image.id } className="margin--bottom--1">
+						        <div key={ image.id } className="border border--bottom--1 border--transparent">
 							        <Image data={ image } />
 						        </div>
 					        )
 						})}
 					</div>
 
-					<div className="width--50 border border--right--1 border--bottom--1 border--transparent">
+					<div className="width--50 border border--right--1 border--transparent">
 						{ rightImages.map( ( image ) => {
 							return (
-						        <div key={ image.id } className="margin--bottom--1">
+						        <div key={ image.id } className="border border--bottom--1 border--transparent">
 							        <Image data={ image } />
 						        </div>
 					        )
