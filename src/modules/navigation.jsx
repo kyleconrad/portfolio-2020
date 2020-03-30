@@ -5,13 +5,13 @@ import Logo from "../components/logo"
 
 
 
-const Navigation = () => {
+const Navigation = ( props ) => {
 	return (
-        <Fragment>
-        	<Logo />
-        	
+	    <Fragment>
+	    	<Logo />
+	    	
 	        <nav className="nav" />
-		</Fragment>
+        </Fragment>
 	)
 }
 

@@ -45,7 +45,7 @@ const Home = ( props ) => {
         <main className="bkg--gradient">
 			<section className="border border--wide border--black z--2">
 				<div className="border border--1 border--transparent">
-					<div className="border border--3 border--black">
+					<div className="border border--3 border--black overflow--hidden">
 						<Hero data={ hero } />
 
 						<Spacer />

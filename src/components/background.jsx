@@ -2,7 +2,7 @@ import React from "react"
 import { Component } from "react"
 
 import { rgbToHex } from "../js/functions"
-import { debounce } from "../js/functions"
+// import { debounce } from "../js/functions"
 
 
 
@@ -30,7 +30,7 @@ class Background extends Component {
 
 
 
-	createGradient( clear, complete, class1, class2 ) {
+	createGradient( clear, complete, className ) {
 		var canvas = this.background;
 
 		var parent = canvas.parentElement,
@@ -73,16 +73,14 @@ class Background extends Component {
 			width: canvas.width,
 			height: canvas.height
 		}, () => {
-			complete( class1, false );
-			complete( class2, true );
+			complete( className, false );
 		});
 	}
 
 
 
 	colorStops( className, scroll ) {
-		var	scrollPosY = window.scrollY,
-			stickPosY = document.getElementsByTagName( 'header' )[ 0 ].getBoundingClientRect().top + getComputedStyle( document.getElementsByTagName( 'header' )[ 0 ] ).borderTopWidth.slice( 0, -2 );
+		var	scrollPosY = window.scrollY;
 
 		var elements = document.getElementsByClassName( className );
 
@@ -96,7 +94,7 @@ class Background extends Component {
 
 
 
-			if ( scroll && scrollPosY >= stickPosY ) {
+			if ( scroll ) {
 				elementTop = element.getBoundingClientRect().top + scrollPosY;
 				elementBottom = elementTop + element.getBoundingClientRect().height;
 			}
@@ -118,9 +116,9 @@ class Background extends Component {
 
 
 
-	onResize = debounce( ( e ) => {
-		this.createGradient( true, this.colorStops, 'color-stop', 'color-stop--scroll' );
-	}, 350 );
+	// onResize = debounce( ( e ) => {
+		// this.createGradient( true, this.colorStops, 'color-stop' );
+	// }, 350 );
 
 
 
@@ -130,7 +128,7 @@ class Background extends Component {
 
 
 
-			window.addEventListener( 'resize', this.onResize.bind( this ) );
+			// window.addEventListener( 'resize', this.onResize.bind( this ) );
 
 			window.addEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
 		}
@@ -138,7 +136,7 @@ class Background extends Component {
 
 	componentWillUnmount() {
 		if ( this.props.name === 'main' ) {
-			window.removeEventListener( 'resize', this.onResize.bind( this ) );
+			// window.removeEventListener( 'resize', this.onResize.bind( this ) );
 
 			window.removeEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
 		}

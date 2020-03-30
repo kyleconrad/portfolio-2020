@@ -1,5 +1,6 @@
 import React from "react"
 import { Fragment } from "react"
+import Helmet from "react-helmet"
 import { graphql } from "gatsby"
 
 import Seo from "../components/seo"
@@ -12,6 +13,7 @@ import Navigation from "../modules/navigation"
 
 
 export default ({ data }) => {
+	const navigation = data.contentfulNavigation
 	const home = data.contentfulHome
 
 
@@ -20,7 +22,7 @@ export default ({ data }) => {
         <Fragment>
         	<Seo title={ data.contentfulHome.metadataTitle } author={ data.site.siteMetadata.author } description={ data.contentfulHome.metadataDescription } url={ data.site.siteMetadata.siteURL } />
 
-			<Navigation />
+			<Navigation data={ navigation } />
 			
 	        <Home data={ home } />
         </Fragment>
@@ -35,6 +37,21 @@ export const pageQuery = graphql`
 			siteMetadata {
 				author
 				siteURL
+			}
+		}
+		contentfulNavigation( title: { eq: "Navigation" } ) {
+			detail
+			links {
+				slug
+				hero {
+					year
+					detail
+					headline
+				}
+			}
+			socialMedia {
+				name
+				url
 			}
 		}
 		contentfulHome( title: { eq: "Home" } ) {
