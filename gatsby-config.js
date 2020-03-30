@@ -33,9 +33,21 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-zopfli`,
 		},
+		{
+			resolve: `gatsby-plugin-html-comments`,
+			options: {
+				files: [ './public/**/*.html', './public/*.html' ],
+				comment: [
+					{
+						regexp: /<head-comment>(.*?)<\/head-comment>/g,
+						comment: `<!-- All design, ideas, fantastical inventions, etc. etc. © 2020 Kyle Conrad -->`,
+					},
+					{
+						regexp: /<contact-comment>(.*?)<\/contact-comment>/g,
+						comment: `<!-- Contact: kyle@kyleconrad.com / @kyle_conrad -->`,
+					},
+				]
+			}
+		}
 	],
 }
-
-
-
-// reference static images: https://github.com/gatsbyjs/gatsby/issues/11013

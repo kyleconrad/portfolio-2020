@@ -40,6 +40,16 @@ video {
 	stroke-miterlimit: 10;
 
 	transform: translate3d( -50%, -65%, 0 );
+
+	opacity: 1;
+
+
+
+
+	.logo:hover &,
+	.logo:focus & {
+		opacity: 0;
+	}
 }
 
 .logo__logo__color-top {

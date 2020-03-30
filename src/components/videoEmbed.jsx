@@ -41,6 +41,12 @@ class VideoEmbed extends Component {
 
 
 	playVideo() {
+		if ( this.videoEmbed.currentTime === this.videoEmbed.duration ) {
+			this.videoEmbed.currentTime = 0;
+		}
+
+
+
 		this.videoEmbed.play();
 
 		this.paused = false;
@@ -98,7 +104,14 @@ class VideoEmbed extends Component {
 
 
 
+			if ( this.videoEmbed.currentTime === this.videoEmbed.duration ) {
+				this.paused = true;
+			}
+
+
+
 			this.setState({
+				paused: this.paused,
 				progress: currentProgress
 			});
 		}

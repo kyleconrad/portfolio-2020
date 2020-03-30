@@ -1,0 +1,45 @@
+// Glyphs & Icons
+
+.logo__icon {
+	display: block;
+
+	position: relative;
+
+	width: 40%;
+	height: 1px;
+
+	opacity: 0;
+
+	
+
+	&:before,
+	&:after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		width: 100%;
+		height: 100%;
+
+		content: '';
+	}
+
+	&:before {
+		transform: translate3d( -50%, -600%, 0 );
+
+		background: var( --colorTop );
+	}
+
+	&:after {
+		transform: translate3d( -50%, 600%, 0 );
+
+		background: var( --colorBottom );
+	}
+
+
+
+	.logo:hover &,
+	.logo:focus & {
+		opacity: 1;
+	}
+}

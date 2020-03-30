@@ -1,7 +1,8 @@
 import React from "react"
 import { Fragment } from "react"
 import { graphql } from "gatsby"
-import Helmet from "react-helmet"
+
+import Seo from "../components/seo"
 
 import Home from "../layouts/home"
 
@@ -17,16 +18,10 @@ export default ({ data }) => {
 
 	return (
         <Fragment>
-        	<Helmet>
-	        	<title>{ data.contentfulHome.metadataTitle }</title>
-	        	<meta name="description" content={ data.contentfulHome.metadataDescription } />
-
-	        	<link rel="canonical" href={ data.site.siteMetadata.siteURL } />
-	        	<meta name="url" content={ data.site.siteMetadata.siteURL } />
-			    <meta name="identifier-URL" content={ data.site.siteMetadata.siteURL } />
-			</Helmet>
+        	<Seo title={ data.contentfulHome.metadataTitle } author={ data.site.siteMetadata.author } description={ data.contentfulHome.metadataDescription } url={ data.site.siteMetadata.siteURL } />
 
 			<Navigation />
+			
 	        <Home data={ home } />
         </Fragment>
 	)
