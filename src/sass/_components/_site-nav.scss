@@ -13,7 +13,8 @@
 
 
 .logo {
-	position: absolute;
+	// position: absolute;
+	position: fixed;
 	top: calc( ( var( --padding ) * 1.5 ) + 5px );
 	left: calc( ( var( --padding ) * 1.5 ) + 5px );
 
@@ -32,8 +33,8 @@
 
 
 	&--scrolled {
-		position: fixed;
-		top: calc( var( --padding ) * 0.5 );
+		// position: fixed;
+		// top: calc( var( --padding ) * 0.5 );
 	}
 
 
@@ -49,16 +50,41 @@
 .logo__padding {
 	padding: 7.5%;
 
-	background-image: url( '../images/patterns/bkg__topo--invert.png' );
-	background-size: 400px auto;
-	background-position: center top;
 
-	animation: logo-move 120s linear infinite;
 
-	transform: translateZ( 0 );
+	&:before,
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 500%;
+
+		background-size: 400px auto;
+		background-position: center top;
+
+		z-index: 1;
+
+		content: '';
+	}
+
+	&:before {
+		background-image: url( '../images/patterns/bkg__topo--invert.png' );
+
+		animation: logo-slide 120s linear infinite;
+	}
+
+	&:after {
+		background-image: url( '../images/patterns/bkg__topo.png' );
+
+		animation: logo-slide 120s linear infinite;
+
+		opacity: 0;
+	}
 }
 
-.logo__interior-border {
+.logo__border {
 	@extend .bkg--gradient;
 	@extend .bkg--gradient--stop;
 
@@ -75,12 +101,12 @@
 
 
 
-@keyframes logo-move {
+@keyframes logo-slide {
 	from {
-		background-position: center top;
+		transform: translate3d( 0, 0, 0 );
 	}
 
 	to {
-		background-position: center bottom;
+		transform: translate3d( 0, -80%, 0 );
 	}
 }

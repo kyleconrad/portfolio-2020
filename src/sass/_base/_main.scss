@@ -160,12 +160,12 @@ div {
 
 //// Backgrounds
 @each $color, $value in $colors {
-	.bkg--#{$color} {
+	.bkg--#{ $color } {
 		background-color: $value;
 	}
 
 
-	.fill--#{$color} {
+	.fill--#{ $color } {
 		fill: $value;
 	}
 }
