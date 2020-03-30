@@ -166,7 +166,7 @@ class VideoEmbed extends Component {
 					<input type="range" value={ `${ this.state.progress }` } min="0" max="100" step="0.01" onChange={ this.updateProgress } className="video__control__input z--1" />
 				</div>
 
-				<button onClick={ this.toggleVideo } className="video__overlay z--2" />
+				<button onClick={ this.toggleVideo } className="video__overlay custom-cursor z--2" />
 
 				<video ref={ ( videoEmbed ) => { this.videoEmbed = videoEmbed } } preload={ this.state.preload } playsInline muted onTimeUpdate={ this.updateProgress } poster={ this.props.data.videoPoster.file.url } className="z--1">
 					<source src={ this.props.data.videoWebM.file.url } type="video/webm" />
