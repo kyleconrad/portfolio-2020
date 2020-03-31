@@ -1,5 +1,6 @@
 import React from "react"
 import { Fragment, Component } from "react"
+import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
 
 import Logo from "../components/logo"
@@ -26,6 +27,12 @@ class Navigation extends Component {
 
 
 	render() {
+		const navigation = this.props.navigation
+
+		console.log( navigation )
+
+
+
 		return (
 		    <Fragment>
 		    	<Helmet>
@@ -42,4 +49,27 @@ class Navigation extends Component {
 
 
 
-export default Navigation
+export default props => (
+     <StaticQuery
+     	query = { graphql`
+     		query {
+				contentfulNavigation( title: { eq: "Navigation" } ) {
+					detail
+					links {
+						slug
+						hero {
+							year
+							detail
+							headline
+						}
+					}
+					socialMedia {
+						name
+						url
+					}
+				}
+			}
+ 		`}
+ 		render = { ({ contentfulNavigation }) => <Navigation navigation={ contentfulNavigation } { ...props } /> }
+	/>
+)

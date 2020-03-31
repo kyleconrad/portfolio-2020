@@ -2,17 +2,15 @@ import React from "react"
 import { Fragment } from "react"
 import { graphql } from "gatsby"
 
-import Seo from "../components/seo"
-
 import Home from "../layouts/home"
 
 import Navigation from "../modules/navigation"
 
+import Seo from "../components/seo"
 
 
 
 export default ({ data }) => {
-	const navigation = data.contentfulNavigation
 	const home = data.contentfulHome
 
 
@@ -26,7 +24,7 @@ export default ({ data }) => {
         		url={ data.site.siteMetadata.siteURL }
     		/>
 
-			<Navigation data={ navigation } />
+			<Navigation />
 			
 	        <Home data={ home } />
         </Fragment>
@@ -41,21 +39,6 @@ export const pageQuery = graphql`
 			siteMetadata {
 				author
 				siteURL
-			}
-		}
-		contentfulNavigation( title: { eq: "Navigation" } ) {
-			detail
-			links {
-				slug
-				hero {
-					year
-					detail
-					headline
-				}
-			}
-			socialMedia {
-				name
-				url
 			}
 		}
 		contentfulHome( title: { eq: "Home" } ) {
