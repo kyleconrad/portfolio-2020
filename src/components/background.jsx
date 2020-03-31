@@ -37,8 +37,8 @@ class Background extends Component {
 			parentWidth = parent.getBoundingClientRect().width,
 			parentHeight = parent.getBoundingClientRect().height;
 
-		var primaryColor = getComputedStyle( document.documentElement ).getPropertyValue( '--primaryColor' ),
-			secondaryColor = getComputedStyle( document.documentElement ).getPropertyValue( '--secondaryColor' );
+		var primaryColor = getComputedStyle( document.documentElement ).getPropertyValue( '--colorPrimary' ),
+			secondaryColor = getComputedStyle( document.documentElement ).getPropertyValue( '--colorSecondary' );
 
 
 
@@ -80,7 +80,7 @@ class Background extends Component {
 
 
 	colorStops( className, scroll ) {
-		var	scrollPosY = window.scrollY;
+		var	scrollPosY = document.getElementsByTagName( 'main' )[ 0 ].scrollTop;
 
 		var elements = document.getElementsByClassName( className );
 
@@ -130,7 +130,7 @@ class Background extends Component {
 
 			// window.addEventListener( 'resize', this.onResize.bind( this ) );
 
-			window.addEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
+			document.getElementsByTagName( 'main' )[ 0 ].addEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
 		}
 	}
 
@@ -138,7 +138,7 @@ class Background extends Component {
 		if ( this.props.name === 'main' ) {
 			// window.removeEventListener( 'resize', this.onResize.bind( this ) );
 
-			window.removeEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
+			document.getElementsByTagName( 'main' )[ 0 ].removeEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
 		}
 	}
 

@@ -43,29 +43,31 @@ const Home = ( props ) => {
 
 	return (
         <main className="bkg--gradient">
-			<section className="border border--wide border--black overflow--hidden z--2">
-				<div className="border border--1 border--transparent overflow--hidden">
-					<div className="border border--3 border--black overflow--hidden">
-						<Hero data={ hero } />
+        	<section className="main__container">
+				<div className="border border--wide border--black overflow--hidden z--2">
+					<div className="border border--1 border--transparent overflow--hidden">
+						<div className="border border--3 border--black overflow--hidden">
+							<Hero data={ hero } />
 
-						<Spacer height="100" invert="true" />
+							<Spacer height="100" invert />
 
-						{ caseStudies.map( ( caseStudy ) => {
-							return (
-						        <Fragment key={ caseStudy.slug }>
-							        <CaseStudy data={ caseStudy } />
+							{ caseStudies.map( ( caseStudy ) => {
+								return (
+							        <Fragment key={ caseStudy.slug }>
+								        <CaseStudy data={ caseStudy } />
 
-							        <Spacer height="100" invert="true" />
-						        </Fragment>
-					        )
-						})}
+								        <Spacer height="100" invert />
+							        </Fragment>
+						        )
+							})}
 
-						<About data={ about } text={ textOptions } />
+							<About data={ about } text={ textOptions } />
+						</div>
 					</div>
 				</div>
-			</section>
 
-			<Background name="main" />
+				<Background name="main" />
+			</section>
 		</main>
 	)
 }

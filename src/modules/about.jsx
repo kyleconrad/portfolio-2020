@@ -24,7 +24,7 @@ const About = ( props ) => {
 					</div>
 
 					<div className="padding--top--200 padding--right--50">
-						<h3 className="text--white padding--bottom--100">{ props.data.headline }</h3>
+						<h3 className="headline--small text--white padding--bottom--100">{ props.data.headline }</h3>
 
 						<div className="flex--row flex--between flex--align-start padding--bottom--100">
 							<div className="text--white">{ description }</div>
@@ -51,7 +51,7 @@ const About = ( props ) => {
 				</div>
 			</div>
 
-			<Spacer height="500" invert="true" bottom="true" />
+			<Spacer height="500" invert bottom />
 		</footer>
 	)
 }

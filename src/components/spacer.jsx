@@ -1,12 +1,23 @@
 import React from "react"
+import classNames from "classnames"
 
 
 
 const Spacer = ( props ) => {
 	return (
-		<div className={ `border border--top--3 ${ !props.bottom ? 'border--bottom--3' : '' } border--black` }>
-			<div className="border border--1 border--transparent">
-				<div className={ `height--${ props.height } bkg--topo ${ props.invert ? 'bkg--topo--invert' : 'bkg--topo--black' }` }></div>
+		<div className={ classNames( 'border', 'border--top--3', {
+			'border--bottom--3': !props.bottom,
+			'border--black': props.invert,
+			'border--transparent': !props.invert
+		})}>
+			<div className={ classNames( 'border', 'border--1', {
+				'border--black': !props.invert,
+				'border--transparent': props.invert
+			})}>
+				<div className={ classNames( `height--${ props.height }`, 'bkg--topo', {
+					'bkg--topo--black': !props.invert,
+					'bkg--topo--invert': props.invert
+				})}></div>
 			</div>
 		</div>
 	)

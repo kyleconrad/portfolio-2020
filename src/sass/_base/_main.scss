@@ -8,8 +8,8 @@
 
 	--logo: calc( var( --padding ) * 1.5 );
 
-	--primaryColor: #{ map-get( $colors, teal ) };
-	--secondaryColor: #{ map-get( $colors, violet ) };
+	--colorPrimary: #{ map-get( $colors, teal ) };
+	--colorSecondary: #{ map-get( $colors, violet ) };
 	
 
 	
@@ -76,7 +76,7 @@ body {
 	
 	position: relative;
 	
-	overflow-x: hidden;
+	// overflow-x: hidden;
 
 	font-size: var(--fontsize);
 
@@ -100,7 +100,26 @@ body {
 
 
 
-main,
+main {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+
+
+
+	.nav--open & {
+		pointer-events: none;
+	}
+}
+
+
+
 nav,
 header,
 article,

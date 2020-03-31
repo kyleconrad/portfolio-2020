@@ -2,9 +2,8 @@ import React from "react"
 import { Fragment } from "react"
 import { graphql } from "gatsby"
 
+import Navigation from "../layouts/navigation"
 import Home from "../layouts/home"
-
-import Navigation from "../modules/navigation"
 
 import Seo from "../components/seo"
 

@@ -18,7 +18,7 @@ const Hero = ( props ) => {
 				</div>
 				
 				<div className="padding--top--400">
-					<h1 className="text--white">{ props.data.headline } </h1><h2 className="text--gray">{ props.data.subhead }</h2>
+					<h1 className="headline text--white">{ props.data.headline } </h1><h2 className="headline text--gray">{ props.data.subhead }</h2>
 				</div>
 
 				<div className="color-stop sidebar sidebar--gradient flex--column flex--between flex--align-center">
