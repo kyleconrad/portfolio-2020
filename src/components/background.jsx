@@ -88,9 +88,7 @@ class Background extends Component {
 
 
 
-	colorStops( canvasData, className, scroll ) {
-		var	scrollPosY = document.getElementsByTagName( 'main' )[ 0 ].scrollTop;
-
+	colorStops( canvasData, className, scroll, scrollElement ) {
 		var elements = document.getElementsByClassName( className );
 
 
@@ -109,8 +107,8 @@ class Background extends Component {
 
 
 
-			if ( scroll ) {
-				elementTop = element.getBoundingClientRect().top + scrollPosY;
+			if ( scroll && scrollElement ) {
+				elementTop = element.getBoundingClientRect().top + scrollElement.scrollTop;
 				elementBottom = elementTop + element.getBoundingClientRect().height;
 			}
 
@@ -147,7 +145,7 @@ class Background extends Component {
 
 
 	componentDidMount() {
-		const main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.getElementsByTagName( 'main' )[ 0 ];
 
 
 
@@ -156,7 +154,7 @@ class Background extends Component {
 
 
 
-			main.addEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true ) );
+			$main.addEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true, $main ) );
 		}
 
 
@@ -174,14 +172,14 @@ class Background extends Component {
 	}
 
 	componentWillUnmount() {
-		const main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.getElementsByTagName( 'main' )[ 0 ];
 
 
 
 		if ( this.props.container === 'main' ) {
 			// window.removeEventListener( 'resize', this.onResize.bind( this ) );
 
-			main.removeEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true ) );
+			$main.removeEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true, $main ) );
 		}
 	}
 
