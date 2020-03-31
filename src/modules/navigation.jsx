@@ -41,7 +41,10 @@ class Navigation extends Component {
 
 		    	<Logo toggleNav={ this.toggleNav.bind( this ) } />
 		    	
-		        <nav className="nav" />
+		        <nav className="nav">
+		        	<div class="nav__container">
+		        	</div>
+		        </nav>
 	        </Fragment>
 		)
 	}

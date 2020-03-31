@@ -14,28 +14,7 @@ class Logo extends Component {
 
 
 		this.state = {
-			posY: 0,
-			stickY: 0
-		}
-
-
-
-		this.scrollStick = this.scrollStick.bind( this );
-	}
-
-
-
-	scrollStick( e ) {
-		var	scrollPosY = window.scrollY,
-			stickPosY = this.state.stickY;
-
-
-
-		if ( scrollPosY >= stickPosY ) {
-			this.logo.classList.add( 'logo--scrolled' );
-		}
-		else {
-			this.logo.classList.remove( 'logo--scrolled' );
+			posY: 0
 		}
 	}
 
@@ -43,15 +22,8 @@ class Logo extends Component {
 
 	componentDidMount() {
 		this.setState({
-			posY: this.logo.getBoundingClientRect().top,
-			stickY: document.getElementsByTagName( 'header' )[ 0 ].getBoundingClientRect().top + getComputedStyle( document.getElementsByTagName( 'header' )[ 0 ] ).borderTopWidth.slice( 0, -2 )
-		}, () => {
-			window.addEventListener( 'scroll', this.scrollStick );
+			posY: this.logo.getBoundingClientRect().top
 		});
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener( 'scroll', this.scrollStick );
 	}
 
 

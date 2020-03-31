@@ -13,7 +13,6 @@
 
 
 .logo {
-	// position: absolute;
 	position: fixed;
 	top: calc( ( var( --padding ) * 1.5 ) + 5px );
 	left: calc( ( var( --padding ) * 1.5 ) + 5px );
@@ -29,13 +28,6 @@
 	@extend .border--transparent;
 
 	border-radius: 100%;
-
-
-
-	&--scrolled {
-		// position: fixed;
-		// top: calc( var( --padding ) * 0.5 );
-	}
 
 
 
