@@ -1,6 +1,5 @@
 import React from "react"
 import { Fragment } from "react"
-import Helmet from "react-helmet"
 import { graphql } from "gatsby"
 
 import Seo from "../components/seo"
@@ -20,7 +19,12 @@ export default ({ data }) => {
 
 	return (
         <Fragment>
-        	<Seo title={ data.contentfulHome.metadataTitle } author={ data.site.siteMetadata.author } description={ data.contentfulHome.metadataDescription } url={ data.site.siteMetadata.siteURL } />
+        	<Seo
+        		title={ data.contentfulHome.metadataTitle }
+        		author={ data.site.siteMetadata.author }
+        		description={ data.contentfulHome.metadataDescription }
+        		url={ data.site.siteMetadata.siteURL }
+    		/>
 
 			<Navigation data={ navigation } />
 			

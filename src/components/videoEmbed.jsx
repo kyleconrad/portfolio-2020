@@ -17,6 +17,8 @@ class VideoEmbed extends Component {
 		this.preload = false;
 		this.interaction = false;
 
+
+
 		this.state = {
 			paused: true,
 			preload: 'metadata',
@@ -51,6 +53,8 @@ class VideoEmbed extends Component {
 
 		this.paused = false;
 
+
+
 		this.setState({
 			paused: this.paused
 		});
@@ -60,6 +64,8 @@ class VideoEmbed extends Component {
 		this.videoEmbed.pause();
 
 		this.paused = true;
+
+
 
 		this.setState({
 			paused: this.paused
