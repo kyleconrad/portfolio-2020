@@ -1,9 +1,9 @@
 import React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
+import Header from "../components/header"
+import Sidebar from "../components/sidebar"
 import Spacer from "../components/spacer"
-
-import { toDMS } from "../js/functions"
 
 
 
@@ -19,9 +19,7 @@ const About = ( props ) => {
 		<footer>
 			<div className="border border--1 border--transparent">
 				<div className="bkg--black padding--top--50 padding--right--100 padding--bottom--300 padding--left--400">
-					<div className="header flex--row flex--start flex--align-center margin--bottom--100">
-						<span className="detail color-stop text--gradient">{ props.data.detail }</span>
-					</div>
+					<Header text={ props.data.detail } gradient />
 
 					<div className="padding--top--200 padding--right--50">
 						<h3 className="headline--small text--white padding--bottom--100">{ props.data.headline }</h3>
@@ -43,11 +41,7 @@ const About = ( props ) => {
 						</div>
 					</div>
 
-					<div className="color-stop sidebar sidebar--gradient flex--column flex--end flex--align-center">
-						<div className="padding--top--50 bkg--black z--2">
-							<span className="color-stop detail text--gradient--reverse">{ toDMS( props.data.location.lat, false ) } { toDMS( props.data.location.lon, true ) }</span>
-						</div>
-					</div>
+					<Sidebar location={ props.data.location } />
 				</div>
 			</div>
 

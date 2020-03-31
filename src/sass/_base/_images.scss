@@ -46,7 +46,8 @@ video {
 
 
 
-	.logo:hover & {
+	.logo:hover &,
+	.nav--open & {
 		opacity: 0;
 	}
 }

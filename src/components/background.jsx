@@ -123,7 +123,7 @@ class Background extends Component {
 
 
 	componentDidMount() {
-		if ( this.props.name === 'main' ) {
+		if ( this.props.container === 'main' ) {
 			this.createGradient( false, this.colorStops, 'color-stop' );
 
 
@@ -135,7 +135,7 @@ class Background extends Component {
 	}
 
 	componentWillUnmount() {
-		if ( this.props.name === 'main' ) {
+		if ( this.props.container === 'main' ) {
 			// window.removeEventListener( 'resize', this.onResize.bind( this ) );
 
 			document.getElementsByTagName( 'main' )[ 0 ].removeEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
@@ -146,7 +146,7 @@ class Background extends Component {
 
 	render() {
 		return (
-			<canvas ref={ ( background ) => { this.background = background } } id={ `bkg--` + this.props.name } className="background z--1"></canvas>
+			<canvas ref={ ( background ) => { this.background = background } } id={ `bkg--` + this.props.container } className="background z--1"></canvas>
 		)
 	}
 }

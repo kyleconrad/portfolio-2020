@@ -66,7 +66,7 @@ const Home = ( props ) => {
 					</div>
 				</div>
 
-				<Background name="main" />
+				<Background container="main" />
 			</section>
 		</main>
 	)

@@ -4,7 +4,9 @@ import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
 
 import Logo from "../components/logo"
+import Header from "../components/header"
 import Spacer from "../components/spacer"
+import Background from "../components/background"
 
 import { toRomanNumeral } from "../js/functions"
 
@@ -64,9 +66,7 @@ class Navigation extends Component {
 			        			<div className="border border--3 border--transparent overflow--hidden">
 			        				<div className="border border--1 border--black overflow--hidden">
 						        		<div className="padding--top--50 padding--right--100 padding--bottom--100 padding--left--400">
-						        			<div className="header flex--row flex--start flex--align-center margin--bottom--100">
-												<span className="detail text--black">{ navigation.detail }</span>
-											</div>
+											<Header text={ navigation.detail } />
 
 											<ul className="nav__contents padding--top--400">
 												{ navigation.links.map( ( caseStudy ) => {
@@ -97,6 +97,8 @@ class Navigation extends Component {
 				        		</div>
 			        		</div>
 			        	</div>
+
+			        	<Background container="navigation" open={ this.state.navOpen } />
 		        	</div>
 		        </nav>
 	        </Fragment>

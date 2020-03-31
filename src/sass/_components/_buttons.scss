@@ -31,6 +31,140 @@ button {
 
 
 
+//// Logo
+.logo {
+	position: fixed;
+	top: calc( ( var( --padding ) * 1.5 ) + 5px );
+	left: calc( ( var( --padding ) * 1.5 ) + 5px );
+
+	width: var( --logo );
+	height: var( --logo );
+
+	@extend .bkg--gradient;
+	@extend .bkg--gradient--stop;
+
+	@extend .border;
+	@extend .border--1;
+	@extend .border--transparent;
+
+	border-radius: 100%;
+
+	transition: border-color 0.25s ease-in-out;
+
+
+
+	div {
+		width: 100%;
+		height: 100%;
+
+		overflow: hidden;
+	}
+
+
+
+	.nav--open & {
+		@extend .border--black;
+	}
+}
+
+.logo__padding {
+	padding: 7.5%;
+
+
+
+	&:before,
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 500%;
+
+		background-size: 400px auto;
+		background-position: center top;
+
+		z-index: 1;
+
+		transition: opacity 0.25s ease-in-out;
+
+		content: '';
+	}
+
+	&:before {
+		background-image: url( '../images/patterns/bkg__topo--invert.png' );
+
+		animation: logo-slide 120s linear infinite;
+	}
+
+	&:after {
+		background-image: url( '../images/patterns/bkg__topo.png' );
+
+		animation: logo-slide 120s linear infinite;
+
+		opacity: 0;
+	}
+
+
+
+	.nav--open & {
+		&:before {
+			opacity: 0;
+		}
+
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+
+.logo__border {
+	@extend .bkg--gradient;
+	@extend .bkg--gradient--stop;
+
+	@extend .border;
+	@extend .border--1;
+	@extend .border--transparent;
+
+	border-radius: 100%;
+
+	transition: border-color 0.25s ease-in-out;
+
+
+
+	.nav--open & {
+		@extend .border--black;
+	}
+}
+
+.logo__interior {
+	@extend .bkg--black;
+
+	transition: background-color 0.25s ease-in-out;
+
+
+
+	.nav--open & {
+		background-color: transparent;
+	}
+}
+
+
+
+@keyframes logo-slide {
+	from {
+		transform: translate3d( 0, 0, 0 );
+	}
+
+	to {
+		transform: translate3d( 0, -80%, 0 );
+	}
+}
+
+
+
+
+
 //// Video
 .video__control {
 	position: absolute;
@@ -65,8 +199,6 @@ button {
 	height: 100%;
 	width: 100%;
 }
-
-
 
 .video__control__progress {
 	position: absolute;
