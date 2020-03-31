@@ -128,7 +128,7 @@ class VideoEmbed extends Component {
 	scrollLoad( e ) {
 		var windowHeight = window.innerHeight;
 
-		var	scrollPosY = window.scrollY,
+		var	scrollPosY = document.getElementsByTagName( 'main' )[ 0 ].scrollTop,
 			preloadPosY = this.state.posY - ( windowHeight * 2 ),
 			playPosY = this.state.posY - ( windowHeight * 0.75 );
 
@@ -152,12 +152,12 @@ class VideoEmbed extends Component {
 			height: this.videoEmbed.getBoundingClientRect().height,
 			posY: this.videoEmbed.getBoundingClientRect().top
 		}, () => {
-			window.addEventListener( 'scroll', this.scrollLoad );
+			document.getElementsByTagName( 'main' )[ 0 ].addEventListener( 'scroll', this.scrollLoad );
 		});
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener( 'scroll', this.scrollLoad );
+		document.getElementsByTagName( 'main' )[ 0 ].removeEventListener( 'scroll', this.scrollLoad );
 	}
 
 
