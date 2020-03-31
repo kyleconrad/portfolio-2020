@@ -1,6 +1,8 @@
 import React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
+import Spacer from "../components/spacer"
+
 import { toDMS } from "../js/functions"
 
 
@@ -49,11 +51,7 @@ const About = ( props ) => {
 				</div>
 			</div>
 
-			<div className="border border--top--3 border--black">
-				<div className="border border--1 border--transparent">
-					<div className="height--500 bkg--topo bkg--topo--invert"></div>
-				</div>
-			</div>
+			<Spacer height="500" invert="true" bottom="true" />
 		</footer>
 	)
 }
