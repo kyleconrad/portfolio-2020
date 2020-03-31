@@ -10,7 +10,7 @@ const Spacer = ( props ) => {
 			'border--black': props.invert,
 			'border--transparent': !props.invert
 		})}>
-			<div className={ classNames( 'border', 'border--1', {
+			<div className={ classNames( 'overflow--hidden', 'border', 'border--1', {
 				'border--black': !props.invert,
 				'border--transparent': props.invert
 			})}>

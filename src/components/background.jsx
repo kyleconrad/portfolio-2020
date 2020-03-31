@@ -1,6 +1,8 @@
 import React from "react"
 import { Component } from "react"
 
+import Store from "../components/store"
+
 import { rgbToHex } from "../js/functions"
 // import { debounce } from "../js/functions"
 
@@ -9,7 +11,6 @@ import { rgbToHex } from "../js/functions"
 class Background extends Component {
 	constructor( props ) {
 		super( props );
-
 
 
 		this.background = React.createRef();
@@ -30,7 +31,7 @@ class Background extends Component {
 
 
 
-	createGradient( clear, complete, className ) {
+	createGradient( complete, className ) {
 		var canvas = this.background;
 
 		var parent = canvas.parentElement,
@@ -51,9 +52,9 @@ class Background extends Component {
 
 
 
-		if ( clear ) {
-			context.clearRect( 0, 0, canvas.width, canvas.height );
-		}
+		// if ( clear ) {
+		// 	context.clearRect( 0, 0, canvas.width, canvas.height );
+		// }
 
 
 
@@ -73,13 +74,21 @@ class Background extends Component {
 			width: canvas.width,
 			height: canvas.height
 		}, () => {
-			complete( className, false );
+			if ( this.props.container === 'main' ) {
+				Store.backgroundData = this.state.canvasData;
+			}
+
+
+
+			if ( complete && className ) {
+				complete( this.state.canvasData, className, false );
+			}
 		});
 	}
 
 
 
-	colorStops( className, scroll ) {
+	colorStops( canvasData, className, scroll ) {
 		var	scrollPosY = document.getElementsByTagName( 'main' )[ 0 ].scrollTop;
 
 		var elements = document.getElementsByClassName( className );
@@ -92,6 +101,12 @@ class Background extends Component {
 			var elementTop = element.getBoundingClientRect().top,
 				elementBottom = elementTop + element.getBoundingClientRect().height;
 
+			var indexTop,
+				indexBottom;
+
+			var colorTop,
+				colorBottom;
+
 
 
 			if ( scroll ) {
@@ -101,11 +116,20 @@ class Background extends Component {
 
 
 
-			var indexTop = ( Math.floor( elementTop ) * this.state.canvasData.width ) * 4,
+			if ( canvasData ) {
+				indexTop = ( Math.floor( elementTop ) * canvasData.width ) * 4;
+				indexBottom = ( Math.floor( elementBottom ) * canvasData.width ) * 4;
+
+				colorTop = rgbToHex( canvasData.data[ indexTop ], canvasData.data[ indexTop + 1 ], canvasData.data[ indexTop + 2 ] );
+				colorBottom = rgbToHex( canvasData.data[ indexBottom ], canvasData.data[ indexBottom + 1 ], canvasData.data[ indexBottom + 2 ] );
+			}
+			else {
+				indexTop = ( Math.floor( elementTop ) * this.state.canvasData.width ) * 4;
 				indexBottom = ( Math.floor( elementBottom ) * this.state.canvasData.width ) * 4;
 
-			var colorTop = rgbToHex( this.state.canvasData.data[ indexTop ], this.state.canvasData.data[ indexTop + 1 ], this.state.canvasData.data[ indexTop + 2 ] ),
+				colorTop = rgbToHex( this.state.canvasData.data[ indexTop ], this.state.canvasData.data[ indexTop + 1 ], this.state.canvasData.data[ indexTop + 2 ] );
 				colorBottom = rgbToHex( this.state.canvasData.data[ indexBottom ], this.state.canvasData.data[ indexBottom + 1 ], this.state.canvasData.data[ indexBottom + 2 ] );
+			}
 
 
 
@@ -123,22 +147,41 @@ class Background extends Component {
 
 
 	componentDidMount() {
+		const main = document.getElementsByTagName( 'main' )[ 0 ];
+
+
+
 		if ( this.props.container === 'main' ) {
-			this.createGradient( false, this.colorStops, 'color-stop' );
+			this.createGradient( this.colorStops, 'color-stop', true );
 
 
 
-			// window.addEventListener( 'resize', this.onResize.bind( this ) );
+			main.addEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true ) );
+		}
 
-			document.getElementsByTagName( 'main' )[ 0 ].addEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
+
+
+		if ( this.props.container === 'navigation' ) {
+			this.createGradient();
 		}
 	}
 
+	componentDidUpdate( prevProps, prevState, snapshot ) {
+		// if ( this.props.container === 'navigation' ) {
+		// 	console.log( Store.backgroundData );
+		// }
+		console.log( this.props.container, this.props.open, prevState );
+	}
+
 	componentWillUnmount() {
+		const main = document.getElementsByTagName( 'main' )[ 0 ];
+
+
+
 		if ( this.props.container === 'main' ) {
 			// window.removeEventListener( 'resize', this.onResize.bind( this ) );
 
-			document.getElementsByTagName( 'main' )[ 0 ].removeEventListener( 'scroll', this.colorStops.bind( null, 'color-stop--scroll', true ) );
+			main.removeEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true ) );
 		}
 	}
 

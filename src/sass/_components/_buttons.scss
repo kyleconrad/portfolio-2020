@@ -49,7 +49,7 @@ button {
 
 	border-radius: 100%;
 
-	transition: border-color 0.25s ease-in-out;
+	transition: background 0.25 ease-in-out;
 
 
 
@@ -64,6 +64,8 @@ button {
 
 	.nav--open & {
 		@extend .border--black;
+
+		background: none;
 	}
 }
 
@@ -86,8 +88,6 @@ button {
 
 		z-index: 1;
 
-		transition: opacity 0.25s ease-in-out;
-
 		content: '';
 	}
 
@@ -95,6 +95,8 @@ button {
 		background-image: url( '../images/patterns/bkg__topo--invert.png' );
 
 		animation: logo-slide 120s linear infinite;
+
+		z-index: 1;
 	}
 
 	&:after {
@@ -103,6 +105,8 @@ button {
 		animation: logo-slide 120s linear infinite;
 
 		opacity: 0;
+
+		z-index: 2;
 	}
 
 
@@ -110,6 +114,8 @@ button {
 	.nav--open & {
 		&:before {
 			opacity: 0;
+
+
 		}
 
 		&:after {
@@ -127,8 +133,6 @@ button {
 	@extend .border--transparent;
 
 	border-radius: 100%;
-
-	transition: border-color 0.25s ease-in-out;
 
 
 
