@@ -31,7 +31,7 @@ class Logo extends Component {
 	render() {
 		return (
 			<button ref={ ( logo ) => { this.logo = logo } } className="logo color-stop color-stop--scroll color-stop--nav overflow--hidden" onClick={ this.props.toggleNav }>
-				<div className="logo__padding color-stop">
+				<div className="logo__padding">
 					<div className="logo__border color-stop color-stop--scroll color-stop--nav z--3">
 						<div className="logo__interior flex--row flex--center flex--align-center">
 							<svg className="logo__logo color-stop color-stop--scroll z--2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 102 90" xmlSpace="preserve">

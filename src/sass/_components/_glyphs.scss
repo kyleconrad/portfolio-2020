@@ -38,17 +38,7 @@
 
 
 
-	.logo:hover & {
-		opacity: 1;
-	}
-
-
-
 	.nav--open & {
-		opacity: 1;
-
-
-
 		&:before,
 		&:after {
 			background: map-get( $colors, black );
@@ -61,5 +51,11 @@
 		&:after {
 			transform: translate3d( -50%, -50%, 0 ) rotate( -45deg );
 		}
+	}
+
+
+
+	.logo:hover & {
+		opacity: 1;
 	}
 }

@@ -3,12 +3,9 @@ import PropTypes from "prop-types"
 
 export default function HTML(props) {
 	return (
-	        <html lang="en" {...props.htmlAttributes}>
+	        <html lang="en" { ...props.htmlAttributes }>
 
 	        <head>
-	        	<head-comment />
-	        	<contact-comment />
-
 		        <meta charSet="utf-8" />
 		        <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
 		        <meta
@@ -18,7 +15,7 @@ export default function HTML(props) {
 		        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
 		        <meta httpEquiv="cleartype" content="on" />
 
-		        {props.headComponents}
+		        { props.headComponents }
 
 		        <meta name="robots" content="NOODP" />
 
@@ -34,7 +31,7 @@ export default function HTML(props) {
 
 	        <body {...props.bodyAttributes}>
 
-	        {props.preBodyComponents}
+	        { props.preBodyComponents }
 
 	        <div
 		        key={`body`}
@@ -42,7 +39,10 @@ export default function HTML(props) {
 		        dangerouslySetInnerHTML={{ __html: props.body }}
 	        />
 
-	        {props.postBodyComponents}
+	        { props.postBodyComponents }
+
+	        <footer-comment />
+        	<contact-comment />
 
 	        </body>
 	        </html>

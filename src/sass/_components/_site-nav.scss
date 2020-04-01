@@ -21,5 +21,13 @@
 	.nav--open & {
 		pointer-events: auto;
 		opacity: 1;
+
+		transform: translateZ( 0 );
 	}
+}
+
+
+
+.nav__contents__link {
+	display: block;
 }

@@ -56,15 +56,7 @@ p {
 
 
 
-    & > a {
-    	font-weight: $font-body--bold;
-
-    	text-decoration: none;
-    }
-
-
-
-    .caption & {
+	.caption & {
     	@include responsive-font( 1.5vw, 16px, 28px, 16px );
 
     	font-family: $font-headline;
@@ -80,6 +72,30 @@ strong {
 
 em {
 	font-style: italic;
+}
+
+
+
+
+
+//// Text Links
+p > a {
+	display: inline-block;
+
+	font-family: $font-headline;
+	font-weight: $font-headline--weight;
+
+	line-height: 1.5;
+
+	text-decoration: none;
+
+	vertical-align: baseline;
+
+
+
+	// &:hover {
+	// 	filter: brightness( 125% );
+	// }
 }
 
 
@@ -166,7 +182,41 @@ em {
 
 
 
-//// Navigation Social
+//// Navigation
+.nav__contents__link {
+	text-decoration: none;
+
+
+
+	span {
+		transition: 0.1s ease-in-out;
+	}
+
+
+
+	&:hover span {
+		color: map-get( $colors, white );
+	}
+
+
+
+	@supports ( -webkit-text-stroke: 1px black ) {
+		&:hover span {
+			color: map-get( $colors, black );
+		}
+
+
+
+		&:hover .headline {
+			-webkit-text-fill-color: transparent;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: map-get( $colors, black );
+		}
+	}
+}
+
+
+
 .nav__social {
 	a {
 		@include responsive-font( 0.85vw, 8px, 14px, 10px );
@@ -304,6 +354,8 @@ em {
 
 //// Gradient text
 .text--gradient {
+	color: map-get( $colors, gray );
+
 	background: linear-gradient(
 	    	to bottom,
 	    	var( --colorTop ),
@@ -315,6 +367,8 @@ em {
 }
 
 .text--gradient--reverse {
+	color: map-get( $colors, gray );
+
 	background: linear-gradient(
 	    	to top,
 	    	var( --colorBottom ),

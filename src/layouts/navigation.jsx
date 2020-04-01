@@ -2,6 +2,7 @@ import React from "react"
 import { Fragment, Component } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
+import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import Logo from "../components/logo"
@@ -26,6 +27,10 @@ class Navigation extends Component {
 		this.state = {
 			navOpen: false
 		}
+
+
+
+		this.hideNav = this.hideNav.bind( this );
 	}
 
 
@@ -45,9 +50,16 @@ class Navigation extends Component {
 			}) : this.setState({ navOpen: true });
 	}
 
+	hideNav() {
+		this.setState({
+			navOpen: false
+		});
+	}
+
 
 
 	render() {
+		const home = this.props.home
 		const navigation = this.props.navigation
 
 
@@ -70,15 +82,21 @@ class Navigation extends Component {
 											<Header text={ navigation.detail } />
 
 											<ul className="nav__contents padding--top--400">
+												<Link to="/" className="nav__contents__link margin--bottom--200" activeStyle={{ display: `none` }} onClick={ this.hideNav }>
+													<span className="headline text--black">{ home.title }.</span>
+												</Link>
+
 												{ navigation.links.map( ( caseStudy ) => {
 													return (
-														<li key={ caseStudy.slug } className="padding--bottom--200">
-															<div className="flex--row flex--start flex--align-center margin--bottom--25">
-																<span className="detail detail--small text--black">{ toRomanNumeral( caseStudy.hero.year ) }</span>
-																<span className="break width--200 margin--left--50 margin--right--50 bkg--black" />
-																<span className="detail detail--small text--black">{ caseStudy.hero.detail }</span>
-															</div>
-															<span className="headline text--black">{ caseStudy.hero.headline }</span>
+														<li key={ caseStudy.slug } className="margin--bottom--200">
+															<Link to={ `/` + caseStudy.slug + `/` } className="nav__contents__link" activeStyle={{ display: `none` }} partiallyActive={ true } onClick={ this.hideNav }>
+																<div className="flex--row flex--start flex--align-center margin--bottom--25">
+																	<span className="detail detail--small text--black">{ toRomanNumeral( caseStudy.hero.year ) }</span>
+																	<span className="break width--200 margin--left--50 margin--right--50 bkg--black" />
+																	<span className="detail detail--small text--black">{ caseStudy.hero.detail }</span>
+																</div>
+																<span className="headline text--black">{ caseStudy.hero.headline }</span>
+															</Link>
 														</li>
 											        )
 												})}
@@ -101,7 +119,7 @@ class Navigation extends Component {
 			        		</div>
 			        	</div>
 
-			        	<Background container="navigation" open={ this.state.navOpen } />
+			        	<Background container="navigation" open={ this.state.navOpen } colorStops="color-stop--nav" colorStopsScroll="color-stop--nav" />
 		        	</div>
 		        </nav>
 	        </Fragment>
@@ -115,6 +133,9 @@ export default props => (
      <StaticQuery
      	query = { graphql`
      		query {
+     			contentfulHome( title: { eq: "Home" } ) {
+     				title
+     			}
 				contentfulNavigation( title: { eq: "Navigation" } ) {
 					detail
 					links {
@@ -132,6 +153,6 @@ export default props => (
 				}
 			}
  		`}
- 		render = { ({ contentfulNavigation }) => <Navigation navigation={ contentfulNavigation } { ...props } /> }
+ 		render = { ({ contentfulHome, contentfulNavigation }) => <Navigation home={ contentfulHome } navigation={ contentfulNavigation } { ...props } /> }
 	/>
 )

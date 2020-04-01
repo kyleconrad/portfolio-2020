@@ -39,7 +39,7 @@ module.exports = {
 				files: [ './public/**/*.html', './public/*.html' ],
 				comment: [
 					{
-						regexp: /<head-comment>(.*?)<\/head-comment>/g,
+						regexp: /<footer-comment>(.*?)<\/footer-comment>/g,
 						comment: `<!-- All design, ideas, fantastical inventions, etc. etc. © 2020 Kyle Conrad -->`,
 					},
 					{

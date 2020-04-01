@@ -32,7 +32,7 @@ export default ({ data }) => {
 
 
 
-export const pageQuery = graphql`
+export const homeQuery = graphql`
 	query HomeQuery {
 		site {
 			siteMetadata {

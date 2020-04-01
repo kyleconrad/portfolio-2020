@@ -1,7 +1,7 @@
 import React from "react"
 import { Component } from "react"
 
-import Store from "../components/store"
+// import Store from "../components/store"
 
 import { rgbToHex } from "../js/functions"
 import { debounce } from "../js/functions"
@@ -74,9 +74,9 @@ class Background extends Component {
 			width: canvas.width,
 			height: canvas.height
 		}, () => {
-			if ( this.props.container === 'main' ) {
-				Store.backgroundData = this.state.canvasData;
-			}
+			// if ( this.props.container === 'main' ) {
+			// 	Store.backgroundData = this.state.canvasData;
+			// }
 
 
 
@@ -139,13 +139,21 @@ class Background extends Component {
 
 
 	onResize = debounce( ( e ) => {
-		const $main = document.getElementsByTagName( 'main' )[ 0 ];
+		const 	$main = document.getElementsByTagName( 'main' )[ 0 ],
+				$nav = document.getElementsByTagName( 'nav' )[ 0 ];
+
 
 
 		this.createGradient( true );
 
 
-		$main.scrollTop > 1 ? $main.scrollTop = $main.scrollTop - 1 : $main.scrollTop = $main.scrollTop + 1;
+
+		if ( this.props.open ) {
+			$nav.dispatchEvent( new CustomEvent( 'scroll' ) );
+		}
+		else if ( this.props.open !== undefined && !this.props.open ) {
+			$main.dispatchEvent( new CustomEvent( 'scroll' ) );
+		}
 	}, 350 );
 
 
@@ -155,17 +163,14 @@ class Background extends Component {
 
 
 
-		if ( this.props.container === 'main' ) {
-			this.createGradient( false, this.colorStops, 'color-stop', true );
+		if ( this.props.open === undefined ) {
+			this.createGradient( false, this.colorStops, this.props.colorStops, true );
 
 
 
-			$main.addEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true, $main ) );
+			$main.addEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, this.props.colorStopsScroll, true, $main ) );
 		}
-
-
-
-		if ( this.props.container === 'navigation' ) {
+		else {
 			this.createGradient();
 		}
 
@@ -175,10 +180,31 @@ class Background extends Component {
 	}
 
 	componentDidUpdate( prevProps, prevState, snapshot ) {
+		const 	$main = document.getElementsByTagName( 'main' )[ 0 ],
+				$nav = document.getElementsByTagName( 'nav' )[ 0 ];
 		// if ( this.props.container === 'navigation' ) {
 		// 	console.log( Store.backgroundData );
 		// }
-		console.log( this.props.container, this.props.open, this.state.canvasData, Store.backgroundData );
+		// console.log( this.props.container, this.props.open, this.state.canvasData, Store.backgroundData );
+
+
+
+		if ( this.props.open !== undefined ) {
+			if ( this.props.open ) {
+				this.colorStops( this.state.canvasData, this.props.colorStops, true, $nav );
+
+
+
+				$nav.addEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, this.props.colorStopsScroll, true, $nav ) );
+			}
+			else {
+				$nav.removeEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, this.props.colorStopsScroll, true, $nav ) );
+
+
+
+				$main.dispatchEvent( new CustomEvent( 'scroll' ) );
+			}
+		}
 	}
 
 	componentWillUnmount() {
@@ -186,8 +212,8 @@ class Background extends Component {
 
 
 
-		if ( this.props.container === 'main' ) {
-			$main.removeEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true, $main ) );
+		if ( this.props.open === undefined ) {
+			$main.removeEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, this.props.colorStopsScroll, true, $main ) );
 		}
 
 

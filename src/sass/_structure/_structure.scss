@@ -49,6 +49,7 @@
 
 	&--gradient {
 		&:after {
+			background: map-get( $colors, gray );
 			background: linear-gradient(
 		    	to bottom,
 		    	var( --colorTop ),
@@ -66,6 +67,20 @@
 	display: block;
 
 	height: 1px;
+
+
+
+	.nav__contents__link:hover & {
+		background-color: map-get( $colors, white );
+	}
+
+
+
+	@supports ( -webkit-text-stroke: 1px black ) {
+		.nav__contents__link:hover & {
+			background-color: map-get( $colors, black );
+		}
+	}
 }
 
 

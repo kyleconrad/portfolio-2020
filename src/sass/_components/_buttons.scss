@@ -144,8 +144,6 @@ button {
 .logo__interior {
 	@extend .bkg--black;
 
-	transition: background-color 0.25s ease-in-out;
-
 
 
 	.nav--open & {

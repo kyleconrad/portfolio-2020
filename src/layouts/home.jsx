@@ -66,7 +66,7 @@ const Home = ( props ) => {
 					</div>
 				</div>
 
-				<Background container="main" />
+				<Background container="main" colorStops="color-stop" colorStopsScroll="color-stop--scroll" />
 			</section>
 		</main>
 	)

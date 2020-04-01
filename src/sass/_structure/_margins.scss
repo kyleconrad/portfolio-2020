@@ -45,6 +45,32 @@
 	}
 }
 
+@for $i from 2 through 4 {
+	.margin--#{ 100 * $i } {
+		margin: calc( var(--padding) * #{ $i } );
+	}
+
+
+	.margin--top--#{ 100 * $i } {
+		margin-top: calc( var(--padding) * #{ $i } );
+	}
+
+
+	.margin--bottom--#{ 100 * $i } {
+		margin-bottom: calc( var(--padding) * #{ $i } );
+	}
+
+
+	.margin--left--#{ 100 * $i } {
+		margin-left: calc( var(--padding) * #{ $i } );
+	}
+
+
+	.margin--right--#{ 100 * $i } {
+		margin-right: calc( var(--padding) * #{ $i } );
+	}
+}
+
 
 
 @include breakpoint(landscape) {
@@ -91,6 +117,33 @@
 
 		.landscape-margin--right--#{ 5 * $i } {
 			margin-right: #{ 5px * $i };
+		}
+	}
+
+
+	@for $i from 2 through 4 {
+		.landscape-margin--#{ 100 * $i } {
+			margin: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.landscape-margin--top--#{ 100 * $i } {
+			margin-top: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.landscape-margin--bottom--#{ 100 * $i } {
+			margin-bottom: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.landscape-margin--left--#{ 100 * $i } {
+			margin-left: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.landscape-margin--right--#{ 100 * $i } {
+			margin-right: calc( var(--padding) * #{ $i } );
 		}
 	}
 }
@@ -143,6 +196,33 @@
 			margin-right: #{ 5px * $i };
 		}
 	}
+
+
+	@for $i from 2 through 4 {
+		.portrait-margin--#{ 100 * $i } {
+			margin: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.portrait-margin--top--#{ 100 * $i } {
+			margin-top: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.portrait-margin--bottom--#{ 100 * $i } {
+			margin-bottom: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.portrait-margin--left--#{ 100 * $i } {
+			margin-left: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.portrait-margin--right--#{ 100 * $i } {
+			margin-right: calc( var(--padding) * #{ $i } );
+		}
+	}
 }
 
 
@@ -191,6 +271,33 @@
 
 		.mobile-margin--right--#{ 5 * $i } {
 			margin-right: #{ 5px * $i };
+		}
+	}
+
+
+	@for $i from 2 through 4 {
+		.mobile-margin--#{ 100 * $i } {
+			margin: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.mobile-margin--top--#{ 100 * $i } {
+			margin-top: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.mobile-margin--bottom--#{ 100 * $i } {
+			margin-bottom: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.mobile-margin--left--#{ 100 * $i } {
+			margin-left: calc( var(--padding) * #{ $i } );
+		}
+
+
+		.mobile-margin--right--#{ 100 * $i } {
+			margin-right: calc( var(--padding) * #{ $i } );
 		}
 	}
 }

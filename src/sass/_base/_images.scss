@@ -46,16 +46,27 @@ video {
 
 
 
-	.logo:hover &,
-	.nav--open & {
+	.logo:hover & {
 		opacity: 0;
 	}
 }
 
 .logo__logo__color-top {
 	stop-color: var( --colorTop );
+
+
+
+	.nav--open & {
+		stop-color: map-get( $colors, black );
+	}
 }
 
 .logo__logo__color-bottom {
 	stop-color: var( --colorBottom );
+
+
+
+	.nav--open & {
+		stop-color: map-get( $colors, black );
+	}
 }
