@@ -7,7 +7,7 @@ require( "dotenv" ).config({
 module.exports = {
 	siteMetadata: {
 		author: `@kyle_conrad`,
-		siteURL: `https://kyleconrad.com`,
+		siteUrl: `https://kyleconrad.com`,
 	},
 	plugins: [
 		{
@@ -46,8 +46,17 @@ module.exports = {
 						regexp: /<contact-comment>(.*?)<\/contact-comment>/g,
 						comment: `<!-- Contact: kyle@kyleconrad.com / @kyle_conrad -->`,
 					},
-				]
-			}
-		}
+				],
+			},
+		},
+		{
+			resolve: `gatsby-plugin-google-analytics`,
+			options: {
+				trackingId: "UA-25023620-1",
+				head: true,
+				respectDNT: true,
+			},
+		},
+		`gatsby-plugin-sitemap`,
 	],
 }

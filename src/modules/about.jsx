@@ -1,5 +1,6 @@
 import React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import Header from "../components/header"
 import Sidebar from "../components/sidebar"
@@ -30,7 +31,9 @@ const About = ( props ) => {
 							<ul className="aside width--20 flex--shrink--0 margin--left--75">
 								{ socialMedia.map( ( link ) => {
 									return (
-								        <li key={ link.name } ><a href={ link.url } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">{ link.name }</a></li>
+								        <li key={ link.name } >
+								        	<OutboundLink href={ link.url } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">{ link.name }</OutboundLink>
+							        	</li>
 							        )
 								})}
 							</ul>

@@ -1,5 +1,6 @@
 import React from "react"
 import { Component } from "react"
+import ReactGA from "react-ga"
 
 
 
@@ -17,10 +18,13 @@ class VideoEmbed extends Component {
 		this.preload = false;
 		this.interaction = false;
 
+		this.tracked = false;
+
 
 
 		this.state = {
 			paused: true,
+			tracked: false,
 			preload: 'metadata',
 			height: 0,
 			posY: 0,
@@ -34,6 +38,8 @@ class VideoEmbed extends Component {
 		this.toggleVideo = this.toggleVideo.bind( this );
 
 		this.preloadVideo = this.preloadVideo.bind( this );
+
+		this.trackVideo = this.trackVideo.bind( this );
 
 		this.updateProgress = this.updateProgress.bind( this );
 
@@ -58,6 +64,10 @@ class VideoEmbed extends Component {
 		this.setState({
 			paused: this.paused
 		});
+
+
+
+		this.trackVideo();
 	}
 
 	pauseVideo() {
@@ -83,8 +93,45 @@ class VideoEmbed extends Component {
 	preloadVideo() {
 		this.preload = true;
 
+
+
 		this.setState({
 			preload: 'auto'
+		});
+	}
+
+
+
+	trackVideo() {
+		var videoTitleString = this.videoEmbed.poster.split( '/' ).pop(),
+			videoTitle = videoTitleString.substring( 0, videoTitleString.length - 4 );
+
+		
+
+		if ( !this.tracked && !this.interaction ) {
+			ReactGA.event({
+				category: 'Videos',
+				action: 'Autoplay',
+				label: videoTitle
+			});
+		}
+
+
+
+		if ( this.interaction ) {
+			ReactGA.event({
+				category: 'Videos',
+				action: 'Play',
+				label: videoTitle
+			});
+		}
+
+
+
+		this.tracked = true;
+	
+		this.setState({
+			tracked: this.tracked
 		});
 	}
 

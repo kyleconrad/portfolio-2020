@@ -20,7 +20,7 @@ export default ({ data }) => {
         		title={ data.contentfulHome.metadataTitle }
         		author={ data.site.siteMetadata.author }
         		description={ data.contentfulHome.metadataDescription }
-        		url={ data.site.siteMetadata.siteURL }
+        		url={ data.site.siteMetadata.siteUrl }
     		/>
 
 			<Navigation />
@@ -37,7 +37,7 @@ export const pageQuery = graphql`
 		site {
 			siteMetadata {
 				author
-				siteURL
+				siteUrl
 			}
 		}
 		contentfulHome( title: { eq: "Home" } ) {

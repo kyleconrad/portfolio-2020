@@ -2,6 +2,7 @@ import React from "react"
 import { Fragment, Component } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import Logo from "../components/logo"
 import Header from "../components/header"
@@ -86,7 +87,9 @@ class Navigation extends Component {
 											<ul className="nav__social flex--row flex--between flex--align-center">
 												{ navigation.socialMedia.map( ( link ) => {
 													return (
-												        <li key={ link.name } ><a href={ link.url } target="_blank" rel="noopener noreferrer">{ link.name }</a></li>
+												        <li key={ link.name } >
+												        	<OutboundLink href={ link.url } target="_blank" rel="noopener noreferrer">{ link.name }</OutboundLink>
+											        	</li>
 											        )
 												})}
 											</ul>

@@ -4,7 +4,7 @@ import { Component } from "react"
 import Store from "../components/store"
 
 import { rgbToHex } from "../js/functions"
-// import { debounce } from "../js/functions"
+import { debounce } from "../js/functions"
 
 
 
@@ -31,7 +31,7 @@ class Background extends Component {
 
 
 
-	createGradient( complete, className ) {
+	createGradient( clear, complete, className ) {
 		var canvas = this.background;
 
 		var parent = canvas.parentElement,
@@ -52,9 +52,9 @@ class Background extends Component {
 
 
 
-		// if ( clear ) {
-		// 	context.clearRect( 0, 0, canvas.width, canvas.height );
-		// }
+		if ( clear ) {
+			context.clearRect( 0, 0, canvas.width, canvas.height );
+		}
 
 
 
@@ -138,9 +138,15 @@ class Background extends Component {
 
 
 
-	// onResize = debounce( ( e ) => {
-		// this.createGradient( true, this.colorStops, 'color-stop' );
-	// }, 350 );
+	onResize = debounce( ( e ) => {
+		const $main = document.getElementsByTagName( 'main' )[ 0 ];
+
+
+		this.createGradient( true );
+
+
+		$main.scrollTop > 1 ? $main.scrollTop = $main.scrollTop - 1 : $main.scrollTop = $main.scrollTop + 1;
+	}, 350 );
 
 
 
@@ -150,7 +156,7 @@ class Background extends Component {
 
 
 		if ( this.props.container === 'main' ) {
-			this.createGradient( this.colorStops, 'color-stop', true );
+			this.createGradient( false, this.colorStops, 'color-stop', true );
 
 
 
@@ -162,13 +168,17 @@ class Background extends Component {
 		if ( this.props.container === 'navigation' ) {
 			this.createGradient();
 		}
+
+
+
+		window.addEventListener( 'resize', this.onResize.bind( this ) );
 	}
 
 	componentDidUpdate( prevProps, prevState, snapshot ) {
 		// if ( this.props.container === 'navigation' ) {
 		// 	console.log( Store.backgroundData );
 		// }
-		console.log( this.props.container, this.props.open, prevState );
+		console.log( this.props.container, this.props.open, this.state.canvasData, Store.backgroundData );
 	}
 
 	componentWillUnmount() {
@@ -177,10 +187,12 @@ class Background extends Component {
 
 
 		if ( this.props.container === 'main' ) {
-			// window.removeEventListener( 'resize', this.onResize.bind( this ) );
-
 			$main.removeEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, 'color-stop--scroll', true, $main ) );
 		}
+
+
+
+		window.removeEventListener( 'resize', this.onResize.bind( this ) );
 	}
 
 
