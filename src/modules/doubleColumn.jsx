@@ -13,9 +13,11 @@ const DoubleColumn = ( props ) => {
 
 	return (
 		<section className="flex--row flex--between flex--align-stretch border border--left--1 border--transparent">
-			<div className={ `width--250 flex--shrink--0 flex--column border border--right--1 border--bottom--1 border--transparent overflow--hidden ${ props.data.alignment === 'Right' ? 'order--1' : 'order--2' }` }>
-		        <div className="flex--grow bkg--topo bkg--topo--invert" />
-	        </div>
+			{ props.data.alignment !== 'Full' &&
+				<div className={ `width--250 flex--shrink--0 flex--column border border--right--1 border--bottom--1 border--transparent overflow--hidden ${ props.data.alignment === 'Right' ? 'order--1' : 'order--2' }` }>
+			        <div className="flex--grow bkg--topo bkg--topo--invert" />
+		        </div>
+		    }
 
 			<div className={ `flex--grow ${ props.data.alignment === 'Right' ? 'order--2' : 'order--1' }` }>
 				{ props.data.caption &&
