@@ -89,13 +89,13 @@ class Background extends Component {
 
 
 	colorStops( canvasData, className, scroll, scrollElement ) {
-		var elements = document.getElementsByClassName( className );
+		const elements = document.querySelectorAll( '.' + className );
+
+		var stateCanvasData = this.state.canvasData;
 
 
 
-		for ( let i = 0; i < elements.length; i++ ) {
-			var element = elements[ i ];
-
+		[ ...elements ].forEach( function( element ) {
 			var elementTop = element.getBoundingClientRect().top,
 				elementBottom = elementTop + element.getBoundingClientRect().height;
 
@@ -122,18 +122,18 @@ class Background extends Component {
 				colorBottom = rgbToHex( canvasData.data[ indexBottom ], canvasData.data[ indexBottom + 1 ], canvasData.data[ indexBottom + 2 ] );
 			}
 			else {
-				indexTop = ( Math.floor( elementTop ) * this.state.canvasData.width ) * 4;
-				indexBottom = ( Math.floor( elementBottom ) * this.state.canvasData.width ) * 4;
+				indexTop = ( Math.floor( elementTop ) * stateCanvasData.width ) * 4;
+				indexBottom = ( Math.floor( elementBottom ) * stateCanvasData.width ) * 4;
 
-				colorTop = rgbToHex( this.state.canvasData.data[ indexTop ], this.state.canvasData.data[ indexTop + 1 ], this.state.canvasData.data[ indexTop + 2 ] );
-				colorBottom = rgbToHex( this.state.canvasData.data[ indexBottom ], this.state.canvasData.data[ indexBottom + 1 ], this.state.canvasData.data[ indexBottom + 2 ] );
+				colorTop = rgbToHex( stateCanvasData.data[ indexTop ], stateCanvasData.data[ indexTop + 1 ], stateCanvasData.data[ indexTop + 2 ] );
+				colorBottom = rgbToHex( stateCanvasData.data[ indexBottom ], stateCanvasData.data[ indexBottom + 1 ], stateCanvasData.data[ indexBottom + 2 ] );
 			}
 
 
 
 			element.style.setProperty( '--colorTop', '#' + colorTop );
 			element.style.setProperty( '--colorBottom', '#' + colorBottom );
-		}
+		});
 	}
 
 

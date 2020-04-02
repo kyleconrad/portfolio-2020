@@ -49,41 +49,47 @@ class VideoEmbed extends Component {
 
 
 	playVideo() {
-		if ( this.videoEmbed.currentTime === this.videoEmbed.duration ) {
-			this.videoEmbed.currentTime = 0;
+		if ( this.videoEmbed ) {
+			if ( this.videoEmbed.currentTime === this.videoEmbed.duration && this.interaction ) {
+				this.videoEmbed.currentTime = 0;
+			}
+
+
+
+			this.videoEmbed.play();
+
+			this.paused = false;
+
+
+
+			this.setState({
+				paused: this.paused
+			});
+
+
+
+			this.trackVideo();
 		}
-
-
-
-		this.videoEmbed.play();
-
-		this.paused = false;
-
-
-
-		this.setState({
-			paused: this.paused
-		});
-
-
-
-		this.trackVideo();
 	}
 
 	pauseVideo() {
-		this.videoEmbed.pause();
+		if ( this.videoEmbed ) {
+			this.videoEmbed.pause();
 
-		this.paused = true;
+			this.paused = true;
 
 
 
-		this.setState({
-			paused: this.paused
-		});
+			this.setState({
+				paused: this.paused
+			});
+		}
 	}
 
 	toggleVideo() {
 		this.paused ? this.playVideo() : this.pauseVideo();
+
+
 
 		this.interaction = true;
 	}
@@ -179,7 +185,8 @@ class VideoEmbed extends Component {
 
 		var	scrollPosY = main.scrollTop,
 			preloadPosY = this.state.posY - ( windowHeight * 2 ),
-			playPosY = this.state.posY - ( windowHeight * 0.75 );
+			playPosY = this.state.posY - ( windowHeight * 0.75 ),
+			pausePosY = this.state.posY + this.state.height;
 
 
 
@@ -189,8 +196,14 @@ class VideoEmbed extends Component {
 
 
 
-		if ( scrollPosY >= playPosY && this.paused && !this.interaction ) {
+		if ( scrollPosY >= pausePosY && !this.paused ) {
+			this.pauseVideo();
+		}
+		else if ( scrollPosY >= playPosY && scrollPosY < pausePosY && this.paused && !this.interaction ) {
 			this.playVideo();
+		}
+		else {
+			this.pauseVideo();
 		}
 	}
 

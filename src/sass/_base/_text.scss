@@ -81,6 +81,7 @@ em {
 //// Text Links
 p > a {
 	display: inline-block;
+	position: relative;
 
 	font-family: $font-headline;
 	font-weight: $font-headline--weight;
@@ -91,11 +92,37 @@ p > a {
 
 	vertical-align: baseline;
 
+	transition: opacity 0.15s ease-in-out;
 
 
-	// &:hover {
-	// 	filter: brightness( 125% );
-	// }
+
+	&:after {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: calc( 100% - 0.05em );
+
+		height: 1px;
+		max-width: 0;
+
+		background: var( --colorBottom );
+
+		content: '';
+	}
+
+
+
+	&:hover {
+		opacity: 0.5;
+
+
+
+		&:after {
+			max-width: 100%;
+
+			transition: 0.15s ease-in-out;
+		}
+	}
 }
 
 
@@ -179,6 +206,8 @@ p > a {
 
 		text-decoration: none;
 
+		transition: opacity 0.15s ease-in-out;
+
 
 
 		&:after {
@@ -199,6 +228,10 @@ p > a {
 
 
 		&:hover {
+			opacity: 0.5;
+
+
+
 			&:after {
 				max-width: 100%;
 
