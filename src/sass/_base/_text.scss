@@ -63,6 +63,12 @@ p {
 		font-weight: $font-headline--weight;
 
 		line-height: 1.5;
+
+
+
+		&:not(:last-child) {
+	    	margin-bottom: 0.5em;
+	    }
     }
 }
 
