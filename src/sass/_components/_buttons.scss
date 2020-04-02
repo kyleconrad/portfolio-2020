@@ -75,7 +75,7 @@ button {
 	&:before,
 	&:after {
 		position: absolute;
-		top: 0;
+		bottom: 0;
 		left: 0;
 
 		width: 100%;
@@ -83,6 +83,8 @@ button {
 
 		background-size: 400px auto;
 		background-position: center top;
+
+		transform: translate3d( 0, 80%, 0 );
 
 		animation: logo-slide 120s linear infinite;
 		animation-direction: normal;
@@ -155,11 +157,11 @@ button {
 
 @keyframes logo-slide {
 	from {
-		transform: translate3d( 0, 0, 0 );
+		transform: translate3d( 0, 80%, 0 );
 	}
 
 	to {
-		transform: translate3d( 0, -80%, 0 );
+		transform: translate3d( 0, 0, 0 );
 	}
 }
 

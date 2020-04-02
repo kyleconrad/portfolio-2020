@@ -199,11 +199,8 @@ class VideoEmbed extends Component {
 		if ( scrollPosY >= pausePosY && !this.paused ) {
 			this.pauseVideo();
 		}
-		else if ( scrollPosY >= playPosY && scrollPosY < pausePosY && this.paused && !this.interaction ) {
+		else if ( scrollPosY < pausePosY && scrollPosY >= playPosY && this.paused && !this.interaction ) {
 			this.playVideo();
-		}
-		else {
-			this.pauseVideo();
 		}
 	}
 
