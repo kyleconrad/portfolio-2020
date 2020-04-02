@@ -174,7 +174,37 @@ p > a {
 
 
 	a {
+		display: inline-block;
+		position: relative;
+
 		text-decoration: none;
+
+
+
+		&:after {
+			position: absolute;
+			top: calc( 100% + 0.5em );
+			left: 0;
+			right: 0.35em;
+
+			height: 1px;
+			max-width: 0;
+
+			background: map-get( $colors, gray );
+			background: var( --colorBottom );
+
+			content: '';
+		}
+
+
+
+		&:hover {
+			&:after {
+				max-width: 100%;
+
+				transition: 0.15s ease-in-out;
+			}
+		}
 	}
 }
 
@@ -189,7 +219,7 @@ p > a {
 
 
 	span {
-		transition: 0.1s ease-in-out;
+		transition: 0.15s ease-in-out;
 	}
 
 
@@ -219,6 +249,9 @@ p > a {
 
 .nav__social {
 	a {
+		display: inline-block;
+		position: relative;
+
 		@include responsive-font( 0.85vw, 8px, 14px, 10px );
 
 		font-family: $font-detail;
@@ -231,6 +264,32 @@ p > a {
 		text-decoration: none;
 
 		color: map-get( $colors, black );
+
+
+
+		&:after {
+			position: absolute;
+			top: calc( 100% + 0.5em );
+			left: 0;
+			right: 0.35em;
+
+			height: 1px;
+			max-width: 0;
+
+			background: map-get( $colors, black );
+
+			content: '';
+		}
+
+
+
+		&:hover {
+			&:after {
+				max-width: 100%;
+
+				transition: 0.15s ease-in-out;
+			}
+		}
 	}
 }
 
