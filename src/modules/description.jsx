@@ -1,5 +1,6 @@
 import React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 
 
@@ -17,6 +18,14 @@ const Description = ( props ) => {
 
 	        <div className="border border--right--1 border--transparent">
 		        <div className="padding--horizontal--100 padding--top--75 padding--bottom--100 bkg--black">
+		        	{ props.data.url &&
+		        		<div className="padding--bottom--75">
+		        			<p>
+		        				<OutboundLink href={ props.data.url } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">Visit { props.title }</OutboundLink>
+		        			</p>
+		        		</div>
+		        	}
+
 				    <div className="text--white padding--bottom--75">{ description }</div>
 				    <div className="caption color-stop text--gradient">{ detail }</div>
 			    </div>

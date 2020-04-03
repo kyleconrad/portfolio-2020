@@ -62,7 +62,8 @@ const CaseStudy = ( props ) => {
 	return (
 		<article>
 			<Hero data={ hero } />
-			<Description data={ description } text={ textOptions } />
+
+			<Description title={ hero.headline } data={ description } text={ textOptions } />
 
 			{ media && media.map( ( module, i ) =>
 				getMediaModule( module, i )

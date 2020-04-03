@@ -109,7 +109,6 @@ p > a {
 		top: calc( 100% - 0.05em );
 
 		height: 1px;
-		max-width: 0;
 
 		background: var( --colorBottom );
 
@@ -118,15 +117,23 @@ p > a {
 
 
 
-	&:hover {
-		opacity: 0.5;
-
-
-
+	@media ( hover: hover ) and ( pointer: fine ) {
 		&:after {
-			max-width: 100%;
+			max-width: 0;
+		}
 
-			transition: 0.15s ease-in-out;
+
+
+		&:hover {
+			opacity: 0.5;
+
+
+
+			&:after {
+				max-width: 100%;
+
+				transition: 0.15s ease-in-out;
+			}
 		}
 	}
 }
@@ -233,15 +240,17 @@ p > a {
 
 
 
-		&:hover {
-			opacity: 0.5;
+		@media ( hover: hover ) and ( pointer: fine ) {
+			&:hover {
+				opacity: 0.5;
 
 
 
-			&:after {
-				max-width: 100%;
+				&:after {
+					max-width: 100%;
 
-				transition: 0.15s ease-in-out;
+					transition: 0.15s ease-in-out;
+				}
 			}
 		}
 	}
@@ -322,11 +331,13 @@ p > a {
 
 
 
-		&:hover {
-			&:after {
-				max-width: 100%;
+		@media ( hover: hover ) and ( pointer: fine ) {
+			&:hover {
+				&:after {
+					max-width: 100%;
 
-				transition: 0.15s ease-in-out;
+					transition: 0.15s ease-in-out;
+				}
 			}
 		}
 	}
@@ -453,6 +464,7 @@ p > a {
 //// Gradient text
 .text--gradient {
 	color: map-get( $colors, gray );
+	-webkit-text-fill-color: map-get( $colors, gray );
 
 	background: linear-gradient(
 	    	to bottom,
@@ -466,6 +478,7 @@ p > a {
 
 .text--gradient--reverse {
 	color: map-get( $colors, gray );
+	-webkit-text-fill-color: map-get( $colors, gray );
 
 	background: linear-gradient(
 	    	to top,

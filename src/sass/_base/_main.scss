@@ -170,7 +170,7 @@ div {
 
 
 
-@for $i from 1 through 5 {
+@for $i from 0 through 5 {
 	.border--#{ $i } {
 		border-width: $i * 1px;
 	}
@@ -191,6 +191,60 @@ div {
 
 	.border--right--#{ $i } {
 		border-right-width: $i * 1px;
+	}
+}
+
+
+@include breakpoint( portrait ) {
+	@for $i from 0 through 5 {
+		.portrait-border--#{ $i } {
+			border-width: $i * 1px;
+		}
+
+
+
+		.portrait-border--top--#{ $i } {
+			border-top-width: $i * 1px;
+		}
+
+		.portrait-border--bottom--#{ $i } {
+			border-bottom-width: $i * 1px;
+		}
+
+		.portrait-border--left--#{ $i } {
+			border-left-width: $i * 1px;
+		}
+
+		.portrait-border--right--#{ $i } {
+			border-right-width: $i * 1px;
+		}
+	}
+}
+
+
+@include breakpoint( mobile ) {
+	@for $i from 0 through 5 {
+		.mobile-border--#{ $i } {
+			border-width: $i * 1px;
+		}
+
+
+
+		.mobile-border--top--#{ $i } {
+			border-top-width: $i * 1px;
+		}
+
+		.mobile-border--bottom--#{ $i } {
+			border-bottom-width: $i * 1px;
+		}
+
+		.mobile-border--left--#{ $i } {
+			border-left-width: $i * 1px;
+		}
+
+		.mobile-border--right--#{ $i } {
+			border-right-width: $i * 1px;
+		}
 	}
 }
 

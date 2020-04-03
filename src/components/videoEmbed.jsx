@@ -2,6 +2,8 @@ import React from "react"
 import { Component } from "react"
 import ReactGA from "react-ga"
 
+import { hasAudio } from "../js/functions"
+
 
 
 class VideoEmbed extends Component {
@@ -18,6 +20,8 @@ class VideoEmbed extends Component {
 		this.preload = false;
 		this.interaction = false;
 
+		this.audio = false;
+
 		this.tracked = false;
 
 
@@ -28,7 +32,9 @@ class VideoEmbed extends Component {
 			preload: 'metadata',
 			height: 0,
 			posY: 0,
-			progress: '0'
+			progress: '0',
+			audio: false,
+			mute: true
 		};
 
 

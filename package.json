@@ -1,7 +1,7 @@
 {
 	"name": "portfolio-2020",
 	"private": true,
-	"description": "Portfolio 2020",
+	"description": "Gatsby build, using Contentful as CMS, of Kyle Conrad's 2020 portfolio redesign",
 	"version": "0.1.0",
 	"license": "MIT",
 	"scripts": {

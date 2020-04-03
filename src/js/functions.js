@@ -95,6 +95,20 @@ export function rgbToHex( r, g, b ) {
 
 
 
+// Video Functions
+
+//// Check for Audio
+//// https://stackoverflow.com/questions/21270048/html5-video-how-to-detect-when-there-is-no-audio-track
+export function hasAudio( video ) {
+    return video.mozHasAudio ||
+    Boolean(video.webkitAudioDecodedByteCount) ||
+    Boolean(video.audioTracks && video.audioTracks.length);
+}
+
+
+
+
+
 // Other Utility Functions
 
 //// Debounce
