@@ -287,6 +287,8 @@ class Background extends Component {
 
 		if ( this.props.open === undefined ) {
 			$main.removeEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, this.props.colorStopsScroll, true, $main ) );
+
+			$main.removeEventListener( 'scroll', this.iconScroll.bind( null, this.state.canvasData, $main ) );
 		}
 
 
