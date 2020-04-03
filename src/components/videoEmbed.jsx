@@ -2,8 +2,6 @@ import React from "react"
 import { Component } from "react"
 import ReactGA from "react-ga"
 
-import { hasAudio } from "../js/functions"
-
 
 
 class VideoEmbed extends Component {

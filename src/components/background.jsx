@@ -25,8 +25,14 @@ class Background extends Component {
 
 
 
+		this.color = false;
+
+
+
 		this.createGradient = this.createGradient.bind( this );
 		this.colorStops = this.colorStops.bind( this );
+
+		this.iconScroll = this.iconScroll.bind( this );
 	}
 
 
@@ -138,6 +144,71 @@ class Background extends Component {
 
 
 
+	iconScroll( canvasData, scrollElement ) {
+		var stateCanvasData = this.state.canvasData;
+
+		var scroll = scrollElement.scrollTop;
+
+
+
+		var favicon = document.getElementById( 'favicon' ),
+			icon = document.createElement( 'img' ),
+			size = 32;
+
+		var canvas = document.createElement( 'canvas' ),
+			context = canvas.getContext( '2d' );
+
+
+
+		var index,
+			color;
+
+
+
+		icon.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAMFBMVEVHcEwXFxcXFxcWFhYWFhYZGRkWFhYWFhYWFhYhISEYGBgWFhYXFxcWFhYWFhYWFhZ47OadAAAAEHRSTlMAQW/T4BthsJYKMYVSwaHziTcpDwAAAQdJREFUeNrNktGKxDAIRW+iRo0x+f+/3XSGUsp25nHZ8yCRAxHx4u8pFd8hlq++abVv3lmcOj4TAQz97IUdQBZ8YlZsOj3by8z2ZM+//T3picGRi3nxpHj2WQUbH3OF/5qfywBIKX27tqjdfePB0m2tzLW0gIaq4yJSLCYpCSCamS0Ruzmp6n1xgMXDxFkGr4FB1wkcugokYVZ3GRBih+CibI+uyCKMaICs+6pk1OGMwlyRHZJ2C0abWzVYHNNGou+m2i0GgOQU1TGMpHEHcAXj3Ci4DbNWUo/WNa8YNG6vx2RVfuehUOQAzvOKpuCgd38NDeo4z99XbGjXC1q2K1cclPaRgX/BDzm/Cero/XepAAAAAElFTkSuQmCC';
+
+		canvas.width = size;
+		canvas.height = size;
+
+
+
+		if ( canvasData ) {
+			index = ( Math.floor( scroll ) * canvasData.width ) * 4;
+
+			color = rgbToHex( canvasData.data[ index ], canvasData.data[ index + 1 ], canvasData.data[ index + 2 ] );
+		}
+		else {
+			index = ( Math.floor( scroll ) * stateCanvasData.width ) * 4;
+
+			color = rgbToHex( stateCanvasData.data[ index ], stateCanvasData.data[ index + 1 ], stateCanvasData.data[ index + 2 ] );
+		}
+
+
+
+
+		if ( this.color !== color ) {
+			this.color = color;
+
+
+
+			icon.onload = () => {
+				context.fillStyle = '#' + this.color;
+				context.fillRect( 0, 0, canvas.width, canvas.height );
+				context.fill();
+
+
+
+				context.drawImage( icon, 0, 0, canvas.width, canvas.height );
+
+
+
+				favicon.href = canvas.toDataURL( 'image/png' );
+			}
+		}
+	}
+
+
+
 	onResize = debounce( ( e ) => {
 		const 	$main = document.getElementsByTagName( 'main' )[ 0 ],
 				$nav = document.getElementsByTagName( 'nav' )[ 0 ];
@@ -169,6 +240,8 @@ class Background extends Component {
 
 
 			$main.addEventListener( 'scroll', this.colorStops.bind( null, this.state.canvasData, this.props.colorStopsScroll, true, $main ) );
+
+			$main.addEventListener( 'scroll', this.iconScroll.bind( null, this.state.canvasData, $main ) );
 		}
 		else {
 			this.createGradient();

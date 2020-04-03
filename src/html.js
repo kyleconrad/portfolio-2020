@@ -21,10 +21,7 @@ export default function HTML(props) {
 
 		        <link rel="author" href={ `/humans.txt` } />
 
-		        <link rel="icon" href={ `/images/icons/fav64.png` } sizes="64x64" type="image/png" />
-		        <link rel="icon" href={ `/images/icons/fav32.svg` } sizes="32x32" type="image/svg+xml" />
-			    <link rel="icon" href={ `/images/icons/fav32.png` } sizes="32x32" type="image/png" />
-			    <link rel="icon" href={ `/images/icons/fav32.png` } />
+			    <link rel="icon" href={ `/images/icons/fav32.png` } sizes="32x32" id="favicon"/>
 
 			    <meta name="theme-color" content="#73FFD2" />
 	        </head>
