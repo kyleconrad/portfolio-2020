@@ -193,11 +193,17 @@ button {
 			opacity: 1;
 		}
 	}
+
+
+
+	& > .flex--grow {
+		height: 100%;
+	}
 }
 
 
 
-.video__control__progress_container,
+.video__control__progress__container,
 .video__control__input {
 	position: absolute;
 	left: 0;
@@ -289,6 +295,51 @@ button {
 	background: map-get( $colors, white );
 
 	opacity: 0;
+}
+
+
+
+.video__control__sound {
+	width: 40px;
+
+	transform: translateY( 50% );
+
+
+
+	& > svg {
+		width: 100%;
+		height: auto;
+	}
+
+
+
+	.video__control__sound--playing {
+		display: block;
+
+
+		
+		.video--mute & {
+			display: none;
+		}
+	}
+
+	.video__control__sound--mute {
+		display: none;
+
+
+
+		.video--mute & {
+			display: block;
+		}
+	}
+}
+
+.video__control__sound__color-top {
+	stop-color: var( --colorTop );
+}
+
+.video__control__sound__color-bottom {
+	stop-color: var( --colorBottom );
 }
 
 

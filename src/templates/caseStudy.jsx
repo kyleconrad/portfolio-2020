@@ -116,6 +116,7 @@ export const caseStudyQuery = graphql`
 							url
 						}
 					}
+					audio
 				}
 				... on ContentfulMediaSingleColumn {
 					id
