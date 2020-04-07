@@ -11,6 +11,7 @@ import Spacer from "../components/spacer"
 import Background from "../components/background"
 
 import { toRomanNumeral } from "../js/functions"
+import { doomGuy } from "../js/functions"
 
 
 
@@ -54,6 +55,12 @@ class Navigation extends Component {
 		this.setState({
 			navOpen: false
 		});
+	}
+
+
+
+	componentDidMount() {
+		console.log( 'mounted function goes here' );
 	}
 
 
