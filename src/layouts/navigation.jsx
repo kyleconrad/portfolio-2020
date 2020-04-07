@@ -60,7 +60,7 @@ class Navigation extends Component {
 
 
 	componentDidMount() {
-		console.log( 'mounted function goes here' );
+		doomGuy();
 	}
 
 
@@ -89,14 +89,16 @@ class Navigation extends Component {
 											<Header text={ navigation.detail } />
 
 											<ul className="nav__contents padding--top--400">
-												<Link to="/" className="nav__contents__link margin--bottom--200" activeStyle={{ display: `none` }} onClick={ this.hideNav }>
-													<span className="headline text--black">{ home.title }.</span>
-												</Link>
+												<li>
+													<Link to="/" className="nav__contents__link margin--bottom--200" activeStyle={{ display: `none` }} onClick={ this.hideNav }>
+														<span className="headline text--black">{ home.title }.</span>
+													</Link>
+												</li>
 
 												{ navigation.links.map( ( caseStudy ) => {
 													return (
-														<li key={ caseStudy.slug } className="margin--bottom--200">
-															<Link to={ `/` + caseStudy.slug + `/` } className="nav__contents__link" activeStyle={{ display: `none` }} partiallyActive={ true } onClick={ this.hideNav }>
+														<li key={ caseStudy.slug }>
+															<Link to={ `/` + caseStudy.slug + `/` } className="nav__contents__link margin--bottom--200" activeStyle={{ display: `none` }} partiallyActive={ true } onClick={ this.hideNav }>
 																<div className="flex--row flex--start flex--align-center margin--bottom--25">
 																	<span className="detail detail--small text--black">{ toRomanNumeral( caseStudy.hero.year ) }</span>
 																	<span className="break width--200 margin--left--50 margin--right--50 bkg--black" />

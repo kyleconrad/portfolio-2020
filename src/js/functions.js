@@ -105,12 +105,16 @@ export function debounce( func, wait, immediate ) {
 
 
 	return function() {
-		var context = this, args = arguments;
+		var context = this,
+			args = arguments;
 
 		var later = function() {
-			timeout = null;
-			if ( !immediate ) func.apply( context, args );
-		};
+				timeout = null;
+
+
+
+				if ( !immediate ) func.apply( context, args );
+			};
 
 		var callNow = immediate && !timeout;
 
@@ -128,16 +132,17 @@ export function debounce( func, wait, immediate ) {
 
 
 
-//// Key Mapping (God Mode)
+//// Key Mapping
 //// https://medium.com/javascript-in-plain-english/how-to-detect-a-sequence-of-keystrokes-in-javascript-83ec6ffd8e93
 export function doomGuy() {
 	const $body = document.getElementsByTagName( 'body' )[0];
 
-	const code = 'abcdefghijklmnopqrstuvwxyz0123456789';
+	const code = 'iddqd';
 
 
 
-	var buffer = [],
+	var keys = [],
+		keySequence,
 		lastKeyTime = Date.now();
 
 
@@ -155,6 +160,24 @@ export function doomGuy() {
 
 
 
-		console.log( key );
+		if ( currentTime - lastKeyTime > 600 ) {
+            keys = [];
+        }
+
+
+
+        keys.push( key );
+
+
+
+		lastKeyTime = currentTime;
+
+
+
+		keySequence = keys.join( '' );
+
+		if ( keySequence === code ) {
+			console.log( 'god mode activated' );
+		}
 	});
 }
