@@ -27,7 +27,7 @@ Building will compile and minify all Sass/CSS, concat and uglify all JS, minify 
 ---
 
 ## Serving
-To test the static site prior to deployment (and for other content audits), the site must be built and then served in its static form.
+To test the static site prior to deployment (and for other content audits), the site must be built and then served in its static form. A better guide to Gatsby audits can be [found here](https://www.gatsbyjs.org/tutorial/part-eight/).
 
     $ cd portfolio-2020
     $ npm run build
