@@ -9,13 +9,13 @@ const Sidebar = ( props ) => {
 	return(
 		<div className={ `color-stop sidebar sidebar--gradient flex--column ${ props.year ? 'flex--between' : 'flex--end' } flex--align-center` }>
 			{ props.year &&
-				<div className="padding--bottom--50 bkg--black z--2">
+				<div className="sidebar__year padding--bottom--50 bkg--black z--2">
 					<span className="color-stop detail text--gradient--reverse">{ toRomanNumeral( props.year ) }</span>
 				</div>
 			}
 
 			{ props.location &&
-				<div className="padding--top--50 bkg--black z--2">
+				<div className="sidebar__location padding--top--50 bkg--black z--2">
 					<span className="color-stop detail text--gradient--reverse">{ toDMS( props.location.lat, false ) } { toDMS( props.location.lon, true ) }</span>
 				</div>
 			}

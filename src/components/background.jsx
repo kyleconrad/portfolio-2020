@@ -1,8 +1,6 @@
 import React from "react"
 import { Component } from "react"
 
-// import Store from "../components/store"
-
 import { rgbToHex } from "../js/functions"
 import { debounce } from "../js/functions"
 
@@ -80,12 +78,6 @@ class Background extends Component {
 			width: canvas.width,
 			height: canvas.height
 		}, () => {
-			// if ( this.props.container === 'main' ) {
-			// 	Store.backgroundData = this.state.canvasData;
-			// }
-
-
-
 			if ( complete && className ) {
 				complete( this.state.canvasData, className, false );
 			}
@@ -255,10 +247,6 @@ class Background extends Component {
 	componentDidUpdate( prevProps, prevState, snapshot ) {
 		const 	$main = document.getElementsByTagName( 'main' )[ 0 ],
 				$nav = document.getElementsByTagName( 'nav' )[ 0 ];
-		// if ( this.props.container === 'navigation' ) {
-		// 	console.log( Store.backgroundData );
-		// }
-		// console.log( this.props.container, this.props.open, this.state.canvasData, Store.backgroundData );
 
 
 
