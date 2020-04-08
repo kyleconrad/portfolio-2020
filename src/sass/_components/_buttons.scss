@@ -37,7 +37,9 @@ button {
 	top: calc( ( var( --padding ) * 1.5 ) + 5px );
 	left: calc( ( var( --padding ) * 1.5 ) + 5px );
 
+	min-width: var( --logoMin );
 	width: var( --logo );
+	min-height: var( --logoMin );
 	height: var( --logo );
 
 	@extend .bkg--gradient;

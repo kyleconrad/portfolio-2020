@@ -19,11 +19,11 @@ const About = ( props ) => {
 	return (
 		<footer>
 			<div className="border border--1 border--transparent">
-				<div className="bkg--black padding--top--50 padding--right--100 padding--bottom--300 padding--left--400">
+				<div className="bkg--black padding--top--50 padding--right--100 padding--bottom--300 padding--left--400 landscape-padding--left--300">
 					<Header text={ props.data.detail } gradient />
 
 					<div className="padding--top--200 padding--right--50">
-						<h3 className="headline--small text--white padding--bottom--100">{ props.data.headline }</h3>
+						<h3 className="headline headline--small text--white padding--bottom--100">{ props.data.headline }</h3>
 
 						<div className="flex--row flex--between flex--align-start padding--bottom--100">
 							<div className="text--white">{ description }</div>

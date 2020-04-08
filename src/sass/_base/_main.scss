@@ -6,6 +6,7 @@
 
 	--fontsize: 1rem;
 
+	--logoMin: 50px;
 	--logo: calc( var( --padding ) * 1.5 );
 
 	--colorPrimary: #{ map-get( $colors, teal ) };
@@ -13,21 +14,6 @@
 	
 
 	
-	// @include breakpoint(large) {
-	// 	--padding: 3.5em;
-	// 	--fontsize: 1.15rem;
-	// }
-
-	// @include breakpoint(xxlarge) {
-	// 	--padding: 3.875em;
-	//	--fontsize: 1.25rem;
-	// }
-
-	// @include breakpoint(landscape) {
-	// 	--padding: 2.5em;
-	//	--fontsize: 0.9rem;
-	// }
-
 	// @include breakpoint(portrait) {
 	// 	--padding: 2.25em;
 	//	--fontsize: 0.8rem;
@@ -45,8 +31,6 @@
 }
 
 
-
-//// scrollbars? https://alligator.io/css/css-scrollbars
 
 
 
@@ -79,8 +63,6 @@ body {
 	max-width: 100%;
 	
 	position: relative;
-	
-	// overflow-x: hidden;
 
 	font-size: var(--fontsize);
 
@@ -314,4 +296,18 @@ div {
 	.opacity--#{ 10 * $i } {
 		opacity: ( 0.1 * $i );
 	}
+}
+
+
+
+
+
+
+
+
+
+
+//// God Mode
+.god {
+
 }

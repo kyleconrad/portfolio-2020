@@ -117,6 +117,13 @@ p > a {
 
 
 
+	&:hover,
+	&:active {
+		opacity: 0.5;
+	}
+
+
+
 	@media ( hover: hover ) and ( pointer: fine ) {
 		&:after {
 			max-width: 0;
@@ -125,10 +132,6 @@ p > a {
 
 
 		&:hover {
-			opacity: 0.5;
-
-
-
 			&:after {
 				max-width: 100%;
 

@@ -8,7 +8,7 @@ import Sidebar from "../components/sidebar"
 const Hero = ( props ) => {
 	return (
 		<header className="border border--1 border--transparent">
-			<div className="bkg--black padding--top--50 padding--right--100 padding--bottom--400 padding--left--400">
+			<div className="bkg--black padding--top--50 padding--right--100 padding--bottom--400 padding--left--400 landscape-padding--left--300">
 				<Header text={ props.data.detail } gradient />
 				
 				<div className="padding--top--400">
