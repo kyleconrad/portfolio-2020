@@ -88,7 +88,7 @@ class Navigation extends Component {
 						        		<div className="padding--top--50 padding--right--100 padding--bottom--100 padding--left--400 landscape-padding--left--300">
 											<Header text={ navigation.detail } />
 
-											<ul className="nav__contents padding--top--400">
+											<ul className="nav__contents padding--top--400 landscape-padding--left--50">
 												<li>
 													<Link to="/" className="nav__contents__link margin--bottom--200" activeStyle={{ display: `none` }} onClick={ this.hideNav }>
 														<span className="headline text--black">{ home.title }.</span>
@@ -111,7 +111,7 @@ class Navigation extends Component {
 												})}
 											</ul>
 
-											<ul className="nav__social flex--row flex--between flex--align-center">
+											<ul className="nav__social flex--row flex--between flex--align-center landscape-padding--left--50">
 												{ navigation.socialMedia.map( ( link ) => {
 													return (
 												        <li key={ link.name } >
