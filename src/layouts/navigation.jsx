@@ -85,7 +85,7 @@ class Navigation extends Component {
 			        		<div className="border border--1 border--black overflow--hidden">
 			        			<div className="border border--3 border--transparent overflow--hidden">
 			        				<div className="border border--1 border--black overflow--hidden">
-						        		<div className="padding--top--50 padding--right--100 padding--bottom--100 padding--left--400">
+						        		<div className="padding--top--50 padding--right--100 padding--bottom--100 padding--left--400 landscape-padding--left--300">
 											<Header text={ navigation.detail } />
 
 											<ul className="nav__contents padding--top--400">
