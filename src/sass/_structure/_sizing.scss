@@ -1,13 +1,13 @@
 // WIDTH & HEIGHT
 
-@for $i from 1 through 12 {
-	.width--#{ 50 * $i } {
-		width: calc( var( --padding ) * #{ $i / 2 } );
+@for $i from 1 through 24 {
+	.width--#{ 25 * $i } {
+		width: calc( var( --padding ) * #{ $i / 4 } );
 	}
 
 
-	.height--#{ 50 * $i } {
-		height: calc( var( --padding ) * #{ $i / 2 } );
+	.height--#{ 25 * $i } {
+		height: calc( var( --padding ) * #{ $i / 4 } );
 	}
 }
 
@@ -20,14 +20,14 @@
 
 
 @include breakpoint(landscape) {
-	@for $i from 1 through 12 {
-		.landscape-width--#{ 50 * $i } {
-			width: calc( var( --padding ) * #{ $i / 2 } );
+	@for $i from 1 through 24 {
+		.landscape-width--#{ 25 * $i } {
+			width: calc( var( --padding ) * #{ $i / 4 } );
 		}
 
 
-		.landscape-height--#{ 50 * $i } {
-			height: calc( var( --padding ) * #{ $i / 2 } );
+		.landscape-height--#{ 25 * $i } {
+			height: calc( var( --padding ) * #{ $i / 4 } );
 		}
 	}
 
@@ -41,14 +41,14 @@
 
 
 @include breakpoint(portrait) {
-	@for $i from 1 through 12 {
-		.portrait-width--#{ 50 * $i } {
-			width: calc( var( --padding ) * #{ $i / 2 } );
+	@for $i from 1 through 24 {
+		.portrait-width--#{ 25 * $i } {
+			width: calc( var( --padding ) * #{ $i / 4 } );
 		}
 
 
-		.portrait-height--#{ 50 * $i } {
-			height: calc( var( --padding ) * #{ $i / 2 } );
+		.portrait-height--#{ 25 * $i } {
+			height: calc( var( --padding ) * #{ $i / 4 } );
 		}
 	}
 
@@ -62,14 +62,14 @@
 
 
 @include breakpoint(mobile) {
-	@for $i from 1 through 12 {
-		.mobile-width--#{ 50 * $i } {
-			width: calc( var( --padding ) * #{ $i / 2 } );
+	@for $i from 1 through 24 {
+		.mobile-width--#{ 25 * $i } {
+			width: calc( var( --padding ) * #{ $i / 4 } );
 		}
 
 
-		.mobile-height--#{ 50 * $i } {
-			height: calc( var( --padding ) * #{ $i / 2 } );
+		.mobile-height--#{ 25 * $i } {
+			height: calc( var( --padding ) * #{ $i / 4 } );
 		}
 	}
 

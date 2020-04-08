@@ -24,14 +24,14 @@
 
 	display: inline;
 
-	@include responsive-font( 8vw, 75px, false, 75px );
+	@include responsive-font( 8vw, 70px, false, 70px );
 
 
 
 	&--small {
 		display: block;
 
-		@include responsive-font( 5.5vw, 50px, false, 50px );
+		@include responsive-font( 5.5vw, 45px, false, 45px );
 	}
 }
 
