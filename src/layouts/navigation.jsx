@@ -86,10 +86,10 @@ class Navigation extends Component {
 			        		<div className="border border--1 border--black overflow--hidden">
 			        			<div className="border border--3 border--transparent overflow--hidden">
 			        				<div className="border border--1 border--black overflow--hidden">
-						        		<div className="padding--top--50 padding--right--100 padding--bottom--100 padding--left--400 landscape-padding--left--300">
+						        		<div className="padding--top--50 padding--right--100 padding--bottom--100 padding--left--400 landscape-padding--left--300 mobile-padding--left--100">
 											<Header text={ navigation.detail } />
 
-											<ul className="nav__contents padding--top--400 landscape-padding--left--50 portrait-padding--left--25">
+											<ul className="nav__contents padding--top--400 landscape-padding--left--50 portrait-padding--left--25 mobile-padding--left--0">
 												<li>
 													<Link to="/" className="nav__contents__link margin--bottom--200" activeStyle={{ display: `none` }} onClick={ this.hideNav }>
 														<span className="headline text--black">{ home.title }.</span>
@@ -112,10 +112,10 @@ class Navigation extends Component {
 												})}
 											</ul>
 
-											<ul className="nav__social flex--row flex--between flex--align-center landscape-padding--left--50 portrait-padding--left--25">
+											<ul className="nav__social flex--row flex--between flex--align-center landscape-padding--left--50 portrait-padding--left--25 mobile-padding--left--0 mobile-flex--row mobile-flex--wrap">
 												{ navigation.socialMedia.map( ( link ) => {
 													return (
-												        <li key={ link.name } >
+												        <li key={ link.name } className="mobile-width--50">
 												        	<OutboundLink href={ link.url } target="_blank" rel="noopener noreferrer">{ link.name }</OutboundLink>
 											        	</li>
 											        )

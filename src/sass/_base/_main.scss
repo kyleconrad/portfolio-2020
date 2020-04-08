@@ -20,15 +20,9 @@
 		--logo: calc( var( --padding ) * 2 );
 	}
 
-	// @include breakpoint(mobile) {
-	// 	--padding: 1.75em;
-	//	--fontsize: 0.8rem;
-	// }
-	
-	// @include breakpoint(mobile-small) {
-	// 	--padding: 1.65em;
-	//	--fontsize: 0.75rem;
-	// }
+	@include breakpoint( mobile-small ) {
+		--padding: 4.5vmin;
+	}
 }
 
 

@@ -28,10 +28,30 @@
 
 
 
+	@include breakpoint( mobile ) {
+		@include responsive-font( 8vw, 60px, false, 60px );
+	}
+
+	@include breakpoint( mobile-small ) {
+		@include responsive-font( 8vw, 50px, false, 50px );
+	}
+
+
+
 	&--small {
 		display: block;
 
 		@include responsive-font( 5.5vw, 45px, false, 45px );
+
+
+
+		@include breakpoint( mobile ) {
+			@include responsive-font( 5.5vw, 40px, false, 40px );
+		}
+
+		@include breakpoint( mobile-small ) {
+			@include responsive-font( 5.5vw, 35px, false, 35px );
+		}
 	}
 }
 
@@ -164,6 +184,12 @@ p > a {
 	&--small {
 		@include responsive-font( 0.75vw, 6px, 12px, 8px );
 	}
+
+
+
+	@include breakpoint( mobile-small ) {
+		@include responsive-font( 1vw, 9px, 15px, 11px );
+	}
 }
 
 
@@ -174,6 +200,12 @@ p > a {
 .sidebar {
 	& > div {
 		writing-mode: vertical-rl;
+
+
+
+		@include breakpoint( mobile ) {
+			writing-mode: horizontal-tb;
+		}
 	}
 
 
@@ -183,6 +215,24 @@ p > a {
 
 		transform: rotate( 180deg );
 		transform-origin: center center;
+
+
+
+		@include breakpoint( mobile ) {
+			transform: translateY( -10% );
+		}
+
+		@include breakpoint( mobile-small ) {
+			transform: translateY( -15% );
+		}
+	}
+
+
+
+	&__location {
+		@include breakpoint( mobile ) {
+			display: none;
+		}
 	}
 }
 

@@ -7,9 +7,9 @@ import { toDMS } from "../js/functions"
 
 const Sidebar = ( props ) => {
 	return(
-		<div className={ `color-stop sidebar sidebar--gradient flex--column ${ props.year ? 'flex--between' : 'flex--end' } flex--align-center` }>
+		<div className={ `color-stop sidebar sidebar--gradient flex--column ${ props.year ? 'flex--between' : 'flex--end' } flex--align-center mobile-flex--row mobile-flex--end` }>
 			{ props.year &&
-				<div className="sidebar__year padding--bottom--50 bkg--black z--2">
+				<div className="sidebar__year padding--bottom--50 mobile-padding--bottom--0 mobile-padding--left--75 bkg--black z--2">
 					<span className="color-stop detail text--gradient--reverse">{ toRomanNumeral( props.year ) }</span>
 				</div>
 			}
