@@ -16,6 +16,8 @@
 	
 	@include breakpoint( portrait ) {
 		--padding: 5vmin;
+
+		--logo: calc( var( --padding ) * 2 );
 	}
 
 	// @include breakpoint(mobile) {
