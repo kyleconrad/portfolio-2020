@@ -22,7 +22,7 @@ const About = ( props ) => {
 				<div className="bkg--black padding--top--50 padding--right--100 padding--bottom--300 padding--left--400 landscape-padding--left--300">
 					<Header text={ props.data.detail } gradient />
 
-					<div className="padding--top--200 padding--right--50">
+					<div className="padding--top--200 padding--right--50 landscape-padding--left--50">
 						<h3 className="headline headline--small text--white padding--bottom--100">{ props.data.headline }</h3>
 
 						<div className="flex--row flex--between flex--align-start padding--bottom--100">

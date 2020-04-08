@@ -6,7 +6,7 @@
 
 	--fontsize: 1rem;
 
-	--logoMin: 50px;
+	--logoMin: 60px;
 	--logo: calc( var( --padding ) * 1.5 );
 
 	--colorPrimary: #{ map-get( $colors, teal ) };
@@ -14,10 +14,11 @@
 	
 
 	
-	// @include breakpoint(portrait) {
-	// 	--padding: 2.25em;
-	//	--fontsize: 0.8rem;
-	// }
+	@include breakpoint( portrait ) {
+		--padding: 5vmin;
+		// --padding: 2.25em;
+		// --fontsize: 0.8rem;
+	}
 
 	// @include breakpoint(mobile) {
 	// 	--padding: 1.75em;
