@@ -135,7 +135,7 @@ export function debounce( func, wait, immediate ) {
 //// Key Mapping
 //// https://medium.com/javascript-in-plain-english/how-to-detect-a-sequence-of-keystrokes-in-javascript-83ec6ffd8e93
 export function doomGuy() {
-	const $body = document.getElementsByTagName( 'body' )[0];
+	const $html = document.getElementsByTagName( 'html' )[0];
 
 	const code = 'iddqd';
 
@@ -177,7 +177,7 @@ export function doomGuy() {
 		keySequence = keys.join( '' );
 
 		if ( keySequence === code ) {
-			console.log( 'god mode activated' );
+			$html.classList.toggle( 'god' );
 		}
 	});
 }
