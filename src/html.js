@@ -7,17 +7,29 @@ export default function HTML(props) {
 
 	        <head>
 		        <meta charSet="utf-8" />
-		        <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
+		        <meta
+		        	httpEquiv="x-ua-compatible"
+		        	content="IE=edge,chrome=1"
+		        />
 		        <meta
 			        name="viewport"
 			        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui"
 		        />
-		        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-		        <meta httpEquiv="cleartype" content="on" />
+		        <meta
+		        	httpEquiv="Content-Type"
+		        	content="text/html; charset=utf-8"
+		        />
+		        <meta
+		        	httpEquiv="cleartype"
+		        	content="on"
+		        />
 
 		        { props.headComponents }
 
-		        <meta name="robots" content="NOODP" />
+		        <meta
+		        	name="robots"
+		        	content="NOODP"
+		        />
 
 		        <link rel="author" href={ `/humans.txt` } />
 

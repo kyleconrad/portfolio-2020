@@ -86,7 +86,10 @@ export const caseStudyQuery = graphql`
 					}
 					padded
 					image {
-						fluid( resizingBehavior: SCALE, quality: 100 ) {
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 100
+						) {
 							...GatsbyContentfulFluid_withWebp
 						}
 					}
@@ -129,7 +132,10 @@ export const caseStudyQuery = graphql`
 					}
 					images {
 						id
-						fluid( resizingBehavior: SCALE, quality: 100 ) {
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 100
+						) {
 							...GatsbyContentfulFluid_withWebp
 						}
 					}
@@ -145,13 +151,19 @@ export const caseStudyQuery = graphql`
 					}
 					leftColumnImages {
 						id
-						fluid( resizingBehavior: SCALE, quality: 100 ) {
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 100
+						) {
 							...GatsbyContentfulFluid_withWebp
 						}
 					}
 					rightColumnImages {
 						id
-						fluid( resizingBehavior: SCALE, quality: 100 ) {
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 100
+						) {
 							...GatsbyContentfulFluid_withWebp
 						}
 					}
