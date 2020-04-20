@@ -317,9 +317,9 @@ class VideoEmbed extends Component {
 				<button onClick={ this.toggleVideo } className="video__overlay custom-cursor z--2" />
 
 				<video ref={ ( videoEmbed ) => { this.videoEmbed = videoEmbed } } preload={ this.state.preload } playsInline muted onTimeUpdate={ this.updateProgress } poster={ this.props.data.videoPoster.localFile.childImageSharp.fluid.tracedSVG } className="z--1">
-					<source src={ this.props.data.videoWebM.file.url } type="video/webm" />
-					<source src={ this.props.data.videoOgg.file.url } type="video/ogg" />
-					<source src={ this.props.data.videoMp4.file.url } type="video/mp4" />
+					<source src={ this.props.data.videoWebM.localFile.localURL } type="video/webm" />
+					<source src={ this.props.data.videoOgg.localFile.localURL } type="video/ogg" />
+					<source src={ this.props.data.videoMp4.localFile.localURL } type="video/mp4" />
 				</video>
 			</div>
 		)

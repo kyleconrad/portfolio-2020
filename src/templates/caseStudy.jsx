@@ -116,18 +116,18 @@ export const caseStudyQuery = graphql`
 						type
 					}
 					videoWebM {
-						file {
-							url
+						localFile {
+							localURL
 						}
 					}
 					videoOgg {
-						file {
-							url
+						localFile {
+							localURL
 						}
 					}
 					videoMp4 {
-						file {
-							url
+						localFile {
+							localURL
 						}
 					}
 					videoPoster {
