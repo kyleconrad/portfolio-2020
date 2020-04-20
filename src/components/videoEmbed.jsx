@@ -230,7 +230,7 @@ class VideoEmbed extends Component {
 
 		var	scrollPosY = main.scrollTop,
 			preloadPosY = this.state.posY - ( windowHeight * 3 ),
-			playPosY = this.state.posY - ( windowHeight * 0.75 ),
+			playPosY = this.state.posY - ( windowHeight * 0.95 ),
 			pausePosY = this.state.posY + this.state.height;
 
 
