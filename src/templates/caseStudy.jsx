@@ -131,11 +131,18 @@ export const caseStudyQuery = graphql`
 						}
 					}
 					videoPoster {
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 75
-						) {
-							base64
+						localFile {
+							childImageSharp {
+								fluid(
+									quality: 100,
+									traceSVG: {
+										background: "#272727",
+										color: "#161616"
+									}
+								) {
+									tracedSVG
+								}
+							}
 						}
 					}
 					audio
