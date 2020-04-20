@@ -99,9 +99,9 @@ export const caseStudyQuery = graphql`
 							childImageSharp {
 								fluid(
 									quality: 100,
-									traceSVG: {
-										background: "#161616",
-										color: "#272727"
+									traceSVG: {#161616
+										background: "#272727",
+										color: "#161616"
 									}
 								) {
 									...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -162,8 +162,8 @@ export const caseStudyQuery = graphql`
 								fluid(
 									quality: 100,
 									traceSVG: {
-										background: "#161616",
-										color: "#272727"
+										background: "#272727",
+										color: "#161616"
 									}
 								) {
 									...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -197,8 +197,8 @@ export const caseStudyQuery = graphql`
 								fluid(
 									quality: 100,
 									traceSVG: {
-										background: "#161616",
-										color: "#272727"
+										background: "#272727",
+										color: "#161616"
 									}
 								) {
 									...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -222,8 +222,8 @@ export const caseStudyQuery = graphql`
 								fluid(
 									quality: 100,
 									traceSVG: {
-										background: "#161616",
-										color: "#272727"
+										background: "#272727",
+										color: "#161616"
 									}
 								) {
 									...GatsbyImageSharpFluid_withWebp_tracedSVG

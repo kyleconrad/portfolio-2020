@@ -96,8 +96,8 @@ export const homeQuery = graphql`
 									fluid(
 										quality: 100,
 										traceSVG: {
-											background: "#161616",
-											color: "#272727"
+											background: "#272727",
+											color: "#161616"
 										}
 									) {
 										...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -158,8 +158,8 @@ export const homeQuery = graphql`
 									fluid(
 										quality: 100,
 										traceSVG: {
-											background: "#161616",
-											color: "#272727"
+											background: "#272727",
+											color: "#161616"
 										}
 									) {
 										...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -193,8 +193,8 @@ export const homeQuery = graphql`
 									fluid(
 										quality: 100,
 										traceSVG: {
-											background: "#161616",
-											color: "#272727"
+											background: "#272727",
+											color: "#161616"
 										}
 									) {
 										...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -222,8 +222,8 @@ export const homeQuery = graphql`
 									fluid(
 										quality: 100,
 										traceSVG: {
-											background: "#161616",
-											color: "#272727"
+											background: "#272727",
+											color: "#161616"
 										}
 									) {
 										...GatsbyImageSharpFluid_withWebp_tracedSVG
