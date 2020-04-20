@@ -131,8 +131,11 @@ export const caseStudyQuery = graphql`
 						}
 					}
 					videoPoster {
-						file {
-							url
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 75
+						) {
+							base64
 						}
 					}
 					audio

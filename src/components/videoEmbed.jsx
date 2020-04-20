@@ -229,7 +229,7 @@ class VideoEmbed extends Component {
 		var windowHeight = window.innerHeight;
 
 		var	scrollPosY = main.scrollTop,
-			preloadPosY = this.state.posY - ( windowHeight * 2 ),
+			preloadPosY = this.state.posY - ( windowHeight * 3 ),
 			playPosY = this.state.posY - ( windowHeight * 0.75 ),
 			pausePosY = this.state.posY + this.state.height;
 
@@ -316,7 +316,7 @@ class VideoEmbed extends Component {
 
 				<button onClick={ this.toggleVideo } className="video__overlay custom-cursor z--2" />
 
-				<video ref={ ( videoEmbed ) => { this.videoEmbed = videoEmbed } } preload={ this.state.preload } playsInline muted onTimeUpdate={ this.updateProgress } poster={ this.props.data.videoPoster.file.url } className="z--1">
+				<video ref={ ( videoEmbed ) => { this.videoEmbed = videoEmbed } } preload={ this.state.preload } playsInline muted onTimeUpdate={ this.updateProgress } poster={ this.props.data.videoPoster.fluid.base64 } className="z--1">
 					<source src={ this.props.data.videoWebM.file.url } type="video/webm" />
 					<source src={ this.props.data.videoOgg.file.url } type="video/ogg" />
 					<source src={ this.props.data.videoMp4.file.url } type="video/mp4" />

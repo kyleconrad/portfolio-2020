@@ -334,6 +334,12 @@ button {
 			display: block;
 		}
 	}
+
+
+
+	@include breakpoint( mobile ) {
+		display: none;
+	}
 }
 
 .video__control__sound__color-top {
