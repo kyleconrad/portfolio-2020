@@ -86,11 +86,24 @@ export const caseStudyQuery = graphql`
 					}
 					padded
 					image {
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 100
-						) {
-							...GatsbyContentfulFluid_withWebp
+						file {
+							contentType
+							url
+						}
+						localFile {
+							extension
+							localURL
+							childImageSharp {
+								fluid(
+									quality: 100,
+									traceSVG: {
+										background: "#161616",
+										color: "#272727"
+									}
+								) {
+									...GatsbyImageSharpFluid_withWebp_tracedSVG
+								}
+							}
 						}
 					}
 				}
@@ -132,11 +145,24 @@ export const caseStudyQuery = graphql`
 					}
 					images {
 						id
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 100
-						) {
-							...GatsbyContentfulFluid_withWebp
+						file {
+							contentType
+							url
+						}
+						localFile {
+							extension
+							localURL
+							childImageSharp {
+								fluid(
+									quality: 100,
+									traceSVG: {
+										background: "#161616",
+										color: "#272727"
+									}
+								) {
+									...GatsbyImageSharpFluid_withWebp_tracedSVG
+								}
+							}
 						}
 					}
 				}
@@ -151,20 +177,46 @@ export const caseStudyQuery = graphql`
 					}
 					leftColumnImages {
 						id
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 100
-						) {
-							...GatsbyContentfulFluid_withWebp
+						file {
+							contentType
+							url
+						}
+						localFile {
+							extension
+							localURL
+							childImageSharp {
+								fluid(
+									quality: 100,
+									traceSVG: {
+										background: "#161616",
+										color: "#272727"
+									}
+								) {
+									...GatsbyImageSharpFluid_withWebp_tracedSVG
+								}
+							}
 						}
 					}
 					rightColumnImages {
 						id
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 100
-						) {
-							...GatsbyContentfulFluid_withWebp
+						file {
+							contentType
+							url
+						}
+						localFile {
+							extension
+							localURL
+							childImageSharp {
+								fluid(
+									quality: 100,
+									traceSVG: {
+										background: "#161616",
+										color: "#272727"
+									}
+								) {
+									...GatsbyImageSharpFluid_withWebp_tracedSVG
+								}
+							}
 						}
 					}
 				}

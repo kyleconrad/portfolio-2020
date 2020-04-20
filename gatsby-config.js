@@ -15,8 +15,10 @@ module.exports = {
 			options: {
 				spaceId: process.env.CONTENTFUL_SPACE_ID,
 				accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
+				downloadLocal: true,
 			},
 		},
+		`gatsby-transformer-remote-filesystem`,
 		{
 			resolve: `gatsby-plugin-web-font-loader`,
 			options: {
@@ -27,7 +29,12 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sass`,
-		`gatsby-transformer-sharp`,
+		{
+			resole: `gatsby-transformer-sharp`,
+			options: {
+				checkSupportedExtensions: false,
+			},
+		},
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-react-helmet`,
 		{
