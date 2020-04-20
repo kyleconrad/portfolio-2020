@@ -29,17 +29,15 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sass`,
+		`gatsby-plugin-sharp`,
 		{
-			resole: `gatsby-transformer-sharp`,
+			resolve: `gatsby-transformer-sharp`,
 			options: {
 				checkSupportedExtensions: false,
 			},
 		},
-		`gatsby-plugin-sharp`,
 		`gatsby-plugin-react-helmet`,
-		{
-			resolve: `gatsby-plugin-zopfli`,
-		},
+		`gatsby-plugin-zopfli`,
 		{
 			resolve: `gatsby-plugin-html-comments`,
 			options: {

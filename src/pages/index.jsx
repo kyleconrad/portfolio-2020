@@ -84,11 +84,14 @@ export const homeQuery = graphql`
 						image {
 							file {
 								contentType
-								url
+							}
+							fluid(
+								resizingBehavior: SCALE,
+								quality: 100
+							) {
+								...GatsbyContentfulFluid
 							}
 							localFile {
-								extension
-								localURL
 								childImageSharp {
 									fluid(
 										quality: 100,
@@ -143,11 +146,14 @@ export const homeQuery = graphql`
 							id
 							file {
 								contentType
-								url
+							}
+							fluid(
+								resizingBehavior: SCALE,
+								quality: 100
+							) {
+								...GatsbyContentfulFluid
 							}
 							localFile {
-								extension
-								localURL
 								childImageSharp {
 									fluid(
 										quality: 100,
@@ -175,11 +181,14 @@ export const homeQuery = graphql`
 							id
 							file {
 								contentType
-								url
+							}
+							fluid(
+								resizingBehavior: SCALE,
+								quality: 100
+							) {
+								...GatsbyContentfulFluid
 							}
 							localFile {
-								extension
-								localURL
 								childImageSharp {
 									fluid(
 										quality: 100,
@@ -199,9 +208,16 @@ export const homeQuery = graphql`
 								contentType
 								url
 							}
+							file {
+								contentType
+							}
+							fluid(
+								resizingBehavior: SCALE,
+								quality: 100
+							) {
+								...GatsbyContentfulFluid
+							}
 							localFile {
-								extension
-								localURL
 								childImageSharp {
 									fluid(
 										quality: 100,

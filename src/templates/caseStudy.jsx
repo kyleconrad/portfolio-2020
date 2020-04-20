@@ -88,11 +88,14 @@ export const caseStudyQuery = graphql`
 					image {
 						file {
 							contentType
-							url
+						}
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 100
+						) {
+							...GatsbyContentfulFluid
 						}
 						localFile {
-							extension
-							localURL
 							childImageSharp {
 								fluid(
 									quality: 100,
@@ -147,11 +150,14 @@ export const caseStudyQuery = graphql`
 						id
 						file {
 							contentType
-							url
+						}
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 100
+						) {
+							...GatsbyContentfulFluid
 						}
 						localFile {
-							extension
-							localURL
 							childImageSharp {
 								fluid(
 									quality: 100,
@@ -179,11 +185,14 @@ export const caseStudyQuery = graphql`
 						id
 						file {
 							contentType
-							url
+						}
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 100
+						) {
+							...GatsbyContentfulFluid
 						}
 						localFile {
-							extension
-							localURL
 							childImageSharp {
 								fluid(
 									quality: 100,
@@ -201,11 +210,14 @@ export const caseStudyQuery = graphql`
 						id
 						file {
 							contentType
-							url
+						}
+						fluid(
+							resizingBehavior: SCALE,
+							quality: 100
+						) {
+							...GatsbyContentfulFluid
 						}
 						localFile {
-							extension
-							localURL
 							childImageSharp {
 								fluid(
 									quality: 100,
