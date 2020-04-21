@@ -93,6 +93,52 @@ export function rgbToHex( r, g, b ) {
 
 
 
+//// Convert hex to rgb
+//// https://stackoverflow.com/questions/30970648/changing-hex-codes-to-rgb-values-with-javascript
+export function hexToRgb( hex ) {
+	var r = 0,
+		g = 0,
+		b = 0;
+
+	var match = hex.match( /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i );
+
+
+
+	r = parseInt( match[ 1 ], 16 );
+    g = parseInt( match[ 2 ], 16 );
+    b = parseInt( match[ 3 ], 16 );
+
+
+
+    return [ +r, +g, +b ];
+}
+
+
+
+//// Pick hex based on percentage
+//// http://jsfiddle.net/vksn3yLL/
+export function findColor( color1, color2, percent ) {
+	var r = 0,
+		g = 0,
+		b = 0;
+
+    var w = percent * 2 - 1,
+		w1 = ( w / 1 + 1 ) / 2,
+		w2 = 1 - w1;
+
+
+
+	r = Math.round( color2[ 0 ] * w1 + color1[ 0 ] * w2 );
+	g = Math.round( color2[ 1 ] * w1 + color1[ 1 ] * w2 );
+	b = Math.round( color2[ 2 ] * w1 + color1[ 2 ] * w2 );
+
+
+
+	return [ +r, +g, +b ];
+}
+
+
+
 
 
 // Other Utility Functions

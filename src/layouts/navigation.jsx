@@ -81,8 +81,8 @@ class Navigation extends Component {
 		    	<Logo toggleNav={ this.toggleNav.bind( this ) } />
 		    	
 		        <nav ref={ ( navigation ) => { this.navigation = navigation } } className="nav">
-		        	<div className="nav__container bkg--gradient">
-			        	<div className="border border--wide border--transparent overflow--hidden z--2">
+		        	<div className="nav__container">
+			        	<div className="bkg--gradient border border--wide border--transparent overflow--hidden z--2">
 			        		<div className="border border--1 border--black overflow--hidden">
 			        			<div className="border border--3 border--transparent overflow--hidden">
 			        				<div className="border border--1 border--black overflow--hidden">

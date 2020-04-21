@@ -42,7 +42,7 @@ const Home = ( props ) => {
 
 
 	return (
-        <main className="bkg--gradient">
+        <main>
         	<section className="main__container">
 				<div className="border border--wide border--black overflow--hidden z--2">
 					<div className="border border--1 border--transparent overflow--hidden">
