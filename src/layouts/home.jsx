@@ -54,7 +54,7 @@ const Home = ( props ) => {
 							{ caseStudies.map( ( caseStudy ) => {
 								return (
 							        <Fragment key={ caseStudy.slug }>
-								        <CaseStudy data={ caseStudy } />
+								        <CaseStudy data={ caseStudy } text={ textOptions } />
 
 								        <Spacer height="100" invert />
 							        </Fragment>

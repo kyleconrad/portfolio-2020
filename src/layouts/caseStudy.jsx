@@ -10,48 +10,6 @@ import DoubleColumn from "../modules/doubleColumn"
 
 
 
-const Bold = ({ children }) => <strong>{children}</strong>
-const Italic = ({ children }) => <em>{children}</em>
-const Underline = ({ children }) => <u>{children}</u>
-const Text = ({ children }) => <p>{children}</p>
-
-const textOptions = {
-	renderMark: {
-		[MARKS.BOLD]: text => <Bold>{ text }</Bold>,
-		[MARKS.ITALIC]: text => <Italic>{ text }</Italic>,
-		[MARKS.UNDERLINE]: text => <Underline>{ text }</Underline>,
-	},
-	renderNode: {
-		[BLOCKS.PARAGRAPH]: ( node, children ) => <Text>{ children }</Text>,
-		[INLINES.HYPERLINK]: ( node ) => {
-			return <a href={ node.data.uri } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">{ node.content[0].value }</a>;
-		}
-	},
-	renderText: text => text.replace( /\s(?=[^\s]*$)/g, '\u00a0' ),
-}
-
-
-
-// reference: https://github.com/Khaledgarbaya/chocolate-free-website/blob/master/src/templates/article.js
-const mediaModulesMap = {
-	ContentfulMediaImage: SingleImage,
-	ContentfulMediaVideo: Video,
-	ContentfulMediaSingleColumn: SingleColumn,
-	ContentfulMediaDoubleColumn: DoubleColumn
-}
-
-const getMediaModule = ( module, index ) => {
-	const MediaModule = mediaModulesMap[ module.internal.type ]
-
-	if ( MediaModule ) {
-	    return <MediaModule key={ module.id } data={ module } text={ textOptions } />
-	}
-
-	return null
-}
-
-
-
 const CaseStudy = ( props ) => {
 	const hero = props.data.hero
 	const description = props.data.description
@@ -59,11 +17,31 @@ const CaseStudy = ( props ) => {
 
 
 
+	// reference: https://github.com/Khaledgarbaya/chocolate-free-website/blob/master/src/templates/article.js
+	const mediaModulesMap = {
+		ContentfulMediaImage: SingleImage,
+		ContentfulMediaVideo: Video,
+		ContentfulMediaSingleColumn: SingleColumn,
+		ContentfulMediaDoubleColumn: DoubleColumn
+	}
+
+	const getMediaModule = ( module, index ) => {
+		const MediaModule = mediaModulesMap[ module.internal.type ]
+
+		if ( MediaModule ) {
+		    return <MediaModule key={ module.id } data={ module } text={ props.text } />
+		}
+
+		return null
+	}
+
+
+
 	return (
 		<article>
 			<Hero data={ hero } />
 
-			<Description title={ hero.headline } data={ description } text={ textOptions } />
+			<Description title={ hero.headline } data={ description } text={ props.text } />
 
 			{ media && media.map( ( module, i ) =>
 				getMediaModule( module, i )

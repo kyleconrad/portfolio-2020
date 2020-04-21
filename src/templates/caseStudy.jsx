@@ -1,17 +1,44 @@
 import React from "react"
 import { Fragment } from "react"
 import { graphql } from "gatsby"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 
 import Navigation from "../layouts/navigation"
 import CaseStudy from "../layouts/caseStudy"
 
+import About from "../modules/about"
+
 import Seo from "../components/seo"
+import Spacer from "../components/spacer"
 import Background from "../components/background"
+
+
+
+const Bold = ({ children }) => <strong>{children}</strong>
+const Italic = ({ children }) => <em>{children}</em>
+const Underline = ({ children }) => <u>{children}</u>
+const Text = ({ children }) => <p>{children}</p>
+
+const textOptions = {
+	renderMark: {
+		[MARKS.BOLD]: text => <Bold>{ text }</Bold>,
+		[MARKS.ITALIC]: text => <Italic>{ text }</Italic>,
+		[MARKS.UNDERLINE]: text => <Underline>{ text }</Underline>,
+	},
+	renderNode: {
+		[BLOCKS.PARAGRAPH]: ( node, children ) => <Text>{ children }</Text>,
+		[INLINES.HYPERLINK]: ( node ) => {
+			return <a href={ node.data.uri } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">{ node.content[0].value }</a>;
+		}
+	},
+	renderText: text => text.replace( /\s(?=[^\s]*$)/g, '\u00a0' ),
+}
 
 
 
 export default ({ data }) => {
 	const caseStudy = data.contentfulCaseStudy
+	const about = data.contentfulContentAbout
 
 
 
@@ -31,7 +58,11 @@ export default ({ data }) => {
 					<div className="border border--wide border--black overflow--hidden z--2">
 						<div className="border border--1 border--transparent overflow--hidden">
 							<div className="border border--3 border--black overflow--hidden">
-								<CaseStudy data={ caseStudy } />
+								<CaseStudy data={ caseStudy } text={ textOptions } />
+
+								<Spacer height="100" invert />
+
+								<About data={ about } text={ textOptions } />
 							</div>
 						</div>
 					</div>
@@ -242,6 +273,24 @@ export const caseStudyQuery = graphql`
 						}
 					}
 				}
+			}
+		}
+		contentfulContentAbout( title: {eq: "About" } ) {
+			headline
+			location {
+				lat
+				lon
+			}
+			detail
+			description {
+				json
+			}
+			additional {
+				json
+			}
+			socialMedia {
+				name
+				url
 			}
 		}
 	}

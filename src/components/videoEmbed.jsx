@@ -18,6 +18,7 @@ class VideoEmbed extends Component {
 
 
 
+		// reference: https://github.com/jacobvenable/portfolio-gatsby/blob/master/src/components/Video.js
 		this.paused = true;
 		this.preload = false;
 		this.interaction = false;
@@ -25,6 +26,7 @@ class VideoEmbed extends Component {
 		this.mute = true;
 
 		this.tracked = false;
+
 
 
 		this.state = {
@@ -329,7 +331,3 @@ class VideoEmbed extends Component {
 
 
 export default VideoEmbed
-
-
-
-// https://github.com/jacobvenable/portfolio-gatsby/blob/master/src/components/Video.js
