@@ -28,16 +28,16 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
 	const result = await graphql(`
-        query {
-         	allContentfulCaseStudy {
-         		edges {
-         			node {
-     					slug
-         			}
-         		}
-         	}
-        }
-    `)
+	        query {
+	         	allContentfulCaseStudy {
+	         		edges {
+	         			node {
+	     					slug
+	         			}
+	         		}
+	         	}
+	        }
+	    `)
 
 
 

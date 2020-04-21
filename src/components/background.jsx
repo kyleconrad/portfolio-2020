@@ -25,10 +25,6 @@ class Background extends Component {
 
 
 
-		this.color = false;
-
-
-
 		this.createGradient = this.createGradient.bind( this );
 		this.colorStops = this.colorStops.bind( this );
 
@@ -69,6 +65,9 @@ class Background extends Component {
 
 
 		[ ...elements ].forEach( function( element ) {
+			var colorTopVar = false,
+				colorBottomVar = false;
+
 			var elementTop = element.getBoundingClientRect().top,
 				elementBottom = elementTop + element.getBoundingClientRect().height;
 
@@ -92,8 +91,21 @@ class Background extends Component {
 
 
 
-			element.style.setProperty( '--colorTop', '#' + colorTop );
-			element.style.setProperty( '--colorBottom', '#' + colorBottom );
+			if ( colorTopVar !== colorTop ) {
+				colorTopVar = colorTop;
+
+
+
+				element.style.setProperty( '--colorTop', '#' + colorTopVar );
+			}
+
+			if ( colorBottomVar !== colorBottom ) {
+				colorBottomVar = colorBottom;
+
+
+
+				element.style.setProperty( '--colorBottom', '#' + colorBottomVar );
+			}
 		});
 	}
 
@@ -104,7 +116,8 @@ class Background extends Component {
 
 		var percent = scroll / this.state.height;
 
-		var rgbColor = findColor( hexToRgb( this.state.primaryColor ), hexToRgb( this.state.secondaryColor ), percent ),
+		var colorVar = false,
+			rgbColor = findColor( hexToRgb( this.state.primaryColor ), hexToRgb( this.state.secondaryColor ), percent ),
 			color = rgbToHex( rgbColor[ 0 ], rgbColor[ 1 ], rgbColor[ 2 ] );
 
 
@@ -125,13 +138,13 @@ class Background extends Component {
 
 
 
-		if ( this.color !== color ) {
-			this.color = color;
+		if ( colorVar !== color ) {
+			colorVar = color;
 
 
 
 			icon.onload = () => {
-				context.fillStyle = '#' + this.color;
+				context.fillStyle = '#' + colorVar;
 				context.fillRect( 0, 0, canvas.width, canvas.height );
 				context.fill();
 
