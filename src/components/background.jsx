@@ -240,6 +240,10 @@ class Background extends Component {
 
 
 		if ( this.props.open !== undefined ) {
+			$nav.removeEventListener( 'scroll', this.colorStops.bind( null, this.props.colorStopsScroll, true, $nav ) );
+
+
+
 			if ( this.props.open ) {
 				this.colorStops( this.props.colorStops, true, $nav );
 
@@ -248,10 +252,6 @@ class Background extends Component {
 				$nav.addEventListener( 'scroll', this.colorStops.bind( null, this.props.colorStopsScroll, true, $nav ) );
 			}
 			else {
-				$nav.removeEventListener( 'scroll', this.colorStops.bind( null, this.props.colorStopsScroll, true, $nav ) );
-
-
-
 				$main.dispatchEvent( new CustomEvent( 'scroll' ) );
 			}
 		}

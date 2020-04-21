@@ -37,19 +37,19 @@ class Navigation extends Component {
 
 
 	toggleNav() {
-		var navigation = this.navigation,
-			duration = Number( ( window.getComputedStyle( navigation ).transitionDuration.split( 's' )[ 0 ] ) * 1000 );
+		var navigation = this.navigation;
 
 
 
 		this.state.navOpen ?
 			this.setState({
 				navOpen: false
+			}) :
+			this.setState({
+				navOpen: true
 			}, () => {
-				setTimeout( function() {
-					navigation.scrollTop = 0;
-				}, ( duration + 10 ) );
-			}) : this.setState({ navOpen: true });
+				navigation.scrollTop = 0;
+			});
 	}
 
 	hideNav() {

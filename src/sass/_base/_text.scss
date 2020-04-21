@@ -61,7 +61,7 @@
 
 //// Copy
 p {
-	@include responsive-font( 1.75vw, 20px, 32px, 20px );
+	@include responsive-font( 1.85vw, 20px, 32px, 20px );
 
 	font-family: $font-body;
     font-feature-settings: "kern" 1, "liga" 1;
@@ -81,8 +81,6 @@ p {
 
     	font-family: $font-headline;
 		font-weight: $font-headline--weight;
-
-		line-height: 1.5;
 
 
 
