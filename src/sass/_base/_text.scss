@@ -88,6 +88,14 @@ p {
 	    	margin-bottom: 0.5em;
 	    }
     }
+
+
+
+    &.p--large {
+    	@include responsive-font( 2.25vw, 26px, 36px, 26px );
+
+    	line-height: 1;
+    }
 }
 
 strong {
@@ -107,6 +115,7 @@ p > a {
 	display: inline-block;
 	position: relative;
 
+	font-size: 0.9em;
 	font-family: $font-headline;
 	font-weight: $font-headline--weight;
 

@@ -20,7 +20,7 @@ const Description = ( props ) => {
 		        <div className="padding--horizontal--100 padding--top--75 padding--bottom--100 bkg--black">
 		        	{ props.data.url &&
 		        		<div className="padding--bottom--75">
-		        			<p>
+		        			<p className="p--large">
 		        				<OutboundLink href={ props.data.url } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">Visit { props.title }</OutboundLink>
 		        			</p>
 		        		</div>
