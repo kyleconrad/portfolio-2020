@@ -2,8 +2,6 @@ import React from "react"
 import { Component } from "react"
 
 import { rgbToHex } from "../js/functions"
-import { hexToRgb } from "../js/functions"
-import { findColor } from "../js/functions"
 import { debounce } from "../js/functions"
 
 
@@ -20,7 +18,8 @@ class Background extends Component {
 		this.state = {
 			primaryColor: null,
 			secondaryColor: null,
-			height: 0
+			height: 0,
+			canvasData: null
 		}
 
 
@@ -41,11 +40,36 @@ class Background extends Component {
 
 
 
+		var canvas = document.createElement( 'canvas' );
+
+		canvas.width = 1;
+		canvas.height = 1000;
+
+		var context = canvas.getContext( '2d' );
+
+		var grad = context.createLinearGradient( 0, 0, 0, canvas.height );
+
+		grad.addColorStop( 0, primaryColor );
+		grad.addColorStop( 1, secondaryColor );
+
+		context.fillStyle = grad;
+
+		context.fillRect( 0, 0, canvas.width, canvas.height );
+
+		var canvasData = context.getImageData( 0, 0, canvas.width, canvas.height );
+
+
+
 		this.setState({
 			primaryColor: primaryColor.split('#')[1],
 			secondaryColor: secondaryColor.split('#')[1],
-			height: height
+			height: height,
+			canvasData: canvasData
 		}, () => {
+			canvas.remove();
+
+
+
 			if ( complete && className ) {
 				complete( className, false );
 			}
@@ -57,10 +81,8 @@ class Background extends Component {
 	colorStops( className, scroll, scrollElement ) {
 		const elements = document.querySelectorAll( '.' + className );
 
-		var primaryColor = hexToRgb( this.state.primaryColor ),
-			secondaryColor = hexToRgb( this.state.secondaryColor );
-
-		var height = this.state.height;
+		var canvasData = this.state.canvasData,
+			height = this.state.height;
 
 
 
@@ -80,14 +102,17 @@ class Background extends Component {
 
 
 
-			var percentTop = elementTop / height,
-				percentBottom = elementBottom / height;
+			var pixelTop = ( elementTop / height ) * canvasData.height,
+				pixelBottom = ( elementBottom / height ) * canvasData.height;
 
-			var rgbTop = findColor( primaryColor, secondaryColor, percentTop ),
-				rgbBottom = findColor( primaryColor, secondaryColor, percentBottom );
+			var indexTop = ( Math.floor( pixelTop ) * canvasData.width ) * 4,
+				indexBottom = ( Math.floor( pixelBottom ) * canvasData.width ) * 4;
 
-			var colorTop = rgbToHex( rgbTop[ 0 ], rgbTop[ 1 ], rgbTop[ 2 ] ),
-				colorBottom = rgbToHex( rgbBottom[ 0 ], rgbBottom[ 1 ], rgbBottom[ 2 ] );
+
+
+			var colorTop = rgbToHex( canvasData.data[ indexTop ], canvasData.data[ indexTop + 1 ], canvasData.data[ indexTop + 2 ] ),
+				colorBottom = rgbToHex( canvasData.data[ indexBottom ], canvasData.data[ indexBottom + 1 ], canvasData.data[ indexBottom + 2 ] );
+
 
 
 
@@ -112,13 +137,15 @@ class Background extends Component {
 
 
 	iconScroll( scrollElement ) {
+		var canvasData = this.state.canvasData;
+
 		var scroll = scrollElement.scrollTop;
 
-		var percent = scroll / this.state.height;
+		var percent = ( scroll / this.state.height ) * canvasData.height;
 
-		var colorVar = false,
-			rgbColor = findColor( hexToRgb( this.state.primaryColor ), hexToRgb( this.state.secondaryColor ), percent ),
-			color = rgbToHex( rgbColor[ 0 ], rgbColor[ 1 ], rgbColor[ 2 ] );
+		var index = ( Math.floor( percent ) * canvasData.width ) * 4,
+			colorVar = false,
+			color = rgbToHex( canvasData.data[ index ], canvasData.data[ index + 1 ], canvasData.data[ index + 2 ] );
 
 
 
