@@ -115,7 +115,7 @@ export function hexToRgb( hex ) {
 
 
 
-//// Pick hex based on percentage
+//// Pick rgb based on percentage
 //// http://jsfiddle.net/vksn3yLL/
 export function findColor( color1, color2, percent ) {
 	var r = 0,
