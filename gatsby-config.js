@@ -23,15 +23,6 @@ module.exports = {
 			},
 		},
 		`gatsby-transformer-remote-filesystem`,
-		{
-			resolve: `gatsby-plugin-web-font-loader`,
-			options: {
-				custom: {
-					familes: [ "futura-pt", "ten-oldstyle", "BluuNext" ],
-					urls: [ "/fonts/fonts.css" ],
-				},
-			},
-		},
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-sharp`,
 		{
