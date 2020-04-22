@@ -34,6 +34,20 @@ const textOptions = {
 	renderText: text => text.replace( /\s(?=[^\s]*$)/g, '\u00a0' ),
 }
 
+const detailOptions = {
+	renderMark: {
+		[MARKS.BOLD]: text => <Bold>{ text }</Bold>,
+		[MARKS.ITALIC]: text => <Italic>{ text }</Italic>,
+		[MARKS.UNDERLINE]: text => <Underline>{ text }</Underline>,
+	},
+	renderNode: {
+		[BLOCKS.PARAGRAPH]: ( node, children ) => <Text>{ children }</Text>,
+		[INLINES.HYPERLINK]: ( node ) => {
+			return <a href={ node.data.uri } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">{ node.content[0].value }</a>;
+		}
+	}
+}
+
 
 
 export default ({ data }) => {
@@ -58,7 +72,7 @@ export default ({ data }) => {
 					<div className="border border--wide border--black overflow--hidden z--2">
 						<div className="border border--1 border--transparent overflow--hidden">
 							<div className="border border--3 border--black overflow--hidden">
-								<CaseStudy data={ caseStudy } text={ textOptions } />
+								<CaseStudy data={ caseStudy } text={ textOptions } detail={ detailOptions } />
 
 								<Spacer height="100" invert />
 

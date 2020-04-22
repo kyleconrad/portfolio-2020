@@ -29,11 +29,11 @@
 
 
 	@include breakpoint( mobile ) {
-		@include responsive-font( 8vw, 60px, false, 60px );
+		@include responsive-font( 7vw, 46px, false, 46px );
 	}
 
 	@include breakpoint( mobile-small ) {
-		@include responsive-font( 8vw, 50px, false, 50px );
+		hyphens: auto;
 	}
 
 
@@ -87,6 +87,12 @@ p {
 		&:not(:last-child) {
 	    	margin-bottom: 0.5em;
 	    }
+
+
+
+	    @include breakpoint( mobile ) {
+	    	@include responsive-font( 1.25vw, 14px, 24px, 14px );
+	    }
     }
 
 
@@ -95,6 +101,12 @@ p {
     	@include responsive-font( 2.25vw, 26px, 38px, 26px );
 
     	line-height: 1;
+
+
+
+    	@include breakpoint( mobile ) {
+    		@include responsive-font( 1.75vw, 18px, 26px, 18px );
+    	}
     }
 }
 

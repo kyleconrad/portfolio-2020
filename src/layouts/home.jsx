@@ -32,6 +32,20 @@ const textOptions = {
 	renderText: text => text.replace( /\s(?=[^\s]*$)/g, '\u00a0' ),
 }
 
+const detailOptions = {
+	renderMark: {
+		[MARKS.BOLD]: text => <Bold>{ text }</Bold>,
+		[MARKS.ITALIC]: text => <Italic>{ text }</Italic>,
+		[MARKS.UNDERLINE]: text => <Underline>{ text }</Underline>,
+	},
+	renderNode: {
+		[BLOCKS.PARAGRAPH]: ( node, children ) => <Text>{ children }</Text>,
+		[INLINES.HYPERLINK]: ( node ) => {
+			return <a href={ node.data.uri } target="_blank" rel="noopener noreferrer" className="color-stop text--gradient">{ node.content[0].value }</a>;
+		}
+	}
+}
+
 
 
 const Home = ( props ) => {
@@ -54,7 +68,7 @@ const Home = ( props ) => {
 							{ caseStudies.map( ( caseStudy ) => {
 								return (
 							        <Fragment key={ caseStudy.slug }>
-								        <CaseStudy data={ caseStudy } text={ textOptions } />
+								        <CaseStudy data={ caseStudy } text={ textOptions } detail={ detailOptions } />
 
 								        <Spacer height="100" invert />
 							        </Fragment>

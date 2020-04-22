@@ -6,7 +6,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Description = ( props ) => {
 	const description = documentToReactComponents( props.data.description.json, props.text )
-	const detail = documentToReactComponents( props.data.detail.json, props.text )
+	const detail = documentToReactComponents( props.data.detail.json, props.detail )
 
 
 

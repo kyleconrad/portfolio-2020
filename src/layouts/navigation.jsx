@@ -114,9 +114,9 @@ class Navigation extends Component {
 													return (
 														<li key={ caseStudy.slug }>
 															<Link to={ `/` + caseStudy.slug + `/` } className="nav__contents__link margin--bottom--200" activeStyle={{ display: `none` }} partiallyActive={ true } onClick={ this.hideNav }>
-																<div className="flex--row flex--start flex--align-center margin--bottom--25">
+																<div className="flex--row flex--start flex--align-center margin--bottom--25 mobile-margin--bottom--50">
 																	<span className="detail detail--small text--black">{ toRomanNumeral( caseStudy.hero.year ) }</span>
-																	<span className="break width--200 margin--left--50 margin--right--50 bkg--black" />
+																	<span className="break margin--left--50 margin--right--50 bkg--black" />
 																	<span className="detail detail--small text--black">{ caseStudy.hero.detail }</span>
 																</div>
 																<span className="headline text--black">{ caseStudy.hero.headline }</span>
