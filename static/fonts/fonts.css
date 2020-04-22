@@ -10,6 +10,7 @@
         	url( 'bluunext-bold.ttf' ) format( 'truetype' );
     font-weight: 700;
     font-style: normal;
+    font-display: block;
 }
 
 @font-face {
@@ -20,4 +21,5 @@
         	url( 'bluunext-bolditalic.ttf' ) format( 'truetype' );
     font-weight: 700;
     font-style: italic;
+    font-display: block;
 }

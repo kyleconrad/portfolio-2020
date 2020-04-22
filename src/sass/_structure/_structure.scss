@@ -19,12 +19,12 @@
 	right: calc( var( --padding ) * 0.5 );
 	bottom: calc( var( --padding ) * 0.5 );
 
+	width: 1vw;
+
 
 
 	&__bar {
 		width: 1px;
-
-		transform: translateX( -50% );
 
 
 
@@ -54,13 +54,14 @@
 		right: var( --padding );
 		bottom: calc( var( --padding ) * 0.75 );
 
+		width: auto;
+		height: 14px;
+
 
 
 		&__bar {
 			width: auto;
 			height: 1px;
-
-			transform: translateY( 50% );
 		}
 	}
 }

@@ -67,5 +67,13 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sitemap`,
+		{
+			resolve: `gatsby-plugin-s3`,
+			options: {
+				bucketName: "kyleconrad",
+				protocol: siteAddress.protocol.slice( 0, -1 ),
+				hostname: siteAddress.hostname,
+			},
+		},
 	],
 }

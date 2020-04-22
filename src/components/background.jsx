@@ -295,8 +295,6 @@ class Background extends Component {
 						height: height
 					});
 				}
-				
-				console.log( this._isMounted, prevState, height, this.state.height );
 			}, 75 );
 		}
 		
