@@ -302,13 +302,13 @@ class VideoEmbed extends Component {
 										</linearGradient>
 									</defs>
 
-									<g stroke={ `url( #controlGradient--${ this.videoId } )` } className="video__control__sound--playing" fill="none" stroke-width="2px" stroke-miterlimit="10">
-										<polygon class="st0" points="38.5,19.5 26.3,30.7 13.2,30.7 13.2,50.3 26.6,50.3 38.5,61.5 	"/>
-										<path class="st0" d="M46.8,19.5c11.6,0,21,9.4,21,21s-9.4,21-21,21"/>
-										<path class="st0" d="M46.8,28.8c6.5,0,11.7,5.2,11.7,11.7s-5.2,11.7-11.7,11.7"/>
-										<circle class="st0" cx="41" cy="41" r="40"/>
+									<g stroke={ `url( #controlGradient--${ this.videoId } )` } className="video__control__sound--playing" fill="none" strokeWidth="2px" strokeMiterlimit="10">
+										<polygon points="38.5,19.5 26.3,30.7 13.2,30.7 13.2,50.3 26.6,50.3 38.5,61.5 	"/>
+										<path d="M46.8,19.5c11.6,0,21,9.4,21,21s-9.4,21-21,21"/>
+										<path d="M46.8,28.8c6.5,0,11.7,5.2,11.7,11.7s-5.2,11.7-11.7,11.7"/>
+										<circle cx="41" cy="41" r="40"/>
 									</g>
-									<g stroke={ `url( #controlGradient--${ this.videoId } )` } className="video__control__sound--mute" fill="none" stroke-width="2px" stroke-miterlimit="10">
+									<g stroke={ `url( #controlGradient--${ this.videoId } )` } className="video__control__sound--mute" fill="none" strokeWidth="2px" strokeMiterlimit="10">
 										<line x1="46.9" y1="31.1" x2="65.7" y2="49.9"/>
 										<line x1="65.7" y1="31.1" x2="46.9" y2="49.9"/>
 										<polygon points="38.7,19.5 26.4,30.7 13.3,30.7 13.3,50.3 26.7,50.3 38.7,61.5 	"/>

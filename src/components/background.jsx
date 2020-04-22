@@ -7,6 +7,10 @@ import { debounce } from "../js/functions"
 
 
 class Background extends Component {
+	_isMounted = false;
+
+
+
 	constructor( props ) {
 		super( props );
 
@@ -244,6 +248,10 @@ class Background extends Component {
 
 
 	componentDidMount() {
+		this._isMounted = true;
+
+
+
 		const $main = document.getElementsByTagName( 'main' )[ 0 ];
 
 
@@ -270,6 +278,29 @@ class Background extends Component {
 		const 	$main = document.getElementsByTagName( 'main' )[ 0 ],
 				$nav = document.getElementsByTagName( 'nav' )[ 0 ];
 
+		
+
+		if ( this._isMounted ) {
+			var background = this.background;
+
+
+
+			setTimeout( () => {
+				var height = background.getBoundingClientRect().height;
+
+
+
+				if ( height !== prevState.height ) {
+					this.setState({
+						height: height
+					});
+				}
+				
+				console.log( this._isMounted, prevState, height, this.state.height );
+			}, 75 );
+		}
+		
+
 
 
 		if ( this.props.open !== undefined ) {
@@ -291,6 +322,10 @@ class Background extends Component {
 	}
 
 	componentWillUnmount() {
+		this._isMounted = false;
+
+
+
 		const $main = document.getElementsByTagName( 'main' )[ 0 ];
 
 

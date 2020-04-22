@@ -16,6 +16,10 @@ import { doomGuy } from "../js/functions"
 
 
 class Navigation extends Component {
+	_isMounted = false;
+
+
+
 	constructor( props ) {
 		super( props );
 
@@ -53,15 +57,25 @@ class Navigation extends Component {
 	}
 
 	hideNav() {
-		this.setState({
-			navOpen: false
-		});
+		if ( this._isMounted ) {
+			this.setState({
+				navOpen: false
+			});
+		}
 	}
 
 
 
 	componentDidMount() {
+		this._isMounted = true;
+
+
+
 		doomGuy();
+	}
+
+	componentWillUnmount() {
+		this._isMounted = false;
 	}
 
 
