@@ -96,7 +96,7 @@ class Navigation extends Component {
 		    	
 		        <nav ref={ ( navigation ) => { this.navigation = navigation } } className="nav">
 		        	<div className="nav__container">
-			        	<div className="bkg--gradient border border--wide border--transparent overflow--hidden z--2">
+			        	<div className="border border--wide border--transparent overflow--hidden z--2">
 			        		<div className="border border--1 border--black overflow--hidden">
 			        			<div className="border border--3 border--transparent overflow--hidden">
 			        				<div className="border border--1 border--black overflow--hidden">

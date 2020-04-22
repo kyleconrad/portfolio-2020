@@ -21,66 +21,53 @@
 
 
 
-	&:after {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 50%;
-
+	&__bar {
 		width: 1px;
 
-		transform: translate3d( -50%, 0, 0 );
-
-		content: '';
-	}
+		transform: translateX( -50% );
 
 
 
-	&--teal {
-		&:after {
-			background: map-get( $colors, teal );
+		.sidebar--teal & {
+				background: map-get( $colors, teal );
 		}
-	}
 
-	&--violet {
-		&:after {
-			background: map-get( $colors, violet );
+		.sidebar--violet & {
+				background: map-get( $colors, violet );
 		}
+
+		.sidebar--gradient & {
+				background: map-get( $colors, gray );
+				background: linear-gradient(
+                    to bottom,
+                    var( --colorTop ),
+                    var( --colorBottom )
+                );
+			}
 	}
 
-	&--gradient {
-		&:after {
-			background: map-get( $colors, gray );
-			background: linear-gradient(
-		    	to bottom,
-		    	var( --colorTop ),
-		    	var( --colorBottom )
-	    	);
-		}
-	}
+
+
+	// @include breakpoint( mobile ) {
+	// 	top: auto;
+	// 	left: var( --padding );
+	// 	right: var( --padding );
+	// 	bottom: calc( var( --padding ) * 0.75 );
 
 
 
-	@include breakpoint( mobile ) {
-		top: auto;
-		left: var( --padding );
-		right: var( --padding );
-		bottom: calc( var( --padding ) * 0.75 );
+	// 	&:after {
+	// 		top: 50%;
+	// 		bottom: auto;
+	// 		left: 0;
+	// 		right: 0;
 
+	// 		width: 100%;
+	// 		height: 1px;
 
-
-		&:after {
-			top: 50%;
-			bottom: auto;
-			left: 0;
-			right: 0;
-
-			width: 100%;
-			height: 1px;
-
-			transform: translate3d( 0, -50%, 0 );
-		}
-	}
+	// 		transform: translate3d( 0, -50%, 0 );
+	// 	}
+	// }
 }
 
 

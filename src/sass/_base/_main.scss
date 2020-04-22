@@ -11,14 +11,20 @@
 
 	--colorPrimary: #{ map-get( $colors, teal ) };
 	--colorSecondary: #{ map-get( $colors, violet ) };
-	
 
+
+
+	@include breakpoint( landscape ) {
+		--padding: 6.5vmin;
+	}
 	
 	@include breakpoint( portrait ) {
 		--padding: 5vmin;
 
 		--logo: calc( var( --padding ) * 2 );
 	}
+
+
 
 	@include breakpoint( mobile-small ) {
 		--padding: 4.5vmin;
@@ -96,6 +102,11 @@ main {
 
 	.nav--open & {
 		pointer-events: none;
+
+		opacity: 0;
+
+		transition: 0s;
+		transition-delay: 0.275s;
 	}
 }
 

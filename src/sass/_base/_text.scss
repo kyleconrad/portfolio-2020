@@ -171,7 +171,8 @@ p {
 
 
 
-	&.p--large > a {
+	&.p--large > a,
+	.caption & a {
 		font-size: 1em;
 	}
 }
@@ -197,7 +198,7 @@ p {
 
 
 	&--small {
-		@include responsive-font( 0.75vw, 6px, 12px, 8px );
+		@include responsive-font( 0.75vw, 8px, 12px, 10px );
 	}
 
 
@@ -230,6 +231,12 @@ p {
 
 		transform: rotate( 180deg );
 		transform-origin: center center;
+
+
+
+		@include breakpoint( landscape ) {
+			transform: translateX( 5% ) rotate( 180deg );
+		}
 
 
 
@@ -336,27 +343,39 @@ p {
 
 	span {
 		transition: 0.15s ease-in-out;
+
+
+
+		@media ( hover: none ) {
+			transition: 0s;
+		}
 	}
 
 
 
-	&:hover span {
+	&:hover .detail,
+	&:hover .headline {
 		color: map-get( $colors, white );
 	}
 
 
 
 	@supports ( -webkit-text-stroke: 1px black ) {
-		&:hover span {
+		&:hover .detail,
+		&:active .detail,
+		&:focus .detail {
 			color: map-get( $colors, black );
 		}
 
 
 
-		&:hover .headline {
+		&:hover .headline,
+		&:active .headline,
+		&:focus .headline {
+			color: transparent;
+
+			-webkit-text-stroke: 1px map-get( $colors, black );
 			-webkit-text-fill-color: transparent;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color: map-get( $colors, black );
 		}
 	}
 }
