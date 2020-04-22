@@ -1,16 +1,17 @@
 {
 	"name": "portfolio-2020",
 	"private": true,
-	"description": "Gatsby build, using Contentful as CMS, of Kyle Conrad's 2020 portfolio redesign",
+	"description": "Gatsby build of Kyle Conrad's 2020 portfolio redesign/rebuild using Contentful as the content management system.",
 	"version": "0.1.0",
 	"license": "MIT",
 	"scripts": {
-		"build": "gatsby build",
-		"develop": "gatsby develop -o",
+		"clean": "gatsby clean",
 		"format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+		"develop": "gatsby develop -o",
 		"start": "npm run develop",
+		"build": "gatsby build",
 		"serve": "gatsby serve -o",
-		"clean": "gatsby clean"
+		"deploy": "gatsby-plugin-s3 deploy"
 	},
 	"dependencies": {
 		"@contentful/rich-text-react-renderer": "^13.4.0",
@@ -21,6 +22,7 @@
 		"gatsby-plugin-google-analytics": "^2.2.2",
 		"gatsby-plugin-html-comments": "^1.0.0",
 		"gatsby-plugin-react-helmet": "^3.2.1",
+		"gatsby-plugin-s3": "^0.3.3",
 		"gatsby-plugin-sass": "^2.2.1",
 		"gatsby-plugin-sharp": "^2.5.2",
 		"gatsby-plugin-sitemap": "^2.3.1",

@@ -1,11 +1,17 @@
-require( "dotenv" ).config()
+require( "dotenv" ).config({
+	path: `.env.${process.env.NODE_ENV}`,
+})
+
+
+
+const siteAddress = new URL( "https://kyleconrad.com" )
 
 
 
 module.exports = {
 	siteMetadata: {
 		author: `@kyle_conrad`,
-		siteUrl: `https://kyleconrad.com`,
+		siteUrl: siteAddress.href,
 	},
 	plugins: [
 		{

@@ -28,6 +28,14 @@ class Background extends Component {
 		this.colorStops = this.colorStops.bind( this );
 
 		this.iconScroll = this.iconScroll.bind( this );
+
+		this.mainListener = this.mainListener.bind( this );
+		this.navListener = this.navListener.bind( this );
+		this.iconListener = this.iconListener.bind( this );
+
+
+
+		this.onResize = debounce( this.resizeDebounce.bind( this ), 350 );
 	}
 
 
@@ -187,8 +195,33 @@ class Background extends Component {
 	}
 
 
+	mainListener() {
+		const $main = document.getElementsByTagName( 'main' )[ 0 ];
 
-	onResize = debounce( ( e ) => {
+
+
+		this.colorStops( this.props.colorStopsScroll, true, $main );
+	}
+
+	navListener() {
+		const $nav = document.getElementsByTagName( 'nav' )[ 0 ];
+
+
+
+		this.colorStops( this.props.colorStopsScroll, true, $nav );
+	}
+
+	iconListener() {
+		const $main = document.getElementsByTagName( 'main' )[ 0 ];
+
+
+
+		this.iconScroll( $main );
+	}
+
+
+
+	resizeDebounce = () => {
 		const 	$main = document.getElementsByTagName( 'main' )[ 0 ],
 				$nav = document.getElementsByTagName( 'nav' )[ 0 ];
 
@@ -206,7 +239,7 @@ class Background extends Component {
 				$main.dispatchEvent( new CustomEvent( 'scroll' ) );
 			}
 		});
-	}, 350 );
+	}
 
 
 
@@ -220,9 +253,9 @@ class Background extends Component {
 
 
 
-			$main.addEventListener( 'scroll', this.colorStops.bind( null, this.props.colorStopsScroll, true, $main ) );
+			$main.addEventListener( 'scroll', this.mainListener );
 
-			$main.addEventListener( 'scroll', this.iconScroll.bind( null, $main ) );
+			$main.addEventListener( 'scroll', this.iconListener );
 		}
 		else {
 			this.createGradient();
@@ -230,7 +263,7 @@ class Background extends Component {
 
 
 
-		window.addEventListener( 'resize', this.onResize.bind( this ) );
+		window.addEventListener( 'resize', this.onResize );
 	}
 
 	componentDidUpdate( prevProps, prevState, snapshot ) {
@@ -240,7 +273,7 @@ class Background extends Component {
 
 
 		if ( this.props.open !== undefined ) {
-			$nav.removeEventListener( 'scroll', this.colorStops.bind( null, this.props.colorStopsScroll, true, $nav ) );
+			$nav.removeEventListener( 'scroll', this.navListener );
 
 
 
@@ -249,7 +282,7 @@ class Background extends Component {
 
 
 
-				$nav.addEventListener( 'scroll', this.colorStops.bind( null, this.props.colorStopsScroll, true, $nav ) );
+				$nav.addEventListener( 'scroll', this.navListener );
 			}
 			else {
 				$main.dispatchEvent( new CustomEvent( 'scroll' ) );
@@ -263,14 +296,14 @@ class Background extends Component {
 
 
 		if ( this.props.open === undefined ) {
-			$main.removeEventListener( 'scroll', this.colorStops.bind( null, this.props.colorStopsScroll, true, $main ) );
+			$main.removeEventListener( 'scroll', this.mainListener );
 
-			$main.removeEventListener( 'scroll', this.iconScroll.bind( null, $main ) );
+			$main.removeEventListener( 'scroll', this.iconListener );
 		}
 
 
 
-		window.removeEventListener( 'resize', this.onResize.bind( this ) );
+		window.removeEventListener( 'resize', this.onResize );
 	}
 
 
