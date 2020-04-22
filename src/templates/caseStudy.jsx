@@ -63,6 +63,7 @@ export default ({ data }) => {
         		author={ data.site.siteMetadata.author }
         		description={ data.contentfulCaseStudy.metadataDescription }
         		url={ data.site.siteMetadata.siteUrl + `/` + data.contentfulCaseStudy.slug + `/` }
+        		baseUrl={ data.site.siteMetadata.siteUrl }
     		/>
 
     		<Navigation />

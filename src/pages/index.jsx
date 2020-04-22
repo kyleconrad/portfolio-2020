@@ -21,6 +21,7 @@ export default ({ data }) => {
         		author={ data.site.siteMetadata.author }
         		description={ data.contentfulHome.metadataDescription }
         		url={ data.site.siteMetadata.siteUrl }
+        		baseUrl={ data.site.siteMetadata.siteUrl }
     		/>
 
 			<Navigation />
