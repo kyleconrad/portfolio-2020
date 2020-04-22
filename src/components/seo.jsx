@@ -13,11 +13,11 @@ const Seo = ( props ) => {
         	<meta name="url" content={ props.url } />
 		    <meta name="identifier-URL" content={ props.url } />
 
-		    <meta name="og:url" content={ props.url } />
-			<meta name="og:title" content={ props.title } />
-			<meta name="og:description" content={ props.description } />
-			<meta name="og:image" content={ `/images/social/social.png` } />
-			<meta name="og:type" content="website" />
+		    <meta property="og:url" content={ props.url } />
+			<meta property="og:title" content={ props.title } />
+			<meta property="og:description" content={ props.description } />
+			<meta property="og:image" content={ `/images/social/social.png` } />
+			<meta property="og:type" content="website" />
 
 			<meta name="twitter:card" content="summary_large_image" />
 		    <meta name="twitter:site" content={ props.author } />

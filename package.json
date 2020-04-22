@@ -11,7 +11,7 @@
 		"start": "npm run develop",
 		"build": "gatsby build",
 		"serve": "gatsby serve -o",
-		"deploy": "gatsby-plugin-s3 deploy"
+		"deploy": "gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id E3RLBNZCU23MII --paths \"/*\""
 	},
 	"dependencies": {
 		"@contentful/rich-text-react-renderer": "^13.4.0",
