@@ -1,5 +1,4 @@
 import React from "react"
-import { Fragment } from "react"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 
 import CaseStudy from "../layouts/caseStudy"
@@ -7,7 +6,6 @@ import CaseStudy from "../layouts/caseStudy"
 import Hero from "../modules/hero"
 import About from "../modules/about"
 
-import Spacer from "../components/spacer"
 import Background from "../components/background"
 
 
@@ -61,17 +59,11 @@ const Home = ( props ) => {
 				<div className="border border--wide border--black overflow--hidden z--2">
 					<div className="border border--1 border--transparent overflow--hidden">
 						<div className="border border--3 border--black overflow--hidden">
-							<Hero data={ hero } />
-
-							<Spacer height="100" invert />
+							<Hero data={ hero } home />
 
 							{ caseStudies.map( ( caseStudy ) => {
 								return (
-							        <Fragment key={ caseStudy.slug }>
-								        <CaseStudy data={ caseStudy } text={ textOptions } detail={ detailOptions } />
-
-								        <Spacer height="100" invert />
-							        </Fragment>
+							        <CaseStudy key={ caseStudy.slug } data={ caseStudy } text={ textOptions } detail={ detailOptions } />
 						        )
 							})}
 

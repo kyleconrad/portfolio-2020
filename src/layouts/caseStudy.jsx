@@ -7,6 +7,8 @@ import Video from "../modules/video"
 import SingleColumn from "../modules/singleColumn"
 import DoubleColumn from "../modules/doubleColumn"
 
+import Spacer from "../components/spacer"
+
 
 
 const CaseStudy = ( props ) => {
@@ -27,9 +29,13 @@ const CaseStudy = ( props ) => {
 	const getMediaModule = ( module, index ) => {
 		const MediaModule = mediaModulesMap[ module.internal.type ]
 
+
+
 		if ( MediaModule ) {
 		    return <MediaModule key={ module.id } data={ module } text={ props.text } />
 		}
+
+
 
 		return null
 	}
@@ -45,6 +51,8 @@ const CaseStudy = ( props ) => {
 			{ media && media.map( ( module, i ) =>
 				getMediaModule( module, i )
 			)}
+
+			<Spacer height="100" invert />
 		</article>
 	)
 }

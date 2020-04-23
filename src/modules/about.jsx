@@ -26,9 +26,9 @@ const About = ( props ) => {
 						<h3 className="headline headline--small text--white padding--bottom--100">{ props.data.headline }</h3>
 
 						<div className="flex--row flex--between flex--align-start mobile-flex--column mobile-flex--start mobile-flex--align-stretch padding--bottom--100">
-							<div className="text--white">{ description }</div>
+							<div className="text--white mobile-padding--bottom--75">{ description }</div>
 
-							<ul className="aside width--20 mobile-width--100p flex--shrink--0 margin--left--75 mobile-margin--left--0 mobile-margin--top--100 mobile-margin--bottom--50 mobile-padding--top--50 mobile-flex--row mobile-flex--wrap">
+							<ul className="aside width--20 mobile-width--100p flex--shrink--0 margin--left--75 mobile-margin--left--0 mobile-margin--top--100 mobile-margin--bottom--50 mobile-flex--row mobile-flex--wrap">
 								{ socialMedia.map( ( link ) => {
 									return (
 								        <li key={ link.name } className="mobile-width--50">

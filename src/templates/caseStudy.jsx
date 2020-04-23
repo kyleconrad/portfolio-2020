@@ -9,7 +9,6 @@ import CaseStudy from "../layouts/caseStudy"
 import About from "../modules/about"
 
 import Seo from "../components/seo"
-import Spacer from "../components/spacer"
 import Background from "../components/background"
 
 
@@ -74,8 +73,6 @@ export default ({ data }) => {
 						<div className="border border--1 border--transparent overflow--hidden">
 							<div className="border border--3 border--black overflow--hidden">
 								<CaseStudy data={ caseStudy } text={ textOptions } detail={ detailOptions } />
-
-								<Spacer height="100" invert />
 
 								<About data={ about } text={ textOptions } />
 							</div>
