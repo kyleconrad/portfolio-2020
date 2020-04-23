@@ -217,10 +217,6 @@ export const homeQuery = graphql`
 							id
 							file {
 								contentType
-								url
-							}
-							file {
-								contentType
 							}
 							fluid(
 								resizingBehavior: SCALE,
