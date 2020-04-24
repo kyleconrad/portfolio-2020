@@ -20,8 +20,6 @@ class Background extends Component {
 
 
 		this.state = {
-			primaryColor: null,
-			secondaryColor: null,
 			height: 0,
 			canvasData: null
 		}
@@ -73,8 +71,6 @@ class Background extends Component {
 
 
 		this.setState({
-			primaryColor: primaryColor.split('#')[1],
-			secondaryColor: secondaryColor.split('#')[1],
 			height: height,
 			canvasData: canvasData
 		}, () => {
