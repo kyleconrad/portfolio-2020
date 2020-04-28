@@ -233,6 +233,10 @@ class VideoEmbed extends Component {
 
 		if ( scrollPosY >= preloadPosY && !this.preload ) {
 			this.preloadVideo();
+
+
+
+			this.videoEmbed.disablePictureInPicture = true;
 		}
 
 
@@ -242,6 +246,10 @@ class VideoEmbed extends Component {
 		}
 		else if ( scrollPosY < pausePosY && scrollPosY >= playPosY && this.paused && !this.interaction ) {
 			this.playVideo();
+
+
+
+			this.videoEmbed.disablePictureInPicture = true;
 		}
 	}
 
