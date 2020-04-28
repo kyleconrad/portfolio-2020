@@ -31,7 +31,6 @@ class VideoEmbed extends Component {
 
 		this.state = {
 			paused: true,
-			tracked: false,
 			preload: 'metadata',
 			height: 0,
 			posY: 0,
@@ -156,8 +155,7 @@ class VideoEmbed extends Component {
 
 
 	trackVideo() {
-		var videoTitleString = this.videoEmbed.poster.split( '/' ).pop(),
-			videoTitle = videoTitleString.substring( 0, videoTitleString.length - 4 );
+		var videoTitle = this.props.data.title;
 
 		
 
@@ -182,10 +180,6 @@ class VideoEmbed extends Component {
 
 
 		this.tracked = true;
-	
-		this.setState({
-			tracked: this.tracked
-		});
 	}
 
 
@@ -226,11 +220,11 @@ class VideoEmbed extends Component {
 
 
 	scrollLoad( e ) {
-		const main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.querySelector( 'main' );
 
 		var windowHeight = window.innerHeight;
 
-		var	scrollPosY = main.scrollTop,
+		var	scrollPosY = $main.scrollTop,
 			preloadPosY = this.state.posY - ( windowHeight * 3 ),
 			playPosY = this.state.posY - ( windowHeight * 0.95 ),
 			pausePosY = this.state.posY + this.state.height;
@@ -254,7 +248,7 @@ class VideoEmbed extends Component {
 
 
 	componentDidMount() {
-		const main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.querySelector( 'main' );
 
 
 
@@ -266,16 +260,16 @@ class VideoEmbed extends Component {
 			height: this.videoEmbed.getBoundingClientRect().height,
 			posY: this.videoEmbed.getBoundingClientRect().top
 		}, () => {
-			main.addEventListener( 'scroll', this.scrollLoad );
+			$main.addEventListener( 'scroll', this.scrollLoad );
 		});
 	}
 
 	componentWillUnmount() {
-		const main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.querySelector( 'main' );
 
 
 
-		main.removeEventListener( 'scroll', this.scrollLoad );
+		$main.removeEventListener( 'scroll', this.scrollLoad );
 	}
 
 

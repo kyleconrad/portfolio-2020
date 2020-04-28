@@ -155,6 +155,7 @@ export const caseStudyQuery = graphql`
 				}
 				... on ContentfulMediaVideo {
 					id
+					title
 					internal {
 						type
 					}

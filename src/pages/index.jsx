@@ -109,6 +109,7 @@ export const homeQuery = graphql`
 					}
 					... on ContentfulMediaVideo {
 						id
+						title
 						internal {
 							type
 						}

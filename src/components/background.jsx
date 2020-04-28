@@ -196,7 +196,7 @@ class Background extends Component {
 
 
 	mainListener() {
-		const $main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.querySelector( 'main' );
 
 
 
@@ -204,7 +204,7 @@ class Background extends Component {
 	}
 
 	navListener() {
-		const $nav = document.getElementsByTagName( 'nav' )[ 0 ];
+		const $nav = document.querySelector( 'nav' );
 
 
 
@@ -212,7 +212,7 @@ class Background extends Component {
 	}
 
 	iconListener() {
-		const $main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.querySelector( 'main' );
 
 
 
@@ -222,8 +222,8 @@ class Background extends Component {
 
 
 	resizeDebounce = () => {
-		const 	$main = document.getElementsByTagName( 'main' )[ 0 ],
-				$nav = document.getElementsByTagName( 'nav' )[ 0 ];
+		const 	$main = document.querySelector( 'main' ),
+				$nav = document.querySelector( 'nav' );
 
 		var height = this.background.getBoundingClientRect().height;
 
@@ -248,7 +248,7 @@ class Background extends Component {
 
 
 
-		const $main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.querySelector( 'main' );
 
 
 
@@ -271,8 +271,8 @@ class Background extends Component {
 	}
 
 	componentDidUpdate( prevProps, prevState, snapshot ) {
-		const 	$main = document.getElementsByTagName( 'main' )[ 0 ],
-				$nav = document.getElementsByTagName( 'nav' )[ 0 ];
+		const 	$main = document.querySelector( 'main' ),
+				$nav = document.querySelector( 'nav' );
 
 		
 
@@ -320,7 +320,7 @@ class Background extends Component {
 
 
 
-		const $main = document.getElementsByTagName( 'main' )[ 0 ];
+		const $main = document.querySelector( 'main' );
 
 
 
