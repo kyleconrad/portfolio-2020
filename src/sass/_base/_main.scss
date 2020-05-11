@@ -70,18 +70,18 @@ body {
 
 
 	//// Cursors
-	$white: str-slice( #{ map-get( $colors, white ) }, 2 );
-	$black: str-slice( #{ map-get( $colors, black ) }, 2 );
+	// $white: str-slice( #{ map-get( $colors, white ) }, 2 );
+	// $black: str-slice( #{ map-get( $colors, black ) }, 2 );
 
-	cursor: url( 'data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="46px" height="46px" viewBox="0 0 46 46" xml:space="preserve"><circle fill="none" stroke="black" stroke-width="4" stroke-miterlimit="10" cx="23" cy="23" r="21"/><circle fill="none" stroke="white" stroke-width="2" stroke-miterlimit="10" cx="23" cy="23" r="21"/><circle fill="none" stroke="black" stroke-width="4" stroke-miterlimit="10" cx="23" cy="23" r="15"/><circle fill="none" stroke="white" stroke-width="2" stroke-miterlimit="10" cx="23" cy="23" r="15"/></svg>' ) 23 23, pointer;
-	cursor: url( 'data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" xml:space="preserve"><circle fill="none" stroke="%23#{ $black }" stroke-width="4" stroke-miterlimit="10" cx="16" cy="16" r="14"/><circle fill="none" stroke="%23#{ $white }" stroke-width="2" stroke-miterlimit="10" cx="16" cy="16" r="14"/><circle fill="none" stroke="%23#{ $black }" stroke-width="4" stroke-miterlimit="10" cx="16" cy="16" r="5"/><circle fill="none" stroke="%23#{ $white }" stroke-width="2" stroke-miterlimit="10" cx="16" cy="16" r="5"/></svg>' ) 16 16, auto;
+	// cursor: url( 'data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="46px" height="46px" viewBox="0 0 46 46" xml:space="preserve"><circle fill="none" stroke="black" stroke-width="4" stroke-miterlimit="10" cx="23" cy="23" r="21"/><circle fill="none" stroke="white" stroke-width="2" stroke-miterlimit="10" cx="23" cy="23" r="21"/><circle fill="none" stroke="black" stroke-width="4" stroke-miterlimit="10" cx="23" cy="23" r="15"/><circle fill="none" stroke="white" stroke-width="2" stroke-miterlimit="10" cx="23" cy="23" r="15"/></svg>' ) 23 23, pointer;
+	// cursor: url( 'data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" xml:space="preserve"><circle fill="none" stroke="%23#{ $black }" stroke-width="4" stroke-miterlimit="10" cx="16" cy="16" r="14"/><circle fill="none" stroke="%23#{ $white }" stroke-width="2" stroke-miterlimit="10" cx="16" cy="16" r="14"/><circle fill="none" stroke="%23#{ $black }" stroke-width="4" stroke-miterlimit="10" cx="16" cy="16" r="5"/><circle fill="none" stroke="%23#{ $white }" stroke-width="2" stroke-miterlimit="10" cx="16" cy="16" r="5"/></svg>' ) 16 16, auto;
 
 
 
 	button:not(.custom-cursor),
 	a:not(.custom-cursor),
 	input:not(.custom-cursor) {
-		cursor: url( 'data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="46px" height="46px" viewBox="0 0 46 46" xml:space="preserve"><circle fill="none" stroke="black" stroke-width="4" stroke-miterlimit="10" cx="23" cy="23" r="21"/><circle fill="none" stroke="white" stroke-width="2" stroke-miterlimit="10" cx="23" cy="23" r="21"/><circle fill="none" stroke="black" stroke-width="4" stroke-miterlimit="10" cx="23" cy="23" r="15"/><circle fill="none" stroke="white" stroke-width="2" stroke-miterlimit="10" cx="23" cy="23" r="15"/></svg>' ) 23 23, pointer;
+		// cursor: url( 'data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="46px" height="46px" viewBox="0 0 46 46" xml:space="preserve"><circle fill="none" stroke="black" stroke-width="4" stroke-miterlimit="10" cx="23" cy="23" r="21"/><circle fill="none" stroke="white" stroke-width="2" stroke-miterlimit="10" cx="23" cy="23" r="21"/><circle fill="none" stroke="black" stroke-width="4" stroke-miterlimit="10" cx="23" cy="23" r="15"/><circle fill="none" stroke="white" stroke-width="2" stroke-miterlimit="10" cx="23" cy="23" r="15"/></svg>' ) 23 23, pointer;
 	}
 }
 
