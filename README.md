@@ -32,3 +32,12 @@ To test the static site prior to deployment (and for other content audits), the 
     $ cd portfolio-2020
     $ npm run build
     $ npm run serve
+
+---
+
+## Deploying
+Deploying pushes the site to Amazon S3/Cloudfront and invalidates all existing caches, ensuring visitors get the most up to date versions of content, images, and video. You must have the `gatsby-plugin-s3` installed and set up in order to deploy ([see instructions and details](https://www.gatsbyjs.org/packages/gatsby-plugin-s3/)).
+
+    $ cd portfolio-2020
+    $ npm run build
+    $ npm run deploy
