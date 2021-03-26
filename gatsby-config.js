@@ -40,7 +40,7 @@ module.exports = {
 				comment: [
 					{
 						regexp: /<footer-comment>(.*?)<\/footer-comment>/g,
-						comment: `<!-- All design, ideas, fantastical inventions, etc. etc. © 2020 Kyle Conrad -->`,
+						comment: `<!-- All design, ideas, fantastical inventions, etc. etc. © 2021 Kyle Conrad -->`,
 					},
 					{
 						regexp: /<contact-comment>(.*?)<\/contact-comment>/g,
