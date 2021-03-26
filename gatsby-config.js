@@ -50,11 +50,18 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-google-analytics`,
+			resolve: `gatsby-plugin-google-gtag`,
 			options: {
-				trackingId: "UA-25023620-1",
-				head: true,
-				respectDNT: true,
+				trackingIds: [
+					"UA-25023620-1",
+				],
+				gtagConfig: {
+					anonymize_ip: true,
+				},
+				pluginConfig: {
+					head: true,
+					respectDNT: true,
+				},
 			},
 		},
 		`gatsby-plugin-sitemap`,

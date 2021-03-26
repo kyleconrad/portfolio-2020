@@ -3,7 +3,7 @@ import { Fragment, Component } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
 import { Link } from "gatsby"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 import Logo from "../components/logo"
 import Header from "../components/header"

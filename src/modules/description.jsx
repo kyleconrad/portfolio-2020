@@ -1,6 +1,6 @@
 import React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 
 
