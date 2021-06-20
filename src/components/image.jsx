@@ -1,19 +1,12 @@
 import React from "react"
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image"
 
 
 
 const Image = ( props ) => {
-	const contentType = props.data.file.contentType
-
-
-
 	return (
 		<div className="bkg--black">
-			{ contentType === 'image/gif'
-				? <Img alt="" fluid={ props.data.fluid } />
-				: <Img alt="" fluid={ props.data.localFile.childImageSharp.fluid } />
-			}
+			<GatsbyImage alt="" image={ props.data.source } />
 		</div>
 	)
 }

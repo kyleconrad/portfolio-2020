@@ -19,24 +19,26 @@ module.exports = {
 			options: {
 				spaceId: process.env.CONTENTFUL_SPACE_ID,
 				accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
-				downloadLocal: true,
+				downloadLocal: false,
 			},
 		},
-		`gatsby-transformer-remote-filesystem`,
 		`gatsby-plugin-sass`,
-		`gatsby-plugin-sharp`,
+		`gatsby-plugin-image`,
 		{
-			resolve: `gatsby-transformer-sharp`,
+			resolve: `gatsby-plugin-sharp`,
 			options: {
-				checkSupportedExtensions: false,
-			},
+				defaults: {},
+			}
 		},
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-zopfli`,
 		{
 			resolve: `gatsby-plugin-html-comments`,
 			options: {
-				files: [ './public/**/*.html', './public/*.html' ],
+				files: [
+					'./public/**/*.html',
+					'./public/*.html',
+				],
 				comment: [
 					{
 						regexp: /<footer-comment>(.*?)<\/footer-comment>/g,

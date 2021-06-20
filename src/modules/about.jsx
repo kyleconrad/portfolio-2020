@@ -1,5 +1,5 @@
 import React from "react"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 import Header from "../components/header"
@@ -9,8 +9,8 @@ import Spacer from "../components/spacer"
 
 
 const About = ( props ) => {
-	const description = documentToReactComponents( props.data.description.json, props.text )
-	const additional = documentToReactComponents( props.data.additional.json, props.text )
+	const description = renderRichText( props.data.description, props.text )
+	const additional = renderRichText( props.data.additional, props.text )
 
 	const socialMedia = props.data.socialMedia
 

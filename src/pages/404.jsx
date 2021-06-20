@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 
 
 
-export default () => {
+const FourOhFour = () => {
 	useEffect( () => {
 		navigate( '/' );
 	}, [] );
@@ -12,3 +12,7 @@ export default () => {
 
 	return null;
 };
+
+
+
+export default FourOhFour

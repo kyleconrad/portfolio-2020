@@ -49,20 +49,20 @@ const detailOptions = {
 
 
 
-export default ({ data }) => {
-	const caseStudy = data.contentfulCaseStudy
-	const about = data.contentfulContentAbout
+const CasestudyTemplate = ( props ) => {
+	const caseStudy = props.data.contentfulCaseStudy
+	const about = props.data.contentfulContentAbout
 
 
 
 	return (
         <Fragment>
         	<Seo
-        		title={ data.contentfulCaseStudy.hero.headline + ` — ` + data.contentfulHome.metadataTitle }
-        		author={ data.site.siteMetadata.author }
-        		description={ data.contentfulCaseStudy.metadataDescription }
-        		url={ data.site.siteMetadata.siteUrl + `/` + data.contentfulCaseStudy.slug + `/` }
-        		baseUrl={ data.site.siteMetadata.siteUrl }
+        		title={ props.data.contentfulCaseStudy.hero.headline + ` — ` + props.data.contentfulHome.metadataTitle }
+        		author={ props.data.site.siteMetadata.author }
+        		description={ props.data.contentfulCaseStudy.metadataDescription }
+        		url={ props.data.site.siteMetadata.siteUrl + `/` + props.data.contentfulCaseStudy.slug + `/` }
+        		baseUrl={ props.data.site.siteMetadata.siteUrl }
     		/>
 
     		<Navigation />
@@ -85,6 +85,10 @@ export default ({ data }) => {
 		</Fragment>
 	)
 }
+
+
+
+export default CasestudyTemplate
 
 
 
@@ -115,10 +119,10 @@ export const caseStudyQuery = graphql`
 			description {
 				url
 				detail {
-					json
+					raw
 				}
 				description {
-					json
+					raw
 				}
 			}
 			media {
@@ -138,19 +142,12 @@ export const caseStudyQuery = graphql`
 						) {
 							...GatsbyContentfulFluid
 						}
-						localFile {
-							childImageSharp {
-								fluid(
-									quality: 100,
-									traceSVG: {#161616
-										background: "#272727",
-										color: "#161616"
-									}
-								) {
-									...GatsbyImageSharpFluid_withWebp_tracedSVG
-								}
-							}
-						}
+						source: gatsbyImageData(
+							layout: FULL_WIDTH,
+							placeholder: DOMINANT_COLOR,
+							quality: 100,
+							resizingBehavior: SCALE
+						)
 					}
 				}
 				... on ContentfulMediaVideo {
@@ -160,33 +157,23 @@ export const caseStudyQuery = graphql`
 						type
 					}
 					videoWebM {
-						localFile {
-							localURL
+						file {
+							url
 						}
 					}
 					videoOgg {
-						localFile {
-							localURL
+						file {
+							url
 						}
 					}
 					videoMp4 {
-						localFile {
-							localURL
+						file {
+							url
 						}
 					}
 					videoPoster {
-						localFile {
-							childImageSharp {
-								fluid(
-									quality: 100,
-									traceSVG: {
-										background: "#272727",
-										color: "#161616"
-									}
-								) {
-									tracedSVG
-								}
-							}
+						file {
+							url
 						}
 					}
 					audio
@@ -198,7 +185,7 @@ export const caseStudyQuery = graphql`
 					}
 					alignment
 					caption {
-						json
+						raw
 					}
 					images {
 						id
@@ -211,19 +198,12 @@ export const caseStudyQuery = graphql`
 						) {
 							...GatsbyContentfulFluid
 						}
-						localFile {
-							childImageSharp {
-								fluid(
-									quality: 100,
-									traceSVG: {
-										background: "#272727",
-										color: "#161616"
-									}
-								) {
-									...GatsbyImageSharpFluid_withWebp_tracedSVG
-								}
-							}
-						}
+						source: gatsbyImageData(
+							layout: FULL_WIDTH,
+							placeholder: DOMINANT_COLOR,
+							quality: 100,
+							resizingBehavior: SCALE
+						)
 					}
 				}
 				... on ContentfulMediaDoubleColumn {
@@ -233,7 +213,7 @@ export const caseStudyQuery = graphql`
 					}
 					alignment
 					caption {
-						json
+						raw
 					}
 					leftColumnImages {
 						id
@@ -246,19 +226,12 @@ export const caseStudyQuery = graphql`
 						) {
 							...GatsbyContentfulFluid
 						}
-						localFile {
-							childImageSharp {
-								fluid(
-									quality: 100,
-									traceSVG: {
-										background: "#272727",
-										color: "#161616"
-									}
-								) {
-									...GatsbyImageSharpFluid_withWebp_tracedSVG
-								}
-							}
-						}
+						source: gatsbyImageData(
+							layout: FULL_WIDTH,
+							placeholder: DOMINANT_COLOR,
+							quality: 100,
+							resizingBehavior: SCALE
+						)
 					}
 					rightColumnImages {
 						id
@@ -271,19 +244,12 @@ export const caseStudyQuery = graphql`
 						) {
 							...GatsbyContentfulFluid
 						}
-						localFile {
-							childImageSharp {
-								fluid(
-									quality: 100,
-									traceSVG: {
-										background: "#272727",
-										color: "#161616"
-									}
-								) {
-									...GatsbyImageSharpFluid_withWebp_tracedSVG
-								}
-							}
-						}
+						source: gatsbyImageData(
+							layout: FULL_WIDTH,
+							placeholder: DOMINANT_COLOR,
+							quality: 100,
+							resizingBehavior: SCALE
+						)
 					}
 				}
 			}
@@ -296,10 +262,10 @@ export const caseStudyQuery = graphql`
 			}
 			detail
 			description {
-				json
+				raw
 			}
 			additional {
-				json
+				raw
 			}
 			socialMedia {
 				name

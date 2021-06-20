@@ -41,3 +41,11 @@ Deploying pushes the site to Amazon S3/Cloudfront and invalidates all existing c
     $ cd portfolio-2020
     $ npm run build
     $ npm run deploy
+
+---
+
+## Updating
+Updating will check all packages for updates, allow you to select which ones should be updated, update the corresponding package files with the new version, and download and install the selected updates.
+
+    $ cd portfolio-2020
+    $ npm run update

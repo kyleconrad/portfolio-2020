@@ -1,12 +1,12 @@
 import React from "react"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 
 
 const Description = ( props ) => {
-	const description = documentToReactComponents( props.data.description.json, props.text )
-	const detail = documentToReactComponents( props.data.detail.json, props.detail )
+	const description = renderRichText( props.data.description, props.text )
+	const detail = renderRichText( props.data.detail, props.detail )
 
 
 

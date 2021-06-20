@@ -153,7 +153,7 @@ class Navigation extends Component {
 
 
 
-export default props => (
+const NavigationLayout = ( props ) => (
      <StaticQuery
      	query = { graphql`
      		query {
@@ -180,3 +180,7 @@ export default props => (
  		render = { ({ contentfulHome, contentfulNavigation }) => <Navigation home={ contentfulHome } navigation={ contentfulNavigation } { ...props } /> }
 	/>
 )
+
+
+
+export default NavigationLayout

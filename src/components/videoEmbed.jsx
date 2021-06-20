@@ -1,6 +1,5 @@
 import React from "react"
 import { Component } from "react"
-import ReactGA from "react-ga"
 
 
 
@@ -160,20 +159,18 @@ class VideoEmbed extends Component {
 		
 
 		if ( !this.tracked && !this.interaction ) {
-			ReactGA.event({
-				category: 'Videos',
-				action: 'Autoplay',
-				label: videoTitle
+			window.gtag( 'event', 'Autoplay', {
+				'event_category': 'Videos',
+				'event_label': videoTitle,
 			});
 		}
 
 
 
 		if ( this.interaction ) {
-			ReactGA.event({
-				category: 'Videos',
-				action: 'Play',
-				label: videoTitle
+			window.gtag( 'event', 'Play', {
+				'event_category': 'Videos',
+				'event_label': videoTitle,
 			});
 		}
 
@@ -260,6 +257,10 @@ class VideoEmbed extends Component {
 
 
 
+		// ReactGA.initialize( 'UA-25023620-1' );
+
+
+
 		this.videoEmbed.disablePictureInPicture = true;
 
 
@@ -322,12 +323,12 @@ class VideoEmbed extends Component {
 					}
 				</div>
 
-				<button onClick={ this.toggleVideo } className="video__overlay custom-cursor z--2" />
+				<button aria-label="Play/Pause Video" onClick={ this.toggleVideo } className="video__overlay custom-cursor z--2" />
 
-				<video ref={ ( videoEmbed ) => { this.videoEmbed = videoEmbed } } preload={ this.state.preload } playsInline muted disablePictureInPicture controlsList="nodownload" onTimeUpdate={ this.updateProgress } poster={ this.props.data.videoPoster.localFile.childImageSharp.fluid.tracedSVG } className="z--1">
-					<source src={ this.props.data.videoWebM.localFile.localURL } type="video/webm" />
-					<source src={ this.props.data.videoOgg.localFile.localURL } type="video/ogg" />
-					<source src={ this.props.data.videoMp4.localFile.localURL } type="video/mp4" />
+				<video ref={ ( videoEmbed ) => { this.videoEmbed = videoEmbed } } preload={ this.state.preload } playsInline muted disablePictureInPicture controlsList="nodownload" onTimeUpdate={ this.updateProgress } poster={ this.props.data.videoPoster.file.url } className="z--1">
+					<source src={ this.props.data.videoWebM.file.url } type="video/webm" />
+					<source src={ this.props.data.videoOgg.file.url } type="video/ogg" />
+					<source src={ this.props.data.videoMp4.file.url } type="video/mp4" />
 				</video>
 			</div>
 		)

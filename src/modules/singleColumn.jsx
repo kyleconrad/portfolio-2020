@@ -18,7 +18,7 @@ const SingleColumn = ( props ) => {
 
 			<div className={ `flex--grow ${ props.data.alignment === 'Right' ? 'order--2' : 'order--1' }` }>
 				{ props.data.caption &&
-					<Caption caption={ props.data.caption.json } text={ props.text } />
+					<Caption caption={ props.data.caption } text={ props.text } />
 				}
 
 				{ images.map( ( image ) => {

@@ -9,19 +9,19 @@ import Seo from "../components/seo"
 
 
 
-export default ({ data }) => {
-	const home = data.contentfulHome
+const Homepage = ( props ) => {
+	const home = props.data.contentfulHome
 
 
 
 	return (
         <Fragment>
         	<Seo
-        		title={ data.contentfulHome.metadataTitle }
-        		author={ data.site.siteMetadata.author }
-        		description={ data.contentfulHome.metadataDescription }
-        		url={ data.site.siteMetadata.siteUrl }
-        		baseUrl={ data.site.siteMetadata.siteUrl }
+        		title={ props.data.contentfulHome.metadataTitle }
+        		author={ props.data.site.siteMetadata.author }
+        		description={ props.data.contentfulHome.metadataDescription }
+        		url={ props.data.site.siteMetadata.siteUrl }
+        		baseUrl={ props.data.site.siteMetadata.siteUrl }
     		/>
 
 			<Navigation />
@@ -30,6 +30,10 @@ export default ({ data }) => {
         </Fragment>
 	)
 }
+
+
+
+export default Homepage
 
 
 
@@ -69,10 +73,10 @@ export const homeQuery = graphql`
 				description {
 					url
 					detail {
-						json
+						raw
 					}
 					description {
-						json
+						raw
 					}
 				}
 				media {
@@ -83,28 +87,12 @@ export const homeQuery = graphql`
 						}
 						padded
 						image {
-							file {
-								contentType
-							}
-							fluid(
-								resizingBehavior: SCALE,
-								quality: 100
-							) {
-								...GatsbyContentfulFluid
-							}
-							localFile {
-								childImageSharp {
-									fluid(
-										quality: 100,
-										traceSVG: {
-											background: "#272727",
-											color: "#161616"
-										}
-									) {
-										...GatsbyImageSharpFluid_withWebp_tracedSVG
-									}
-								}
-							}
+							source: gatsbyImageData(
+								layout: FULL_WIDTH,
+								placeholder: DOMINANT_COLOR,
+								quality: 100,
+								resizingBehavior: SCALE
+							)
 						}
 					}
 					... on ContentfulMediaVideo {
@@ -114,33 +102,23 @@ export const homeQuery = graphql`
 							type
 						}
 						videoWebM {
-							localFile {
-								localURL
+							file {
+								url
 							}
 						}
 						videoOgg {
-							localFile {
-								localURL
+							file {
+								url
 							}
 						}
 						videoMp4 {
-							localFile {
-								localURL
+							file {
+								url
 							}
 						}
 						videoPoster {
-							localFile {
-								childImageSharp {
-									fluid(
-										quality: 100,
-										traceSVG: {
-											background: "#272727",
-											color: "#161616"
-										}
-									) {
-										tracedSVG
-									}
-								}
+							file {
+								url
 							}
 						}
 						audio
@@ -152,32 +130,16 @@ export const homeQuery = graphql`
 						}
 						alignment
 						caption {
-							json
+							raw
 						}
 						images {
 							id
-							file {
-								contentType
-							}
-							fluid(
-								resizingBehavior: SCALE,
-								quality: 100
-							) {
-								...GatsbyContentfulFluid
-							}
-							localFile {
-								childImageSharp {
-									fluid(
-										quality: 100,
-										traceSVG: {
-											background: "#272727",
-											color: "#161616"
-										}
-									) {
-										...GatsbyImageSharpFluid_withWebp_tracedSVG
-									}
-								}
-							}
+							source: gatsbyImageData(
+								layout: FULL_WIDTH,
+								placeholder: DOMINANT_COLOR,
+								quality: 100,
+								resizingBehavior: SCALE
+							)
 						}
 					}
 					... on ContentfulMediaDoubleColumn {
@@ -187,57 +149,25 @@ export const homeQuery = graphql`
 						}
 						alignment
 						caption {
-							json
+							raw
 						}
 						leftColumnImages {
 							id
-							file {
-								contentType
-							}
-							fluid(
-								resizingBehavior: SCALE,
-								quality: 100
-							) {
-								...GatsbyContentfulFluid
-							}
-							localFile {
-								childImageSharp {
-									fluid(
-										quality: 100,
-										traceSVG: {
-											background: "#272727",
-											color: "#161616"
-										}
-									) {
-										...GatsbyImageSharpFluid_withWebp_tracedSVG
-									}
-								}
-							}
+							source: gatsbyImageData(
+								layout: FULL_WIDTH,
+								placeholder: DOMINANT_COLOR,
+								quality: 100,
+								resizingBehavior: SCALE
+							)
 						}
 						rightColumnImages {
 							id
-							file {
-								contentType
-							}
-							fluid(
-								resizingBehavior: SCALE,
-								quality: 100
-							) {
-								...GatsbyContentfulFluid
-							}
-							localFile {
-								childImageSharp {
-									fluid(
-										quality: 100,
-										traceSVG: {
-											background: "#272727",
-											color: "#161616"
-										}
-									) {
-										...GatsbyImageSharpFluid_withWebp_tracedSVG
-									}
-								}
-							}
+							source: gatsbyImageData(
+								layout: FULL_WIDTH,
+								placeholder: DOMINANT_COLOR,
+								quality: 100,
+								resizingBehavior: SCALE
+							)
 						}
 					}
 				}
@@ -250,10 +180,10 @@ export const homeQuery = graphql`
 				}
 				detail
 				description {
-					json
+					raw
 				}
 				additional {
-					json
+					raw
 				}
 				socialMedia {
 					name
