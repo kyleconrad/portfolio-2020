@@ -159,7 +159,7 @@ class VideoEmbed extends Component {
 		
 
 		if ( !this.tracked && !this.interaction ) {
-			window.gtag( 'event', 'Autoplay', {
+			typeof window !== 'undefined' && window.gtag( 'event', 'Autoplay', {
 				'event_category': 'Videos',
 				'event_label': videoTitle,
 			});
@@ -168,7 +168,7 @@ class VideoEmbed extends Component {
 
 
 		if ( this.interaction ) {
-			window.gtag( 'event', 'Play', {
+			typeof window !== 'undefined' && window.gtag( 'event', 'Play', {
 				'event_category': 'Videos',
 				'event_label': videoTitle,
 			});
