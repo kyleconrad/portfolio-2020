@@ -72,3 +72,11 @@ video {
 		stop-color: map-get( $colors, black );
 	}
 }
+
+
+
+
+//// Placeholder Opacity
+img[data-placeholder-image] {
+	opacity: 0.1 !important;
+}

@@ -89,7 +89,7 @@ export const homeQuery = graphql`
 						image {
 							source: gatsbyImageData(
 								layout: FULL_WIDTH,
-								placeholder: DOMINANT_COLOR,
+								placeholder: TRACED_SVG,
 								quality: 100,
 								resizingBehavior: SCALE
 							)
@@ -136,7 +136,7 @@ export const homeQuery = graphql`
 							id
 							source: gatsbyImageData(
 								layout: FULL_WIDTH,
-								placeholder: DOMINANT_COLOR,
+								placeholder: TRACED_SVG,
 								quality: 100,
 								resizingBehavior: SCALE
 							)
@@ -155,7 +155,7 @@ export const homeQuery = graphql`
 							id
 							source: gatsbyImageData(
 								layout: FULL_WIDTH,
-								placeholder: DOMINANT_COLOR,
+								placeholder: TRACED_SVG,
 								quality: 100,
 								resizingBehavior: SCALE
 							)
@@ -164,7 +164,7 @@ export const homeQuery = graphql`
 							id
 							source: gatsbyImageData(
 								layout: FULL_WIDTH,
-								placeholder: DOMINANT_COLOR,
+								placeholder: TRACED_SVG,
 								quality: 100,
 								resizingBehavior: SCALE
 							)

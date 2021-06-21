@@ -144,7 +144,7 @@ export const caseStudyQuery = graphql`
 						}
 						source: gatsbyImageData(
 							layout: FULL_WIDTH,
-							placeholder: DOMINANT_COLOR,
+							placeholder: TRACED_SVG,
 							quality: 100,
 							resizingBehavior: SCALE
 						)
@@ -200,7 +200,7 @@ export const caseStudyQuery = graphql`
 						}
 						source: gatsbyImageData(
 							layout: FULL_WIDTH,
-							placeholder: DOMINANT_COLOR,
+							placeholder: TRACED_SVG,
 							quality: 100,
 							resizingBehavior: SCALE
 						)
@@ -228,7 +228,7 @@ export const caseStudyQuery = graphql`
 						}
 						source: gatsbyImageData(
 							layout: FULL_WIDTH,
-							placeholder: DOMINANT_COLOR,
+							placeholder: TRACED_SVG,
 							quality: 100,
 							resizingBehavior: SCALE
 						)
@@ -246,7 +246,7 @@ export const caseStudyQuery = graphql`
 						}
 						source: gatsbyImageData(
 							layout: FULL_WIDTH,
-							placeholder: DOMINANT_COLOR,
+							placeholder: TRACED_SVG,
 							quality: 100,
 							resizingBehavior: SCALE
 						)
