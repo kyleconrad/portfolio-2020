@@ -133,19 +133,11 @@ export const caseStudyQuery = graphql`
 					}
 					padded
 					image {
-						file {
-							contentType
-						}
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 100
-						) {
-							...GatsbyContentfulFluid
-						}
 						source: gatsbyImageData(
-							layout: FULL_WIDTH,
-							placeholder: TRACED_SVG,
+							layout: FULL_WIDTH
+							placeholder: DOMINANT_COLOR
 							quality: 100,
+							formats: [AUTO, WEBP]
 							resizingBehavior: SCALE
 						)
 					}
@@ -188,20 +180,11 @@ export const caseStudyQuery = graphql`
 						raw
 					}
 					images {
-						id
-						file {
-							contentType
-						}
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 100
-						) {
-							...GatsbyContentfulFluid
-						}
 						source: gatsbyImageData(
-							layout: FULL_WIDTH,
-							placeholder: TRACED_SVG,
+							layout: FULL_WIDTH
+							placeholder: DOMINANT_COLOR
 							quality: 100,
+							formats: [AUTO, WEBP]
 							resizingBehavior: SCALE
 						)
 					}
@@ -216,38 +199,20 @@ export const caseStudyQuery = graphql`
 						raw
 					}
 					leftColumnImages {
-						id
-						file {
-							contentType
-						}
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 100
-						) {
-							...GatsbyContentfulFluid
-						}
 						source: gatsbyImageData(
-							layout: FULL_WIDTH,
-							placeholder: TRACED_SVG,
+							layout: FULL_WIDTH
+							placeholder: DOMINANT_COLOR
 							quality: 100,
+							formats: [AUTO, WEBP]
 							resizingBehavior: SCALE
 						)
 					}
 					rightColumnImages {
-						id
-						file {
-							contentType
-						}
-						fluid(
-							resizingBehavior: SCALE,
-							quality: 100
-						) {
-							...GatsbyContentfulFluid
-						}
 						source: gatsbyImageData(
-							layout: FULL_WIDTH,
-							placeholder: TRACED_SVG,
+							layout: FULL_WIDTH
+							placeholder: DOMINANT_COLOR
 							quality: 100,
+							formats: [AUTO, WEBP]
 							resizingBehavior: SCALE
 						)
 					}

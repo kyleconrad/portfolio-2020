@@ -14,6 +14,8 @@ module.exports = {
 		siteUrl: siteAddress.href,
 	},
 	plugins: [
+		`gatsby-plugin-sharp`,
+		`gatsby-plugin-image`,
 		{
 			resolve: `gatsby-source-contentful`,
 			options: {
@@ -23,14 +25,22 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sass`,
-		`gatsby-plugin-image`,
-		{
-			resolve: `gatsby-plugin-sharp`,
-			options: {
-				defaults: {},
-			}
-		},
 		`gatsby-plugin-react-helmet`,
+		{
+			resolve: `gatsby-plugin-google-gtag`,
+			options: {
+				trackingIds: [
+					"UA-25023620-1",
+				],
+				gtagConfig: {
+					anonymize_ip: true,
+				},
+				pluginConfig: {
+					head: true,
+					respectDNT: true,
+				},
+			},
+		},
 		`gatsby-plugin-zopfli`,
 		{
 			resolve: `gatsby-plugin-html-comments`,
@@ -49,21 +59,6 @@ module.exports = {
 						comment: `<!-- Contact: kyle@kyleconrad.com / @kyle_conrad -->`,
 					},
 				],
-			},
-		},
-		{
-			resolve: `gatsby-plugin-google-gtag`,
-			options: {
-				trackingIds: [
-					"UA-25023620-1",
-				],
-				gtagConfig: {
-					anonymize_ip: true,
-				},
-				pluginConfig: {
-					head: true,
-					respectDNT: true,
-				},
 			},
 		},
 		`gatsby-plugin-sitemap`,

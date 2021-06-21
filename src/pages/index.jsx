@@ -38,7 +38,7 @@ export default Homepage
 
 
 export const homeQuery = graphql`
-	query HomeQuery {
+	query homeQuery {
 		site {
 			siteMetadata {
 				author
@@ -88,9 +88,10 @@ export const homeQuery = graphql`
 						padded
 						image {
 							source: gatsbyImageData(
-								layout: FULL_WIDTH,
-								placeholder: TRACED_SVG,
+								layout: FULL_WIDTH
+								placeholder: DOMINANT_COLOR
 								quality: 100,
+								formats: [AUTO, WEBP]
 								resizingBehavior: SCALE
 							)
 						}
@@ -133,11 +134,11 @@ export const homeQuery = graphql`
 							raw
 						}
 						images {
-							id
 							source: gatsbyImageData(
-								layout: FULL_WIDTH,
-								placeholder: TRACED_SVG,
+								layout: FULL_WIDTH
+								placeholder: DOMINANT_COLOR
 								quality: 100,
+								formats: [AUTO, WEBP]
 								resizingBehavior: SCALE
 							)
 						}
@@ -152,20 +153,20 @@ export const homeQuery = graphql`
 							raw
 						}
 						leftColumnImages {
-							id
 							source: gatsbyImageData(
-								layout: FULL_WIDTH,
-								placeholder: TRACED_SVG,
+								layout: FULL_WIDTH
+								placeholder: DOMINANT_COLOR
 								quality: 100,
+								formats: [AUTO, WEBP]
 								resizingBehavior: SCALE
 							)
 						}
 						rightColumnImages {
-							id
 							source: gatsbyImageData(
-								layout: FULL_WIDTH,
-								placeholder: TRACED_SVG,
+								layout: FULL_WIDTH
+								placeholder: DOMINANT_COLOR
 								quality: 100,
+								formats: [AUTO, WEBP]
 								resizingBehavior: SCALE
 							)
 						}
