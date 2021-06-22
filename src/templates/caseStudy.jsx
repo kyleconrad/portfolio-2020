@@ -133,6 +133,16 @@ export const caseStudyQuery = graphql`
 					}
 					padded
 					image {
+						file {
+							contentType
+							url
+							details {
+								image {
+									width
+									height
+								}
+							}
+						}
 						source: gatsbyImageData(
 							layout: FULL_WIDTH
 							placeholder: DOMINANT_COLOR
@@ -180,6 +190,16 @@ export const caseStudyQuery = graphql`
 						raw
 					}
 					images {
+						file {
+							contentType
+							url
+							details {
+								image {
+									width
+									height
+								}
+							}
+						}
 						source: gatsbyImageData(
 							layout: FULL_WIDTH
 							placeholder: DOMINANT_COLOR
@@ -199,6 +219,16 @@ export const caseStudyQuery = graphql`
 						raw
 					}
 					leftColumnImages {
+						file {
+							contentType
+							url
+							details {
+								image {
+									width
+									height
+								}
+							}
+						}
 						source: gatsbyImageData(
 							layout: FULL_WIDTH
 							placeholder: DOMINANT_COLOR
@@ -208,6 +238,16 @@ export const caseStudyQuery = graphql`
 						)
 					}
 					rightColumnImages {
+						file {
+							contentType
+							url
+							details {
+								image {
+									width
+									height
+								}
+							}
+						}
 						source: gatsbyImageData(
 							layout: FULL_WIDTH
 							placeholder: DOMINANT_COLOR
