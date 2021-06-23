@@ -11,8 +11,8 @@ const Image = ( props ) => {
 	return (
 		<div className="bkg--black">
 			{ contentType === 'image/gif'
-				? <img alt="" src={ props.data.file.url } width={ props.data.file.details.image.width } height={ props.data.file.details.image.height } loading="lazy" />
-				: <GatsbyImage alt="" image={ props.data.source } />
+				? <img alt={ props.data.description } src={ props.data.file.url } width={ props.data.file.details.image.width } height={ props.data.file.details.image.height } loading="lazy" />
+				: <GatsbyImage alt={ props.data.description }  image={ props.data.source } />
 			}
 		</div>
 	)

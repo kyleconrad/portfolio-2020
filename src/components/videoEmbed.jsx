@@ -323,7 +323,7 @@ class VideoEmbed extends Component {
 					}
 				</div>
 
-				<button aria-label="Play/Pause Video" onClick={ this.toggleVideo } className="video__overlay custom-cursor z--2" />
+				<button aria-label="Play/Pause Video" onClick={ this.toggleVideo } className="video__overlay custom-cursor z--2">Play/Pause Video</button>
 
 				<video ref={ ( videoEmbed ) => { this.videoEmbed = videoEmbed } } preload={ this.state.preload } playsInline muted disablePictureInPicture controlsList="nodownload" onTimeUpdate={ this.updateProgress } poster={ this.props.data.videoPoster.file.url } className="z--1">
 					<source src={ this.props.data.videoWebM.file.url } type="video/webm" />

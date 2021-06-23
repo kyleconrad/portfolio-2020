@@ -143,6 +143,7 @@ export const caseStudyQuery = graphql`
 								}
 							}
 						}
+						description
 						source: gatsbyImageData(
 							layout: FULL_WIDTH
 							placeholder: DOMINANT_COLOR
@@ -200,6 +201,7 @@ export const caseStudyQuery = graphql`
 								}
 							}
 						}
+						description
 						source: gatsbyImageData(
 							layout: FULL_WIDTH
 							placeholder: DOMINANT_COLOR
@@ -229,6 +231,7 @@ export const caseStudyQuery = graphql`
 								}
 							}
 						}
+						description
 						source: gatsbyImageData(
 							layout: FULL_WIDTH
 							placeholder: DOMINANT_COLOR
@@ -248,6 +251,7 @@ export const caseStudyQuery = graphql`
 								}
 							}
 						}
+						description
 						source: gatsbyImageData(
 							layout: FULL_WIDTH
 							placeholder: DOMINANT_COLOR
