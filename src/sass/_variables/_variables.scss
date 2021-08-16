@@ -29,7 +29,8 @@ $colors: (
 
 
 // FONTS
-@import url( 'https://use.typekit.net/edg1ixw.css' );
+@import url( '//hello.myfonts.net/count/3f4e01' );
+@import url( 'https://fast.fonts.net/lt/1.css?apiType=css&c=1cafc7da-e26c-4188-b60a-6930536749f7&fontids=6257741,6257747,6257900,6258010' );
 
 @font-face {
     font-family: 'BluuNext';
@@ -53,6 +54,51 @@ $colors: (
     font-display: block;
 }
 
+@font-face {
+	font-family: 'FuturaPT-Demi';
+	src: 	url( '../fonts/futurapt-demi.woff2' ) format( 'woff2' ),
+			url( '../fonts/futurapt-demi.woff' ) format( 'woff' );
+	font-weight: 600;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face{
+	font-family: 'TenOldstyle';
+	src:	url( '../fonts/6257747/29cbc7a7-0922-4933-bc1b-78b7b9f5c8d3.woff2' ) format( 'woff2' ),
+			url( '../fonts/6257747/ff16698e-e39c-4950-bb1e-2f1add837c4a.woff' ) format( 'woff' );
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face{
+	font-family: 'TenOldstyle';
+	src:	url( '../fonts/6257741/a3209007-799f-4422-ada2-31bbc269ae6f.woff2' ) format( 'woff2' ),
+			url( '../fonts/6257741/ca3c8e87-10ad-4016-90f9-521184ee6294.woff' ) format( 'woff' );
+	font-weight: 400;
+	font-style: italic;
+	font-display: block;
+}
+
+@font-face{
+	font-family: 'TenOldstyle';
+	src:	url( '../fonts/6257900/166c58bb-782f-4cf6-a952-fbd9ef45d27a.woff2' ) format( 'woff2' ),
+			url( '../fonts/6257900/6af4daee-fda1-4279-accf-c7d588a6d09b.woff' ) format( 'woff' );
+	font-weight: 700;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face{
+	font-family: 'TenOldstyle';
+	src:	url( '../fonts/6258010/6a4c8fdf-3615-4ea2-b6ec-171e91e413c7.woff2' ) format( 'woff2' ),
+			url( '../fonts/6258010/ed1052af-cc86-48a0-bb95-df82cb0b226f.woff' ) format( 'woff' );
+	font-weight: 700;
+	font-style: italic;
+	font-display: block;
+}
+
 
 
 $base-value: 16;
@@ -60,9 +106,9 @@ $base-value: 16;
 $font-headline: 'BluuNext', Times, serif;
 $font-headline--weight: 700;
 
-$font-detail: 'futura-pt', sans-serif;
+$font-detail: 'FuturaPT-Demi', sans-serif;
 $font-detail--weight: 600;
 
-$font-body: 'ten-oldstyle', Georgia, serif;
+$font-body: 'TenOldstyle', Georgia, serif;
 $font-body--weight: 400;
 $font-body--bold: 700;
