@@ -1,9 +1,3 @@
-require( "dotenv" ).config({
-	path: `.env.${process.env.NODE_ENV}`,
-})
-
-
-
 const siteAddress = new URL( "https://kyleconrad.com" )
 
 
@@ -20,8 +14,8 @@ module.exports = {
 		{
 			resolve: `gatsby-source-contentful`,
 			options: {
-				spaceId: process.env.CONTENTFUL_SPACE_ID,
-				accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
+				spaceId: llv6v6dhsi4q,
+				accessToken: 0cc60863ee53060677fd2de598bf7c3910e01be43e401fad7c017ef24f319255,
 				downloadLocal: false,
 			},
 		},
